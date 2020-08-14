@@ -1,40 +1,378 @@
-extends includes/layout.pug
 
-block content
-    article#post
-        .post-header
-            .title= page.title
-            .container
-                time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.posted')] #[=date(page['date'], config.date_format)] | #[=__('post.modified')] #[=date(page['updated'], config.date_format)]
-                //time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]
-                .button-hover.categories
-                    each categories,index in page.categories.data
-                        i.fa.fa-inbox.article-icon(aria-hidden="true")
-                        a.link-a(href=url_for(categories.path)) #[=categories.name]
-                        if(index < page.categories.data.length - 1)
-                            i.fa.fa-angle-right(style="margin: 0 8px;")
-                .button-hover.tags
-                    each tags,index in page.tags.data
-                        i.fa.fa-tag.article-icon(aria-hidden="true")
-                        a.link-a(href=url_for(tags.path)) #[=tags.name]
-                        if(index < page.tags.data.length - 1)
-                            span &nbsp;|&nbsp;
-        .main-content!= page.content
-        if (theme.post_copyright && theme.post_copyright.enable)
-            .post-copyright
-                .post-copyright-author
-                    span.post-copyright-meta= _p('post.copyright.author') + ": "
-                    span.post-copyright-info
-                        - let mailto = `mailto:${config.email}`
-                        a(href=mailto) #[=config.author]
-                .post-copyright-type
-                    span.post-copyright-meta= _p('post.copyright.link') + ": "
-                    span.post-copyright-info
-                        a(href=url_for(page.permalink)) #[=page.permalink]
-                .post-copyright-notice
-                    span.post-copyright-meta= _p('post.copyright.copyright_notice') + ": "
-                    span.post-copyright-info!= _p('post.copyright.copyright_content', theme.post_copyright.license_url, theme.post_copyright.license, config.url, config.title)
-        if (theme.comments.enable)
-            include ./includes/comments/index.pug
-    include includes/pagination.pug
-    //div!= paginator()
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>AAA - Awangyue</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+
+  
+  
+  <meta name="description" content="\项目名称******：**\旺铺猫微****平台**..."> 
+  
+  <meta name="author" content="John Doe"> 
+
+  
+    <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  
+  
+    <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  
+  
+    <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  
+  
+    <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/Awangyue-cn.github.io/css/style.css">
+
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_0sri83bhiv7.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        loadingImage: '/images/theme/loading.gif',
+      },
+      donate_alipay: 'https://pic.izhaoo.com/alipay.jpg',
+      donate_wechat: 'https://pic.izhaoo.com/wechat.jpg',
+      motto: {
+        api: '',
+        default: '当夜忘了落下的时候，我也忘了想你。'
+      },
+      galleries: {
+        enable: 'true'
+      },
+      fab: {
+        enable: 'true',
+        alwaysShow: 'false'
+      },
+      carrier: {
+        enable: 'true'
+      },
+      daovoice: {
+        enable: 'true'
+      }
+    }
+  </script>
+
+  
+
+  
+<meta name="generator" content="Hexo 5.0.2"></head>
+<body class="lock-screen">
+  <div class="loading"></div>
+  <nav class="menu">
+  <div class="menu-close">
+    <i class="iconfont iconplus"></i>
+  </div>
+  <ul class="menu-content">
+    
+    
+    
+    
+    <li class="menu-item"><a href="/ "> 首页</a></li>
+    
+    
+    
+    
+    <li class="menu-item"><a href="/galleries "> 摄影</a></li>
+    
+    
+    
+    
+    <li class="menu-item"><a href="/archives "> 归档</a></li>
+    
+    
+    
+    
+    <li class="menu-item"><a href="/tags "> 标签</a></li>
+    
+    
+    
+    
+    <li class="menu-item"><a href="/categories "> 分类</a></li>
+    
+    
+    
+    
+    <li class="menu-item"><a href="/about "> 关于</a></li>
+    
+  </ul>
+  <div class="menu-copyright"><p>Copyright© 2019-2020 | <a target="_blank" href="https://www.izhaoo.com">zhaoo</a> .AllRightsReserved</p></div>
+</nav>
+  <main id="main">
+  <div class="container" id="container">
+    <article class="article">
+  <section class="head">
+  <img   class="lazyload" data-original="/Awangyue-cn.github.io/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">AAA</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>2020-08-14</span
+        class="post-info-item">
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1021</span>
+    </div>
+  </div>
+</section>
+  <section class="main">
+    <section class="content">
+      <h1 id="项目名称-：-旺铺猫微-平台"><a href="#项目名称-：-旺铺猫微-平台" class="headerlink" title="\项目名称******：**\旺铺猫微****平台****"></a><strong><em>\</em>项目名称*****</strong>*：**<strong><strong><em>\</em>旺铺猫微***</strong></strong>*平台****</h1><p><strong><em>\</em>项目描述*****</strong>*：****旺铺猫是一款基于微信的购物商城系统，在公众号/小程序搭建购物商城，同时通过各种营                销功能实现粉丝裂变及提升用户粘性；具体营销功能包含三级分销、邀友拼团、会员积分、                等级折扣、红包营销、满减活动、砍价功能、优惠券、限时促销等。</p>
+<p>会根据广大用户的需求不断更新迭代升级系统。</p>
+<p><strong><em>\</em>涉及技术*****</strong>*：****Spirng·SpringMVC、MyBatis、Dubbo. Redis. Rabbitmq、MySQL</p>
+<p><strong><em>\</em>责任描述*****</strong>*：****商品中台：商品中台主要采用了Client模块对所有商品进行前置缓存，后台更新实时刷                            新缓存大大提升了其他服务调用的效率。</p>
+<p>​            限时秒杀：主要利用Rsdis单线程而且基于内存操作这一特性，实现了商品秒杀，Redis                        集群能轻松扛起过万的QPS，Nginx也防止了恶意请求对其他客户利益的危害，                    缓解了服务器的压力。</p>
+<p>​            订单系焼：实现商品订单的生成，包含库存的校验、优惠券的选择，以及订单生成支付超                    时自动关闭功第实现，配合订单流水实现了下单流程以及后续支付流程的幂等，</p>
+<p>​                    保障了数据的准确性。</p>
+<p><strong><em>\</em>担任角色*****</strong>*：**<strong><strong><em>\</em>1***</strong></strong>*项目**<strong><strong><em>\</em>组***</strong></strong>*JAVA**<strong><strong><em>\</em>后端开发\</strong></strong></p>
+<p>​        <strong><em>\</em>2*****</strong>*负责商品中台后**<strong><strong><em>\</em>端代码\</strong></strong></p>
+<p>​                <strong><em>\</em>3*****</strong>*负责部分前**<strong><strong><em>\</em>端***</strong></strong>*代码**<strong><strong><em>\</em>（VUE）***</strong></strong>*编写****</p>
+<p>​        <strong><em>\</em>4*****</strong>*参与秒杀系统，**<strong><strong><em>\</em>下单***</strong></strong>*流程开发****</p>
+<p>​        <strong><em>\</em>5负责系统上线后需求迭代开发及维护**</strong></p>
+<p><strong><em>\</em>项目收获*****</strong>*：****</p>
+<p>通过该项目的开发，初次接触到服务中台这样的概念和开发模式，明白了架构设计以及开发人            员开发规范对中台的重要性，对微服务设计模式有了更深一步的认识，对联调、集成测试、文档的            编写、数据库的设计的工作给熟练。</p>
+
+    </section>
+    <section class="extra">
+      
+        <ul class="copyright">
+  
+  <li><strong>本文作者：</strong>John Doe</li>
+  <li><strong>本文链接：</strong><a href="http://awangyue.cn/2020/08/14/AAA/index.html">http://awangyue.cn/2020/08/14/AAA/index.html</a></li>
+  <li><strong>版权声明：</strong>本博客所有文章均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+      rel="external nofollow" target="_blank"> BY-NC-SA </a>许可协议，转载请注明出处！</li>
+  
+</ul>
+      
+      
+        <section class="donate">
+  <div class="qrcode">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+      
+      
+      
+<nav class="nav">
+  
+  
+    <a href="/Awangyue-cn.github.io/2020/08/14/newpapername/">易订货<i class="iconfont iconright"></i></a>
+  
+</nav>
+
+    </section>
+    
+      <section class="comments">
+        
+          <div class="btn" id="comments-btn">查看评论</div>
+        
+        
+      </section>
+    
+  </section>
+</article>
+  </div>
+</main>
+  <footer class="footer">
+  <div class="footer-social">
+    
+    
+    
+    
+    
+    <a href="tencent://message/?Menu=yes&uin=894519210 " target="_blank" onMouseOver="this.style.color= '#12B7F5'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconQQ "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="javascript:; " target="_blank" onMouseOver="this.style.color= '#09BB07'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconwechat-fill "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="https://www.instagram.com/izhaoo/ " target="_blank" onMouseOver="this.style.color= '#DA2E76'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconinstagram "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="https://github.com/izhaoo " target="_blank" onMouseOver="this.style.color= '#24292E'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  icongithub-fill "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="mailto:izhaoo@163.com " target="_blank" onMouseOver="this.style.color='#FFBE5B'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconmail"></i>
+    </a>
+    
+  </div>
+  <div class="footer-copyright"><p>Copyright© 2019-2020 | <a target="_blank" href="https://www.izhaoo.com">zhaoo</a> .AllRightsReserved</p></div>
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  <div class="fab fab-daovoice">
+    <i class="iconfont iconcomment"></i>
+  </div>
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  <div class="fab fab-menu">
+    <i class="iconfont iconmenu"></i>
+  </div>
+  
+</body>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+<script src="/Awangyue-cn.github.io/js/utils.js"></script>
+<script src="/Awangyue-cn.github.io/js/zui.js"></script>
+<script src="/Awangyue-cn.github.io/js/script.js"></script>
+
+
+
+
+
+<script defer>
+  (function (i, s, o, g, r, a, m) {
+    i["DaoVoiceObject"] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    a.charset = "utf-8";
+    m.parentNode.insertBefore(a, m)
+  })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+    "//widget.daovoice.io/widget/0f81ff2f.js", "daovoice")
+  daovoice('init', {
+    app_id: "abcdefg"
+  }, {
+    launcher: {
+      disableLauncherIcon: true,
+    },
+  });
+  daovoice('update');
+</script>
+
+
+
+<script defer>
+  (function () {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</html>
