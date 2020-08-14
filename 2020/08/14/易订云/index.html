@@ -16,7 +16,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>AAA - Awangyue</title>
+  <title>易订云 - Awangyue</title>
   
 
   
@@ -388,7 +388,7 @@
  
 <div id="pjax-data" style="display: none"> 
   <div id="pjax-ispage">true</div> 
-  <div id="pjax-pageTitle">AAA</div> 
+  <div id="pjax-pageTitle">易订云</div> 
   <div id="pjax-enable-cover">true</div> 
   <div id="pjax-comment-path">none</div> 
   <div id="pjax-comment-placeholder">none</div> 
@@ -436,8 +436,8 @@
         
           
   <h1 class="title">
-    <a href="/Awangyue-cn.github.io/2020/08/14/AAA/">
-      AAA
+    <a href="/Awangyue-cn.github.io/2020/08/14/%E6%98%93%E8%AE%A2%E4%BA%91/">
+      易订云
     </a>
   </h1>
 
@@ -491,20 +491,11 @@
         <div class="article-entry" itemprop="articleBody">
           
           
-          <h1 id="项目名称-：-旺铺猫微-平台"><a href="#项目名称-：-旺铺猫微-平台" class="headerlink" title="\项目名称******：**\旺铺猫微****平台****"></a><strong><em>\</em>项目名称*****</strong>*：**<strong><strong><em>\</em>旺铺猫微***</strong></strong>*平台****</h1><p><strong><em>\</em>项目描述*****</strong>*：****旺铺猫是一款基于微信的购物商城系统，在公众号/小程序搭建购物商城，同时通过各种营                销功能实现粉丝裂变及提升用户粘性；具体营销功能包含三级分销、邀友拼团、会员积分、                等级折扣、红包营销、满减活动、砍价功能、优惠券、限时促销等。</p>
-<p>会根据广大用户的需求不断更新迭代升级系统。</p>
-<p><strong><em>\</em>涉及技术*****</strong>*：****Spirng·SpringMVC、MyBatis、Dubbo. Redis. Rabbitmq、MySQL</p>
-<p><strong><em>\</em>责任描述*****</strong>*：****商品中台：商品中台主要采用了Client模块对所有商品进行前置缓存，后台更新实时刷                            新缓存大大提升了其他服务调用的效率。</p>
-<p>​            限时秒杀：主要利用Rsdis单线程而且基于内存操作这一特性，实现了商品秒杀，Redis                        集群能轻松扛起过万的QPS，Nginx也防止了恶意请求对其他客户利益的危害，                    缓解了服务器的压力。</p>
-<p>​            订单系焼：实现商品订单的生成，包含库存的校验、优惠券的选择，以及订单生成支付超                    时自动关闭功第实现，配合订单流水实现了下单流程以及后续支付流程的幂等，</p>
-<p>​                    保障了数据的准确性。</p>
-<p><strong><em>\</em>担任角色*****</strong>*：**<strong><strong><em>\</em>1***</strong></strong>*项目**<strong><strong><em>\</em>组***</strong></strong>*JAVA**<strong><strong><em>\</em>后端开发\</strong></strong></p>
-<p>​        <strong><em>\</em>2*****</strong>*负责商品中台后**<strong><strong><em>\</em>端代码\</strong></strong></p>
-<p>​                <strong><em>\</em>3*****</strong>*负责部分前**<strong><strong><em>\</em>端***</strong></strong>*代码**<strong><strong><em>\</em>（VUE）***</strong></strong>*编写****</p>
-<p>​        <strong><em>\</em>4*****</strong>*参与秒杀系统，**<strong><strong><em>\</em>下单***</strong></strong>*流程开发****</p>
-<p>​        <strong><em>\</em>5负责系统上线后需求迭代开发及维护**</strong></p>
-<p><strong><em>\</em>项目收获*****</strong>*：****</p>
-<p>通过该项目的开发，初次接触到服务中台这样的概念和开发模式，明白了架构设计以及开发人            员开发规范对中台的重要性，对微服务设计模式有了更深一步的认识，对联调、集成测试、文档的            编写、数据库的设计的工作给熟练。</p>
+          <h1 id="易订云"><a href="#易订云" class="headerlink" title="易订云"></a>易订云</h1><h2 id="项目描述："><a href="#项目描述：" class="headerlink" title="项目描述："></a>项目描述：</h2><p>​                易订云是融合了“订货商城+进销存+CRM+配送管理”，以品牌定制的订货商城展示商品，引流客户，获取订单，以进销存和配送管理实现备货和送货管理以CRM实现销售管理和客户互动，以数据驱动业务精细化运营多业务协作平台。<br>涉及技术：</p>
+<p>​    Struts，Hibernate，Spring、Redis、MySQL、Dubbo. RocketMQ</p>
+<h2 id="设计技术："><a href="#设计技术：" class="headerlink" title="设计技术："></a>设计技术：</h2><p>​                1采用分布式的项目开发模式整个项目分为：订货管控、库存管理、采购管理、资金结算、客户运营、营销工具、数据中心等七个服务模块。<br>​                2基于RocketMQ支持消息事务这一特点，在项目开发过程中使用这一特点，采用最大努力    通知的分布式事务解决方案去处理分布式事务场景<br>​                3釆用Elastic search, Log stash, Kibana这套经典组合，实现了数据库数据同步Es大幅提升了    高并发场景的搜索效率，提升开发人员线上问题的错误日志定位效率</p>
+<h2 id="责任描述："><a href="#责任描述：" class="headerlink" title="责任描述："></a>责任描述：</h2><p>​                    1库存管理小组JAVA后端开发<br>​                    2负责盘点相关需求开发<br>​                    3负责仓库调拨相关需求开发<br>​                    4负责扫码仓库流程开发<br>​                    5负责 Es相关需求开发</p>
+<h2 id="项目收获："><a href="#项目收获：" class="headerlink" title="项目收获："></a>项目收获：</h2><p>​    通过该项目的开发，让我对高并发，大数据量等业务场景有了自己的认识，也知道在什么样的场景下. 结合Redis以及RocketMQ等中间件的使用提高服务性能效率，以及面对高并发的场景做怎样的及时应对，.在公司期间也让自己对自己的职业道路有了更清晰的规划，对自己的代码有了更严格的要求。</p>
 
           
             <div class='article_footer'>
@@ -541,7 +532,7 @@
           
         
           
-            <p>本文永久链接是：<a href=http://awangyue.cn/2020/08/14/AAA/>http://awangyue.cn/2020/08/14/AAA/</a></p>
+            <p>本文永久链接是：<a href=http://awangyue.cn/2020/08/14/%E6%98%93%E8%AE%A2%E4%BA%91/>http://awangyue.cn/2020/08/14/%E6%98%93%E8%AE%A2%E4%BA%91/</a></p>
           
         
       </blockquote>
@@ -592,7 +583,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-14T10:26:21+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-14T19:19:18+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Aug 14, 2020</p>
@@ -619,7 +610,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://awangyue.cn/2020/08/14/AAA/&title=AAA - Awangyue&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://awangyue.cn/2020/08/14/%E6%98%93%E8%AE%A2%E4%BA%91/&title=易订云 - Awangyue&summary="
           
           >
           
@@ -631,7 +622,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://awangyue.cn/2020/08/14/AAA/&title=AAA - Awangyue&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://awangyue.cn/2020/08/14/%E6%98%93%E8%AE%A2%E4%BA%91/&title=易订云 - Awangyue&summary="
           
           >
           
@@ -643,7 +634,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://awangyue.cn/2020/08/14/AAA/&title=AAA - Awangyue&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://awangyue.cn/2020/08/14/%E6%98%93%E8%AE%A2%E4%BA%91/&title=易订云 - Awangyue&summary="
           
           >
           
@@ -667,12 +658,11 @@
         
           <div class="prev-next">
             
-            
-              <a class='next' href='/Awangyue-cn.github.io/2020/08/14/newpapername/'>
-                <p class='title'>易订货<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>\项目名称******：**\易订云\
-\项目描述******：****易订云是融合了“订货商城+进销存+CRM+配送管理”，以品牌定制的订货商城展示商品，引                流客...</p>
+              <a class='prev' href='/Awangyue-cn.github.io/2020/08/14/%E6%97%BA%E9%93%BA%E7%8C%AB%E5%BE%AE%E5%B9%B3%E5%8F%B0/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>旺铺猫微平台</p>
+                <p class='content'>旺铺猫微平台项目描述：​    旺铺猫是一款基于微信的购物商城系统，在公众号/小程序搭建购物商城，同时通过各种营销功能实现粉丝裂变及提升用户粘性；具体营销功能包含三级分销、邀友拼团、会员积分、等...</p>
               </a>
+            
             
           </div>
         
@@ -726,7 +716,7 @@
 
 
     <div class='content'>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%8F%8F%E8%BF%B0%EF%BC%9A"><span class="toc-text">项目描述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%8A%80%E6%9C%AF%EF%BC%9A"><span class="toc-text">设计技术：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%A3%E4%BB%BB%E6%8F%8F%E8%BF%B0%EF%BC%9A"><span class="toc-text">责任描述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%94%B6%E8%8E%B7%EF%BC%9A"><span class="toc-text">项目收获：</span></a></li></ol>
     </div>
   </section>
 
