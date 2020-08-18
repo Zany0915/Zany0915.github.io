@@ -459,6 +459,168 @@
         
           
   <h2 class="title">
+    <a href="/Awangyue-cn.github.io/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/">
+      2020-08-15
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a class='author' href="" rel="nofollow">
+    <img no-lazy src="">
+    <p></p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class=" fa-fw" aria-hidden="true"></i>
+    <p>null2020-08-15</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/Awangyue-cn.github.io/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/" class="leancloud_visitors" data-flag-title="">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+<div class="new-meta-item comments-count">
+  
+  <a href="/Awangyue-cn.github.io/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/Awangyue-cn.github.io/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Spring框架—Spring核心概念"><a href="#Spring框架—Spring核心概念" class="headerlink" title="Spring框架—Spring核心概念"></a>Spring框架—Spring核心概念</h1><h3 id="1-SpringIOC控制反转"><a href="#1-SpringIOC控制反转" class="headerlink" title="1.SpringIOC控制反转"></a>1.SpringIOC控制反转</h3><p>​        控制反转（Inversion of Cpntrol IoC），也被称为依赖注入，是面向对象编程的中的一种设计理念，用来降低程序代码之间的耦合</p>
+<h3 id="2-创建Spring项目"><a href="#2-创建Spring项目" class="headerlink" title="2.创建Spring项目"></a>2.创建Spring项目</h3><ol>
+<li><p>在pom.xml中导入spring依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> &lt;properties&gt;</span><br><span class="line">    &lt;!-- spring版本号 --&gt;</span><br><span class="line">    &lt;spring.version&gt;4.3.6.RELEASE&lt;&#x2F;spring.version&gt;</span><br><span class="line">&lt;&#x2F;properties&gt;</span><br><span class="line">    &lt;!--Spring相关依赖--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-core&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-beans&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-context&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建applicationContext.xml配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">    &lt;beans xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&quot;</span><br><span class="line">           xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;</span><br><span class="line">           xmlns:aop&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;aop&quot;</span><br><span class="line">           xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans</span><br><span class="line">       http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&#x2F;spring-beans.xsd</span><br><span class="line">       http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;aop</span><br><span class="line">       http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;aop&#x2F;spring-aop.xsd&quot;&gt;</span><br><span class="line">   &lt;&#x2F;beans&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把对象创建交给spring管理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id&#x3D;&quot;accountService&quot; class&#x3D;&quot;com.accp.service.impl.AccountServiceImpl&quot;&gt;&lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建测试类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;1.获取核心容器对象</span><br><span class="line">ClassPathXmlApplicationContext ac&#x3D;new ClassPathXmlApplicationContext(&quot;bean.xml&quot;);</span><br><span class="line">&#x2F;&#x2F;2.根据id获取bean对象</span><br><span class="line">AccountService as &#x3D;ac.getBean(&quot;accountService&quot;,AccountService.class);</span><br><span class="line">&#x2F;&#x2F;3.根据对象调取方法</span><br><span class="line">as.saveAccount();</span><br><span class="line">&#x2F;&#x2F;4.关闭核心容器对象</span><br><span class="line">ac.close();</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="3-SpringAOP面向切面编程"><a href="#3-SpringAOP面向切面编程" class="headerlink" title="3.SpringAOP面向切面编程"></a>3.SpringAOP面向切面编程</h3><p>​            面向切面编程是软件编程思想发展到一定阶段的掺入，是面向对象编程的有益补充。AOP一般适用于具有横切逻辑的场合，如访问控制、事务管理、性能监测等。</p>
+<h3 id="4-在applicationContext-xml中配置AOP切面"><a href="#4-在applicationContext-xml中配置AOP切面" class="headerlink" title="4.在applicationContext.xml中配置AOP切面"></a>4.在applicationContext.xml中配置AOP切面</h3><ol>
+<li>把通知Bean也交给spring来管理</li>
+<li>使用aop:config标签表明开始配置AOP</li>
+<li>使用aop:aspect标签表明配置切面</li>
+<li>在aop:aspect内部使用对应标签来配置通知类型</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--配置Logger类--&gt;</span><br><span class="line">&lt;bean id&#x3D;&quot;logger&quot; class&#x3D;&quot;com.accp.utils.Logger&quot;&gt;&lt;&#x2F;bean&gt;</span><br><span class="line">&lt;aop:config&gt;</span><br><span class="line">     &lt;!--配置切入点表达式  id表示指定表达式的唯一标识   expression属性用于指定表达式内容</span><br><span class="line">         此标签写在aop:aspect标签内部只能当前切面使用</span><br><span class="line">         它还可以写在aop:aspect外面，此时变为所有切面可以用。注意必须写在aop:aspect前面</span><br><span class="line">     --&gt;</span><br><span class="line">    &lt;aop:pointcut id&#x3D;&quot;proxy&quot; expression&#x3D;&quot;execution(* com.accp.service.*.*(..))&quot;&#x2F;&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;aop:aspect id&#x3D;&quot;logAdvice&quot; ref&#x3D;&quot;logger&quot;&gt;</span><br><span class="line">        &lt;!--配置前置通知  在切入点方法之前执行--&gt;</span><br><span class="line">        &lt;aop:before method&#x3D;&quot;prLogger&quot; pointcut-ref&#x3D;&quot;proxy&quot;&gt;&lt;&#x2F;aop:before&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;!--配置后置通知  在切入点方法正常执行之后执行--&gt;</span><br><span class="line">        &lt;aop:after-returning method&#x3D;&quot;afterReturnPrLogger&quot; pointcut-ref&#x3D;&quot;proxy&quot;&gt;&lt;&#x2F;aop:after-returning&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;!--配置异常通知  在切入点方法产生异常之后执行--&gt;</span><br><span class="line">        &lt;aop:after-throwing method&#x3D;&quot;afterThrowingPrLogger&quot; pointcut-ref&#x3D;&quot;proxy&quot;&gt;&lt;&#x2F;aop:after-throwing&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;!--配置最终通知  无论切入点是否正常都会执行--&gt;</span><br><span class="line">        &lt;aop:after method&#x3D;&quot;afterPrLogger&quot; pointcut-ref&#x3D;&quot;proxy&quot;&gt;&lt;&#x2F;aop:after&gt;</span><br><span class="line">    &lt;&#x2F;aop:aspect&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-配置AOP环绕通知"><a href="#5-配置AOP环绕通知" class="headerlink" title="5.配置AOP环绕通知"></a>5.配置AOP环绕通知</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--配置环绕通知--&gt;</span><br><span class="line">&lt;aop:around method&#x3D;&quot;aroundLogger&quot; pointcut-ref&#x3D;&quot;proxy&quot;&gt;&lt;&#x2F;aop:around&gt;</span><br><span class="line"> if (&quot;&quot;.equals(username) &amp;&amp; &quot;&quot;.equals(pwd)) &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        pp.proceed();</span><br><span class="line">    &#125; catch (Throwable throwable) &#123;</span><br><span class="line">        throw new RuntimeException(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    System.out.println(&quot;用户名或密码错误&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        spring框架为我们提供一个接口：该接口中有一个方法proceed()此方法相当于明确调用切入点方法。该方法可以作环绕通知方法的参数，在程序执行时，spring框架会为我们提供该接口的实现类供我们使用</p>
+<h3 id="6-bean标签的作用范围"><a href="#6-bean标签的作用范围" class="headerlink" title="6.bean标签的作用范围"></a>6.bean标签的作用范围</h3><ol>
+<li>singleton：单例的（默认值）</li>
+<li>prototype：多例的</li>
+<li>request：用于web应用的请求范围</li>
+<li>session：用于web应用的会话范围</li>
+<li>global_session：作用于web应用的集群范围（全局会话范围），当不是集群范围的时候他就是session</li>
+</ol>
+<h3 id="7-bean对象的的生命周期"><a href="#7-bean对象的的生命周期" class="headerlink" title="7.bean对象的的生命周期"></a>7.bean对象的的生命周期</h3><ol>
+<li><p>单例对象：出生：当容器创建时就一直活着</p>
+<p>​                  活着：只要容器还在就一直活着</p>
+<p>​                  死亡：容器销毁，对象死亡</p>
+<p>​                  总结：单例对象的生命周期和容器相同</p>
+</li>
+<li><p>多例对象：出生：当我们使用对象时spring框架为我们创建</p>
+<p>​                  活着：对象在使用过程中就就一直活着</p>
+<p>​                  死亡：当对象长时间不使用或者没有其他对象应用是，有java的垃圾回收机制回收</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal no-title">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
     <a href="/Awangyue-cn.github.io/2020/08/15/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/">
       2020-08-15
     </a>
@@ -549,9 +711,7 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: 设计模式—代理模式</span><br><span class="line">date: 2020-06-28 13:26:17</span><br><span class="line">tags:设计模式</span><br></pre></td></tr></table></figure>
-
-<h2 id="设计模式—代理模式"><a href="#设计模式—代理模式" class="headerlink" title="设计模式—代理模式"></a>设计模式—代理模式</h2><p>代理模式是为某个对象提供一个代理对象，并由代理对象控制对原对象的访问，就像我们生活中的中介。</p>
+        <h1 id="设计模式—代理模式"><a href="#设计模式—代理模式" class="headerlink" title="设计模式—代理模式"></a>设计模式—代理模式</h1><p>代理模式是为某个对象提供一个代理对象，并由代理对象控制对原对象的访问，就像我们生活中的中介。</p>
 <p>例如我要结婚，但是结婚是一件很麻烦的事情，需要安排很多事情，我并不想去准备这些繁琐的事情，只想和心爱的人结婚，其他的事情我还可以出钱交给婚庆公司去准备，婚庆公司为我们安排一整套流程。婚庆公司就相当于我们的代理角色</p>
 <h3 id="1-静态代理"><a href="#1-静态代理" class="headerlink" title="1.静态代理"></a>1.静态代理</h3><blockquote>
 <p>由程序员创建或特定工具自动生成源代码，再对其进行编译。<strong>在程序运行之前，代理类.class文件就已经被创建</strong>，代理类和委托类的关系在运行前就确定</p>
@@ -717,9 +877,7 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: SpringBoot框架—初始SpringBoot</span><br><span class="line">date: 2020-06-07 09:56:17</span><br><span class="line">tags:SpringBoot</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-搭建SpringBoot"><a href="#1-搭建SpringBoot" class="headerlink" title="1.搭建SpringBoot"></a>1.搭建SpringBoot</h3><ol>
+        <h1 id="SpringBoot框架—初始SpringBoot"><a href="#SpringBoot框架—初始SpringBoot" class="headerlink" title="SpringBoot框架—初始SpringBoot"></a>SpringBoot框架—初始SpringBoot</h1><h3 id="1-搭建SpringBoot"><a href="#1-搭建SpringBoot" class="headerlink" title="1.搭建SpringBoot"></a>1.搭建SpringBoot</h3><ol>
 <li><p>使用idea快速搭建spring boot框架</p>
 <p><img src="https://pic.downk.cc/item/5e76c7319d7d586a54735cad.png" alt="img"></p>
 </li>
@@ -759,6 +917,132 @@
 <li>@MapperScan：通过此注解指定Mapper接口路径</li>
 </ol>
 <h3 id="3-SpringBoot权限控制"><a href="#3-SpringBoot权限控制" class="headerlink" title="3.SpringBoot权限控制"></a>3.SpringBoot权限控制</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class LoginHandlerInterceptor implements HandlerInterceptor &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception &#123;</span><br><span class="line">        &#x2F;&#x2F;获取用户是否登录，如果没有登录则带着提示消息回到登录页面</span><br><span class="line">        Object user &#x3D; request.getSession().getAttribute(&quot;user&quot;);</span><br><span class="line">        if (user&#x3D;&#x3D;null)&#123;</span><br><span class="line">            request.setAttribute(&quot;msg&quot;,&quot;没有权限请先登录&quot;);</span><br><span class="line">            request.getRequestDispatcher(&quot;login.html&quot;).forward(request,response);</span><br><span class="line">            return false;</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal no-title">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/Awangyue-cn.github.io/2020/08/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SprongBoot%E9%9B%86%E6%88%90swagger2/">
+      2020-08-15
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a class='author' href="" rel="nofollow">
+    <img no-lazy src="">
+    <p></p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class=" fa-fw" aria-hidden="true"></i>
+    <p>null2020-08-15</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/Awangyue-cn.github.io/2020/08/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SprongBoot%E9%9B%86%E6%88%90swagger2/" class="leancloud_visitors" data-flag-title="">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+<div class="new-meta-item comments-count">
+  
+  <a href="/Awangyue-cn.github.io/2020/08/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SprongBoot%E9%9B%86%E6%88%90swagger2/#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/Awangyue-cn.github.io/2020/08/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SprongBoot%E9%9B%86%E6%88%90swagger2/">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="SpringBoot框架—SprongBoot集成swagger2"><a href="#SpringBoot框架—SprongBoot集成swagger2" class="headerlink" title="SpringBoot框架—SprongBoot集成swagger2"></a>SpringBoot框架—SprongBoot集成swagger2</h1><p>1.在pom.xml中导入依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- swagger2 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.springfox&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;springfox-swagger2&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.9.2&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;!-- swagger-ui --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.springfox&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;springfox-swagger-ui&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.9.2&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-编写SwaggerConfig类"><a href="#2-编写SwaggerConfig类" class="headerlink" title="2.编写SwaggerConfig类"></a>2.编写SwaggerConfig类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@EnableSwagger2</span><br><span class="line">public class SwaggerConfig &#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 创建API应用</span><br><span class="line">     * apiInfo() 增加API相关信息</span><br><span class="line">     * 通过select()函数返回一个ApiSelectorBuilder实例,用来控制哪些接口暴露给Swagger来展现，</span><br><span class="line">     * 本例采用指定扫描的包路径来定义指定要建立API的目录。</span><br><span class="line">     * @return: Docket</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Bean</span><br><span class="line">    public Docket createRestApi() &#123;</span><br><span class="line">        return new Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">                .apiInfo(apiInfo())</span><br><span class="line">                .select()</span><br><span class="line">                .apis(RequestHandlerSelectors.basePackage(&quot;com.accp.controller&quot;))</span><br><span class="line">                .paths(PathSelectors.any())</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 创建该API的基本信息（这些基本信息会展现在文档页面中）</span><br><span class="line">     * 访问地址：http:&#x2F;&#x2F;项目实际地址&#x2F;swagger-ui.html</span><br><span class="line">     * @return: ApiInfo</span><br><span class="line">     *&#x2F;</span><br><span class="line">    private ApiInfo apiInfo() &#123;</span><br><span class="line">        return new ApiInfoBuilder()</span><br><span class="line">                .title(&quot;Spring Boot中使用Swagger2&quot;)</span><br><span class="line">                .description(&quot;更多请关注http:&#x2F;&#x2F;www.baidu.com&quot;)</span><br><span class="line">                .termsOfServiceUrl(&quot;http:&#x2F;&#x2F;www.baidu.com&quot;)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-使用Restful风格编写Controller"><a href="#3-使用Restful风格编写Controller" class="headerlink" title="3.使用Restful风格编写Controller"></a>3.使用Restful风格编写Controller</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">@RestController</span><br><span class="line">@RequestMapping(&quot;login&quot;)</span><br><span class="line">public class LoginController &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private UserService userService;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private Result result;</span><br><span class="line"></span><br><span class="line">    @ApiOperation(value&#x3D;&quot;查询&quot;,notes &#x3D; &quot;查询用户列表&quot;)</span><br><span class="line">    @GetMapping(&quot;findUser&quot;)</span><br><span class="line">    public Result findUser() &#123;</span><br><span class="line">        List&lt;User&gt; user &#x3D; userService.findUser();</span><br><span class="line">        result.setCode(1);</span><br><span class="line">        result.setMsg(&quot;success&quot;);</span><br><span class="line">        result.setData(user);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @ApiOperation(value&#x3D;&quot;删除&quot;,notes &#x3D; &quot;删除用户&quot;)</span><br><span class="line">    @DeleteMapping(&quot;del&#x2F;&#123;redisKey&#125;&quot;)</span><br><span class="line">    public void del(@PathVariable String redisKey) &#123;</span><br><span class="line">        userService.delCache(redisKey);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-启动项目访问Swagger—ui"><a href="#4-启动项目访问Swagger—ui" class="headerlink" title="4.启动项目访问Swagger—ui"></a>4.启动项目访问Swagger—ui</h3><p><img src="https://pic.downk.cc/item/5e76c6b29d7d586a54733260.png" alt="img"></p>
+
       
     </div>
     

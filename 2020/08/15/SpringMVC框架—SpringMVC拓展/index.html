@@ -452,7 +452,7 @@
         
           
   <h1 class="title">
-    <a href="/Awangyue-cn.github.io/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/">
+    <a href="/Awangyue-cn.github.io/2020/08/15/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94SpringMVC%E6%8B%93%E5%B1%95/">
       2020-08-15
     </a>
   </h1>
@@ -507,51 +507,37 @@
         <div class="article-entry" itemprop="articleBody">
           
           
-          <h1 id="Spring框架—Spring核心概念"><a href="#Spring框架—Spring核心概念" class="headerlink" title="Spring框架—Spring核心概念"></a>Spring框架—Spring核心概念</h1><h3 id="1-SpringIOC控制反转"><a href="#1-SpringIOC控制反转" class="headerlink" title="1.SpringIOC控制反转"></a>1.SpringIOC控制反转</h3><p>​        控制反转（Inversion of Cpntrol IoC），也被称为依赖注入，是面向对象编程的中的一种设计理念，用来降低程序代码之间的耦合</p>
-<h3 id="2-创建Spring项目"><a href="#2-创建Spring项目" class="headerlink" title="2.创建Spring项目"></a>2.创建Spring项目</h3><ol>
-<li><p>在pom.xml中导入spring依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> &lt;properties&gt;</span><br><span class="line">    &lt;!-- spring版本号 --&gt;</span><br><span class="line">    &lt;spring.version&gt;4.3.6.RELEASE&lt;&#x2F;spring.version&gt;</span><br><span class="line">&lt;&#x2F;properties&gt;</span><br><span class="line">    &lt;!--Spring相关依赖--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-core&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-beans&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-context&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+          <h1 id="SpringMVC框架—SpringMVC拓展"><a href="#SpringMVC框架—SpringMVC拓展" class="headerlink" title="SpringMVC框架—SpringMVC拓展"></a>SpringMVC框架—SpringMVC拓展</h1><h3 id="1-SpringMvc的Model与ModelAndView"><a href="#1-SpringMvc的Model与ModelAndView" class="headerlink" title="1.SpringMvc的Model与ModelAndView"></a>1.SpringMvc的Model与ModelAndView</h3><ol>
+<li>Model：用于接收数据传递到显示页面，需要作为参数传递<ul>
+<li>addAttribute(String name,Object value)：添加键值对属性</li>
+<li>addAttribute(Object obj)：将一个对象存到对象中，把该类名首字母小写作为key值</li>
+<li>asMap()：将当前model转换为Map</li>
+<li>mergeAttribute(Map &lt;String,?&gt; hashmap)：和addAttribute相同，但允许有相同的key值</li>
+<li>containsAttribute(String name)：判断model中是否包含一个键值对，返回boolean</li>
+</ul>
 </li>
-<li><p>创建applicationContext.xml配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">    &lt;beans xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&quot;</span><br><span class="line">           xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;</span><br><span class="line">           xmlns:aop&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;aop&quot;</span><br><span class="line">           xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans</span><br><span class="line">       http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&#x2F;spring-beans.xsd</span><br><span class="line">       http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;aop</span><br><span class="line">       http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;aop&#x2F;spring-aop.xsd&quot;&gt;</span><br><span class="line">   &lt;&#x2F;beans&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把对象创建交给spring管理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id&#x3D;&quot;accountService&quot; class&#x3D;&quot;com.accp.service.impl.AccountServiceImpl&quot;&gt;&lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建测试类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;1.获取核心容器对象</span><br><span class="line">ClassPathXmlApplicationContext ac&#x3D;new ClassPathXmlApplicationContext(&quot;bean.xml&quot;);</span><br><span class="line">&#x2F;&#x2F;2.根据id获取bean对象</span><br><span class="line">AccountService as &#x3D;ac.getBean(&quot;accountService&quot;,AccountService.class);</span><br><span class="line">&#x2F;&#x2F;3.根据对象调取方法</span><br><span class="line">as.saveAccount();</span><br><span class="line">&#x2F;&#x2F;4.关闭核心容器对象</span><br><span class="line">ac.close();</span><br></pre></td></tr></table></figure>
-
+<li>ModelAndView：将控制器处理的结果数据返回到显示页面，作为返回类型使用，也可设置转向地址<ul>
+<li>setViewName(String  path)：设置转向地址</li>
+<li>addObject(String  name , Object value)：将控制器处理的结果数据返回到显示页面</li>
+</ul>
 </li>
 </ol>
-<h3 id="3-SpringAOP面向切面编程"><a href="#3-SpringAOP面向切面编程" class="headerlink" title="3.SpringAOP面向切面编程"></a>3.SpringAOP面向切面编程</h3><p>​            面向切面编程是软件编程思想发展到一定阶段的掺入，是面向对象编程的有益补充。AOP一般适用于具有横切逻辑的场合，如访问控制、事务管理、性能监测等。</p>
-<h3 id="4-在applicationContext-xml中配置AOP切面"><a href="#4-在applicationContext-xml中配置AOP切面" class="headerlink" title="4.在applicationContext.xml中配置AOP切面"></a>4.在applicationContext.xml中配置AOP切面</h3><ol>
-<li>把通知Bean也交给spring来管理</li>
-<li>使用aop:config标签表明开始配置AOP</li>
-<li>使用aop:aspect标签表明配置切面</li>
-<li>在aop:aspect内部使用对应标签来配置通知类型</li>
+<h3 id="2-JSON数据传递处理"><a href="#2-JSON数据传递处理" class="headerlink" title="2.JSON数据传递处理"></a>2.JSON数据传递处理</h3><ol>
+<li>在方法上加@ResponseBody，通过JSON.toJSONString()将数据转换为json格式</li>
+<li>解决json数据传递乱码问题：在@RequestMapping里面加  produces = {“application/json;charset=UTF-8”}</li>
+<li>解决json数据传递日期问题：在属性上加 @JSONField(format = “yyyy-MM-dd”)</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--配置Logger类--&gt;</span><br><span class="line">&lt;bean id&#x3D;&quot;logger&quot; class&#x3D;&quot;com.accp.utils.Logger&quot;&gt;&lt;&#x2F;bean&gt;</span><br><span class="line">&lt;aop:config&gt;</span><br><span class="line">     &lt;!--配置切入点表达式  id表示指定表达式的唯一标识   expression属性用于指定表达式内容</span><br><span class="line">         此标签写在aop:aspect标签内部只能当前切面使用</span><br><span class="line">         它还可以写在aop:aspect外面，此时变为所有切面可以用。注意必须写在aop:aspect前面</span><br><span class="line">     --&gt;</span><br><span class="line">    &lt;aop:pointcut id&#x3D;&quot;proxy&quot; expression&#x3D;&quot;execution(* com.accp.service.*.*(..))&quot;&#x2F;&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;aop:aspect id&#x3D;&quot;logAdvice&quot; ref&#x3D;&quot;logger&quot;&gt;</span><br><span class="line">        &lt;!--配置前置通知  在切入点方法之前执行--&gt;</span><br><span class="line">        &lt;aop:before method&#x3D;&quot;prLogger&quot; pointcut-ref&#x3D;&quot;proxy&quot;&gt;&lt;&#x2F;aop:before&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;!--配置后置通知  在切入点方法正常执行之后执行--&gt;</span><br><span class="line">        &lt;aop:after-returning method&#x3D;&quot;afterReturnPrLogger&quot; pointcut-ref&#x3D;&quot;proxy&quot;&gt;&lt;&#x2F;aop:after-returning&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;!--配置异常通知  在切入点方法产生异常之后执行--&gt;</span><br><span class="line">        &lt;aop:after-throwing method&#x3D;&quot;afterThrowingPrLogger&quot; pointcut-ref&#x3D;&quot;proxy&quot;&gt;&lt;&#x2F;aop:after-throwing&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;!--配置最终通知  无论切入点是否正常都会执行--&gt;</span><br><span class="line">        &lt;aop:after method&#x3D;&quot;afterPrLogger&quot; pointcut-ref&#x3D;&quot;proxy&quot;&gt;&lt;&#x2F;aop:after&gt;</span><br><span class="line">    &lt;&#x2F;aop:aspect&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-配置AOP环绕通知"><a href="#5-配置AOP环绕通知" class="headerlink" title="5.配置AOP环绕通知"></a>5.配置AOP环绕通知</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--配置环绕通知--&gt;</span><br><span class="line">&lt;aop:around method&#x3D;&quot;aroundLogger&quot; pointcut-ref&#x3D;&quot;proxy&quot;&gt;&lt;&#x2F;aop:around&gt;</span><br><span class="line"> if (&quot;&quot;.equals(username) &amp;&amp; &quot;&quot;.equals(pwd)) &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        pp.proceed();</span><br><span class="line">    &#125; catch (Throwable throwable) &#123;</span><br><span class="line">        throw new RuntimeException(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    System.out.println(&quot;用户名或密码错误&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​        spring框架为我们提供一个接口：该接口中有一个方法proceed()此方法相当于明确调用切入点方法。该方法可以作环绕通知方法的参数，在程序执行时，spring框架会为我们提供该接口的实现类供我们使用</p>
-<h3 id="6-bean标签的作用范围"><a href="#6-bean标签的作用范围" class="headerlink" title="6.bean标签的作用范围"></a>6.bean标签的作用范围</h3><ol>
-<li>singleton：单例的（默认值）</li>
-<li>prototype：多例的</li>
-<li>request：用于web应用的请求范围</li>
-<li>session：用于web应用的会话范围</li>
-<li>global_session：作用于web应用的集群范围（全局会话范围），当不是集群范围的时候他就是session</li>
-</ol>
-<h3 id="7-bean对象的的生命周期"><a href="#7-bean对象的的生命周期" class="headerlink" title="7.bean对象的的生命周期"></a>7.bean对象的的生命周期</h3><ol>
-<li><p>单例对象：出生：当容器创建时就一直活着</p>
-<p>​                  活着：只要容器还在就一直活着</p>
-<p>​                  死亡：容器销毁，对象死亡</p>
-<p>​                  总结：单例对象的生命周期和容器相同</p>
+<h3 id="3-SpringMVC文件上传"><a href="#3-SpringMVC文件上传" class="headerlink" title="3.SpringMVC文件上传"></a>3.SpringMVC文件上传</h3><ol>
+<li><p>导入maven坐标</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;commons-fileupload&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;commons-fileupload&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.3.2&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>多例对象：出生：当我们使用对象时spring框架为我们创建</p>
-<p>​                  活着：对象在使用过程中就就一直活着</p>
-<p>​                  死亡：当对象长时间不使用或者没有其他对象应用是，有java的垃圾回收机制回收</p>
+<li><p>springmvc.xml配置CommonsMultipartResolver</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id&#x3D;&quot;multipartResolver&quot;</span><br><span class="line">class&#x3D;&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;&gt;</span><br><span class="line">    &lt;!--上传文件的最大大小，单位为字节 --&gt; </span><br><span class="line">    &lt;property name&#x3D;&quot;maxUploadSize&quot; value&#x3D;&quot;17367648787&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">    &lt;!-- 上传文件的编码 --&gt;</span><br><span class="line">    &lt;property name&#x3D;&quot;defaultEncoding&quot; value&#x3D;&quot;UTF-8&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">&lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>设置前端jsp页面：input的type设置为file，from表单的enctype设置为multipart/form-data</p>
+</li>
+<li><p>Controller层使用MultipartFile对象作为参数，接收前端发送过来的文件，将文件写入本地文件中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;&#x2F;uploadFile&quot;)</span><br><span class="line">public String uploadFile(@RequestParam(&quot;file&quot;) MultipartFile file, HttpServletRequest req)</span><br><span class="line">        throws IllegalStateException, IOException &#123;</span><br><span class="line">    &#x2F;&#x2F; 判断文件是否为空，空则返回失败页面</span><br><span class="line">    if (file.isEmpty()) &#123;</span><br><span class="line">        return &quot;失败页面&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F; 获取文件存储路径（绝对路径）</span><br><span class="line">    String path &#x3D; req.getSession().getServletContext().getRealPath(&quot;&#x2F;WEB-INF&#x2F;file&quot;);</span><br><span class="line">    &#x2F;&#x2F; 获取原文件名</span><br><span class="line">    String fileName &#x3D; file.getOriginalFilename();</span><br><span class="line">    &#x2F;&#x2F; 创建文件实例</span><br><span class="line">    File filePath &#x3D; new File(path, fileName);</span><br><span class="line">    &#x2F;&#x2F; 如果文件目录不存在，创建目录</span><br><span class="line">    if (!filePath.getParentFile().exists()) &#123;</span><br><span class="line">        filePath.getParentFile().mkdirs();</span><br><span class="line">        System.out.println(&quot;创建目录&quot; + filePath);</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F; 写入文件</span><br><span class="line">    file.transferTo(filePath);</span><br><span class="line">    return &quot;成功页面&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 
           
@@ -589,7 +575,7 @@
           
         
           
-            <p>本文永久链接是：<a href=https://awangyue.cn/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/>https://awangyue.cn/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</a></p>
+            <p>本文永久链接是：<a href=https://awangyue.cn/2020/08/15/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94SpringMVC%E6%8B%93%E5%B1%95/>https://awangyue.cn/2020/08/15/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94SpringMVC%E6%8B%93%E5%B1%95/</a></p>
           
         
       </blockquote>
@@ -614,7 +600,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-18T16:58:12+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-18T17:00:38+08:00">
   <a class='notlink'>
     <i class=" fa-fw" aria-hidden="true"></i>
     <p>null2020-08-18</p>
@@ -641,7 +627,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://awangyue.cn/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/&title= - Awangyue&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://awangyue.cn/2020/08/15/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94SpringMVC%E6%8B%93%E5%B1%95/&title= - Awangyue&summary="
           
           >
           
@@ -653,7 +639,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://awangyue.cn/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/&title= - Awangyue&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://awangyue.cn/2020/08/15/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94SpringMVC%E6%8B%93%E5%B1%95/&title= - Awangyue&summary="
           
           >
           
@@ -665,7 +651,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://awangyue.cn/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/&title= - Awangyue&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://awangyue.cn/2020/08/15/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94SpringMVC%E6%8B%93%E5%B1%95/&title= - Awangyue&summary="
           
           >
           
@@ -689,18 +675,19 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/Awangyue-cn.github.io/2020/08/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90TK-MyBatis/'>
+              <a class='prev' href='/Awangyue-cn.github.io/2020/08/15/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1/'>
                 <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i></p>
-                <p class='content'>SpringBoot框架—SpringBoot集成TK_MyBatis1.搭建Tk_MyBatis环境
-在pom.xml导入坐标
-12345678910&lt;dependency&gt;   ...</p>
+                <p class='content'>SpringCloud微服务一.SpringCloud
+Spring Cloud是一系列框架的有序集合。它利用Spring Boot的开发便利性巧妙地简化了分布式系统基础设施的开发，如服务发现注...</p>
               </a>
             
             
-              <a class='next' href='/Awangyue-cn.github.io/2020/08/15/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/'>
+              <a class='next' href='/Awangyue-cn.github.io/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94IOC%E5%92%8CAOP%E4%BD%BF%E7%94%A8%E6%89%A9%E5%B1%95/'>
                 <p class='title'><i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>设计模式—代理模式代理模式是为某个对象提供一个代理对象，并由代理对象控制对原对象的访问，就像我们生活中的中介。
-例如我要结婚，但是结婚是一件很麻烦的事情，需要安排很多事情，我并不想去准备这些繁琐...</p>
+                <p class='content'>Spring框架—IOC和AOP使用扩展1.多种方式实现依赖注入
+
+构造函数注入
+12345&lt;bean id&#x3D;&quot;accountService&quot; class&#...</p>
               </a>
             
           </div>
@@ -755,7 +742,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-SpringIOC%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC"><span class="toc-text">1.SpringIOC控制反转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BASpring%E9%A1%B9%E7%9B%AE"><span class="toc-text">2.创建Spring项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-SpringAOP%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B"><span class="toc-text">3.SpringAOP面向切面编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%9C%A8applicationContext-xml%E4%B8%AD%E9%85%8D%E7%BD%AEAOP%E5%88%87%E9%9D%A2"><span class="toc-text">4.在applicationContext.xml中配置AOP切面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E9%85%8D%E7%BD%AEAOP%E7%8E%AF%E7%BB%95%E9%80%9A%E7%9F%A5"><span class="toc-text">5.配置AOP环绕通知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-bean%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4"><span class="toc-text">6.bean标签的作用范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-bean%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">7.bean对象的的生命周期</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-SpringMvc%E7%9A%84Model%E4%B8%8EModelAndView"><span class="toc-text">1.SpringMvc的Model与ModelAndView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-JSON%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92%E5%A4%84%E7%90%86"><span class="toc-text">2.JSON数据传递处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-SpringMVC%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0"><span class="toc-text">3.SpringMVC文件上传</span></a></li></ol>
     </div>
   </section>
 

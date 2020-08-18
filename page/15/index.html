@@ -5,6 +5,10 @@
   <!-- SEO相关 -->
   
     
+      
+        <meta name="robots" content="noindex,follow">
+      
+    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -93,7 +97,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover post' style="display: none;">
+    <cover class='cover ' style="display: none;">
       <div class='cover-body'>
   <div class='a'>
     
@@ -438,10 +442,14 @@
 
 <div class='l_main'>
   
-
-  
-    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+  <section class="post-list ">
+    
+    
       
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal no-title">
+  
 
 
   <section class='meta'>
@@ -451,11 +459,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h1 class="title">
-    <a href="/Awangyue-cn.github.io/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/">
+  <h2 class="title">
+    <a href="/Awangyue-cn.github.io/2020/08/15/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94SQL%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/">
       2020-08-15
     </a>
-  </h1>
+  </h2>
 
 
         
@@ -494,6 +502,42 @@
 
             
           
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/Awangyue-cn.github.io/2020/08/15/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94SQL%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/" class="leancloud_visitors" data-flag-title="">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+<div class="new-meta-item comments-count">
+  
+  <a href="/Awangyue-cn.github.io/2020/08/15/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94SQL%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/Awangyue-cn.github.io/2020/08/15/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94SQL%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+            
+          
+            
+              
+
+            
+          
         </div>
         
           <hr>
@@ -503,96 +547,217 @@
   </section>
 
 
-      <section class="article typo">
-        <div class="article-entry" itemprop="articleBody">
-          
-          
-          <h1 id="Spring框架—Spring核心概念"><a href="#Spring框架—Spring核心概念" class="headerlink" title="Spring框架—Spring核心概念"></a>Spring框架—Spring核心概念</h1><h3 id="1-SpringIOC控制反转"><a href="#1-SpringIOC控制反转" class="headerlink" title="1.SpringIOC控制反转"></a>1.SpringIOC控制反转</h3><p>​        控制反转（Inversion of Cpntrol IoC），也被称为依赖注入，是面向对象编程的中的一种设计理念，用来降低程序代码之间的耦合</p>
-<h3 id="2-创建Spring项目"><a href="#2-创建Spring项目" class="headerlink" title="2.创建Spring项目"></a>2.创建Spring项目</h3><ol>
-<li><p>在pom.xml中导入spring依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> &lt;properties&gt;</span><br><span class="line">    &lt;!-- spring版本号 --&gt;</span><br><span class="line">    &lt;spring.version&gt;4.3.6.RELEASE&lt;&#x2F;spring.version&gt;</span><br><span class="line">&lt;&#x2F;properties&gt;</span><br><span class="line">    &lt;!--Spring相关依赖--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-core&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-beans&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-context&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Mybatis框架—SQL映射文件"><a href="#Mybatis框架—SQL映射文件" class="headerlink" title="Mybatis框架—SQL映射文件"></a>Mybatis框架—SQL映射文件</h1><h3 id="1-SQL映射文件的几个顶级元素配置"><a href="#1-SQL映射文件的几个顶级元素配置" class="headerlink" title="1.SQL映射文件的几个顶级元素配置"></a>1.SQL映射文件的几个顶级元素配置</h3><ol>
+<li><p>mapper：映射文件的根元素节点，只有一个namespace属性，其作用是用于区分不同的mapper；绑定DAO接口，即面向接口编程，当namespace绑定某一接口后，可以不用写该接口的实现类，mybatis会通过接口的完整限定类名查找到对应的mapper配置来执行SQL语句。因此namespace的命名必须要跟接口同名</p>
 </li>
-<li><p>创建applicationContext.xml配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">    &lt;beans xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&quot;</span><br><span class="line">           xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;</span><br><span class="line">           xmlns:aop&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;aop&quot;</span><br><span class="line">           xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans</span><br><span class="line">       http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&#x2F;spring-beans.xsd</span><br><span class="line">       http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;aop</span><br><span class="line">       http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;aop&#x2F;spring-aop.xsd&quot;&gt;</span><br><span class="line">   &lt;&#x2F;beans&gt;</span><br></pre></td></tr></table></figure>
+<li><p>cache：配置给定命名空间的缓存</p>
 </li>
-<li><p>把对象创建交给spring管理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id&#x3D;&quot;accountService&quot; class&#x3D;&quot;com.accp.service.impl.AccountServiceImpl&quot;&gt;&lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure>
+<li><p>acahe-ref：从其他命名空间引用缓存配置</p>
 </li>
-<li><p>创建测试类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;1.获取核心容器对象</span><br><span class="line">ClassPathXmlApplicationContext ac&#x3D;new ClassPathXmlApplicationContext(&quot;bean.xml&quot;);</span><br><span class="line">&#x2F;&#x2F;2.根据id获取bean对象</span><br><span class="line">AccountService as &#x3D;ac.getBean(&quot;accountService&quot;,AccountService.class);</span><br><span class="line">&#x2F;&#x2F;3.根据对象调取方法</span><br><span class="line">as.saveAccount();</span><br><span class="line">&#x2F;&#x2F;4.关闭核心容器对象</span><br><span class="line">ac.close();</span><br></pre></td></tr></table></figure>
-
+<li><p>resultMap：用来描述数据库结果集和对象的对应关系</p>
+</li>
+<li><p>sql：可重用的SQL块，也可以被其他语句引用</p>
 </li>
 </ol>
-<h3 id="3-SpringAOP面向切面编程"><a href="#3-SpringAOP面向切面编程" class="headerlink" title="3.SpringAOP面向切面编程"></a>3.SpringAOP面向切面编程</h3><p>​            面向切面编程是软件编程思想发展到一定阶段的掺入，是面向对象编程的有益补充。AOP一般适用于具有横切逻辑的场合，如访问控制、事务管理、性能监测等。</p>
-<h3 id="4-在applicationContext-xml中配置AOP切面"><a href="#4-在applicationContext-xml中配置AOP切面" class="headerlink" title="4.在applicationContext.xml中配置AOP切面"></a>4.在applicationContext.xml中配置AOP切面</h3><ol>
-<li>把通知Bean也交给spring来管理</li>
-<li>使用aop:config标签表明开始配置AOP</li>
-<li>使用aop:aspect标签表明配置切面</li>
-<li>在aop:aspect内部使用对应标签来配置通知类型</li>
+<ol start="6">
+<li>insert：映射插入语句</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--配置Logger类--&gt;</span><br><span class="line">&lt;bean id&#x3D;&quot;logger&quot; class&#x3D;&quot;com.accp.utils.Logger&quot;&gt;&lt;&#x2F;bean&gt;</span><br><span class="line">&lt;aop:config&gt;</span><br><span class="line">     &lt;!--配置切入点表达式  id表示指定表达式的唯一标识   expression属性用于指定表达式内容</span><br><span class="line">         此标签写在aop:aspect标签内部只能当前切面使用</span><br><span class="line">         它还可以写在aop:aspect外面，此时变为所有切面可以用。注意必须写在aop:aspect前面</span><br><span class="line">     --&gt;</span><br><span class="line">    &lt;aop:pointcut id&#x3D;&quot;proxy&quot; expression&#x3D;&quot;execution(* com.accp.service.*.*(..))&quot;&#x2F;&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;aop:aspect id&#x3D;&quot;logAdvice&quot; ref&#x3D;&quot;logger&quot;&gt;</span><br><span class="line">        &lt;!--配置前置通知  在切入点方法之前执行--&gt;</span><br><span class="line">        &lt;aop:before method&#x3D;&quot;prLogger&quot; pointcut-ref&#x3D;&quot;proxy&quot;&gt;&lt;&#x2F;aop:before&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;!--配置后置通知  在切入点方法正常执行之后执行--&gt;</span><br><span class="line">        &lt;aop:after-returning method&#x3D;&quot;afterReturnPrLogger&quot; pointcut-ref&#x3D;&quot;proxy&quot;&gt;&lt;&#x2F;aop:after-returning&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;!--配置异常通知  在切入点方法产生异常之后执行--&gt;</span><br><span class="line">        &lt;aop:after-throwing method&#x3D;&quot;afterThrowingPrLogger&quot; pointcut-ref&#x3D;&quot;proxy&quot;&gt;&lt;&#x2F;aop:after-throwing&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;!--配置最终通知  无论切入点是否正常都会执行--&gt;</span><br><span class="line">        &lt;aop:after method&#x3D;&quot;afterPrLogger&quot; pointcut-ref&#x3D;&quot;proxy&quot;&gt;&lt;&#x2F;aop:after&gt;</span><br><span class="line">    &lt;&#x2F;aop:aspect&gt;</span><br></pre></td></tr></table></figure>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;insert id&#x3D;&quot;insertProvider&quot; parameterType&#x3D;&quot;com.accp.pojo.provider&quot;&gt;</span><br><span class="line">    INSERT INTO &#96;smbms_provider&#96; (proCode,proName,proDesc)</span><br><span class="line">    VALUES (#&#123;proCode&#125;, #&#123;proName&#125;,#&#123;proDesc&#125;)</span><br><span class="line">&lt;&#x2F;insert&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="5-配置AOP环绕通知"><a href="#5-配置AOP环绕通知" class="headerlink" title="5.配置AOP环绕通知"></a>5.配置AOP环绕通知</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--配置环绕通知--&gt;</span><br><span class="line">&lt;aop:around method&#x3D;&quot;aroundLogger&quot; pointcut-ref&#x3D;&quot;proxy&quot;&gt;&lt;&#x2F;aop:around&gt;</span><br><span class="line"> if (&quot;&quot;.equals(username) &amp;&amp; &quot;&quot;.equals(pwd)) &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        pp.proceed();</span><br><span class="line">    &#125; catch (Throwable throwable) &#123;</span><br><span class="line">        throw new RuntimeException(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    System.out.println(&quot;用户名或密码错误&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>​        spring框架为我们提供一个接口：该接口中有一个方法proceed()此方法相当于明确调用切入点方法。该方法可以作环绕通知方法的参数，在程序执行时，spring框架会为我们提供该接口的实现类供我们使用</p>
-<h3 id="6-bean标签的作用范围"><a href="#6-bean标签的作用范围" class="headerlink" title="6.bean标签的作用范围"></a>6.bean标签的作用范围</h3><ol>
-<li>singleton：单例的（默认值）</li>
-<li>prototype：多例的</li>
-<li>request：用于web应用的请求范围</li>
-<li>session：用于web应用的会话范围</li>
-<li>global_session：作用于web应用的集群范围（全局会话范围），当不是集群范围的时候他就是session</li>
+
+<ol start="7">
+<li>update：映射更新语句</li>
 </ol>
-<h3 id="7-bean对象的的生命周期"><a href="#7-bean对象的的生命周期" class="headerlink" title="7.bean对象的的生命周期"></a>7.bean对象的的生命周期</h3><ol>
-<li><p>单例对象：出生：当容器创建时就一直活着</p>
-<p>​                  活着：只要容器还在就一直活着</p>
-<p>​                  死亡：容器销毁，对象死亡</p>
-<p>​                  总结：单例对象的生命周期和容器相同</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;update id&#x3D;&quot;updateProvider&quot; parameterType&#x3D;&quot;com.accp.pojo.provider&quot;&gt;</span><br><span class="line">    UPDATE &#96;smbms_provider&#96; SET modifyDate&#x3D;#&#123;modifyDate&#125;,modifyBy&#x3D;#&#123;modifyBy&#125; WHERE id&#x3D;#&#123;id&#125;</span><br><span class="line">&lt;&#x2F;update&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="8">
+<li>delete：映射删除语句</li>
+</ol>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;delete id&#x3D;&quot;deleteById&quot; parameterType&#x3D;&quot;com.accp.pojo.provider&quot;&gt;</span><br><span class="line">    DELETE FROM &#96;smbms_provider&#96; WHERE id&#x3D;#&#123;id&#125;</span><br><span class="line">&lt;&#x2F;delete&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="9">
+<li>select：映射查询语句</li>
+</ol>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id&#x3D;&quot;selectBill&quot; resultType&#x3D;&quot;com.accp.pojo.bill&quot;&gt;</span><br><span class="line">     SELECT b.*,p.*</span><br><span class="line">     FROM smbms_bill b, smbms_provider p</span><br><span class="line">     WHERE b.providerId&#x3D;p.&#96;id&#96;</span><br><span class="line">     AND b.providerId&#x3D;#&#123;providerId&#125;</span><br><span class="line">     AND b.&#96;isPayment&#96;&#x3D;#&#123;isPayment&#125;</span><br><span class="line">     AND b.productName like CONCAT (&#39;%&#39;,#&#123;productName&#125;,&#39;%&#39;)</span><br><span class="line">&lt;&#x2F;select&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="10">
+<li></li>
+<li><h3 id="2-resultType和resultMap的关联和区别"><a href="#2-resultType和resultMap的关联和区别" class="headerlink" title="2.resultType和resultMap的关联和区别"></a>2.resultType和resultMap的关联和区别</h3></li>
+<li><ol>
+<li>resultType表示返回类型，包括是基础数据类型和复杂数据类型</li>
+<li>resultMap则是对应外部resultMap定义的引用，对应外部resultMap的id，表示返回结果映射到哪一个resultMap上</li>
+<li>resultType和resultMap的关联：                                                                                                                                           在mybatis进行查询映射时候，其实查询出来的每个字段值都放在一个对应的Map中，其中键名是字段名，值则是其对应的值。当select元素提供返回类型属性是resultType的时候，mybatis会将Map里面的键值对取出赋给resultType所指定对象的对应属性（既调用对象里属性的set方法进行填充）。                                                                                    当我们提供的返回类型是resultMap时候，因为Map不能很好的表示领域模型，所以就需要通过进一步的定义把它转化为对应的实体对象。                                                                                                                                                   resultType和resultMap本质上是一样的，都是Map数据结构，但是这两者只能二选一</li>
+<li>resultMap的自动映射级别：<ul>
+<li>NONE：禁止自动匹配</li>
+<li>PARTIAL：（默认）自动匹配所有属性，有内部嵌套（association、collection）的除外</li>
+<li>FULL：自动匹配所有</li>
+</ul>
 </li>
-<li><p>多例对象：出生：当我们使用对象时spring框架为我们创建</p>
-<p>​                  活着：对象在使用过程中就就一直活着</p>
-<p>​                  死亡：当对象长时间不使用或者没有其他对象应用是，有java的垃圾回收机制回收</p>
+</ol>
+</li>
+<li><pre><code>&lt;settings&gt;
+    &lt;setting name=&quot;autoMappingBehavior&quot; value=&quot;NONE&quot;/&gt;
+&lt;/settings&gt;
+&lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14. ### 3.使用@Param注解实现多参数入参 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15. &amp;#96;&amp;#96;&amp;#96;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    int deleteById(@Param(&amp;quot;id&amp;quot;) int id);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;</code></pre>
+</li>
+<li><pre><code>&lt;delete id=&quot;deleteById&quot; parameterType=&quot;com.accp.pojo.provider&quot;&gt;
+    DELETE FROM `smbms_provider` WHERE id=#&#123;id&#125;
+&lt;/delete&gt;
+&lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17. ### 4.使用resultMap实现高级结果映射 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18. 1. resultMap基本配置项&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       1.1.resultMap属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       - id：resultMap的唯一标识&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       - type：表示该resultMap的映射结果类型（通常是java实体类）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       1.2.resultMap子节点属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       - id：一般对应数据库中该行的主键id，设置此项可以提升mybatis性能&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       - result：映射到JavaBean的某个“简单类型”属性，如基础类型、包装类&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+   &lt;resultMap type=&quot;com.accp.pojo.user&quot; id=&quot;userMap&quot;&gt;
+       &lt;id property=&quot;id&quot; column=&quot;id&quot;&gt;&lt;/id&gt;
+       &lt;result property=&quot;userCode&quot; column=&quot;userCode&quot;/&gt;
+       &lt;result property=&quot;userName&quot; column=&quot;userName&quot;/&gt;
+       &lt;result property=&quot;userPassword&quot; column=&quot;userPassword&quot;/&gt;
+   &lt;/resultMap&gt;
+   &lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2. association&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   2.1.association属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - JavaType：完整地java类名或别名，若映射到JavaBean，则mybatis通常会自动检测到其类型；若映射到一个HashMap，则应明确指定JavaType，来确保所需行为。此处为com.accp.pojo.role&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - property：映射数据库列的实体对象的属性，此处为在user里面定义的role属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   2.2.association子节点属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - id&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - result&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     - property：映射数据库列的实体对象的属性。此处为role属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     - column：数据库列名或别名&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+    &lt;resultMap type=&quot;com.accp.pojo.user&quot; id=&quot;userMap&quot;&gt;
+       &lt;id property=&quot;id&quot; column=&quot;id&quot;&gt;&lt;/id&gt;
+       &lt;result property=&quot;userCode&quot; column=&quot;userCode&quot;/&gt;
+       &lt;result property=&quot;userName&quot; column=&quot;userName&quot;/&gt;
+       &lt;result property=&quot;userPassword&quot; column=&quot;userPassword&quot;/&gt;
+       &lt;association property=&quot;role&quot; javaType=&quot;com.accp.pojo.role&quot;&gt;
+           &lt;id property=&quot;id&quot; column=&quot;id&quot;&gt;&lt;/id&gt;
+           &lt;result property=&quot;roleCode&quot; column=&quot;roleCode&quot;/&gt;
+           &lt;result property=&quot;roleName&quot; column=&quot;roleName&quot;/&gt;
+       &lt;/association&gt;
+   &lt;/resultMap&gt;
+   &lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3. collection&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - ofType：完整的java类名或别名，即集合所包含的类型。此处为Address&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - property：映射数据库列的实体对象的属性。此处为在User里定义的属性：addressList&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+   private List&lt;Address&gt; addressList;
+   &lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+   &lt;resultMap type=&quot;com.accp.pojo.user&quot; id=&quot;userMap&quot;&gt;
+           &lt;id property=&quot;id&quot; column=&quot;id&quot;&gt;&lt;/id&gt;
+           &lt;result property=&quot;userCode&quot; column=&quot;userCode&quot;/&gt;
+           &lt;result property=&quot;userName&quot; column=&quot;userName&quot;/&gt;
+           &lt;result property=&quot;userPassword&quot; column=&quot;userPassword&quot;/&gt;
+           &lt;collection property=&quot;addressList&quot; ofType=&quot;address&quot;&gt;
+               &lt;id property=&quot;id&quot; column=&quot;id&quot;&gt;&lt;/id&gt;
+               &lt;result property=&quot;tel&quot; column=&quot;tel&quot;/&gt;
+               &lt;result property=&quot;postCode&quot; column=&quot;postCode&quot;/&gt;
+           &lt;/collection&gt;
+       &lt;/resultMap&gt;
+   &lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19. ### 5.mybatis缓存 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20. 1. 一级缓存：是基于mybatis自带的HashMap本地缓存，作用范围为session域内，当session调用flish()或close()方法后，该session中的所有缓存就会被清空&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    2. 二级缓存：超出session范围之外，可以被所有sqlsession共享&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    3. 二级缓存配置&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       （1）在mybatis-config.xml中设置&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+   &lt;settings&gt;
+       &lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot;/&gt;
+   &lt;/settings&gt;
+   &lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;（2）在mapper.xml中设置缓存&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+   &lt;cache eviction=&quot;FIFO&quot; flushInterval=&quot;60000&quot; size=&quot;512&quot; readOnly=&quot;true&quot;&gt;&lt;/cache&gt;
+   &lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;（3）在mapper文件配置支持cache后，如需对个别查询进行调整，可单独设置cache&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+   &lt;select id=&quot;selectBill&quot; resultType=&quot;com.accp.pojo.bill&quot; useCache=&quot;true&quot;&gt;
+        ......
+   &lt;/select&gt;</code></pre>
 </li>
 </ol>
 
-          
-            <div class='article_footer'>
-              
-                
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+    
+  </section>
+  
+    
+      <br>
+      <div class="prev-next">
+        
+          <a class="prev" rel="prev" href="/Awangyue-cn.github.io/page/14/">
+            <section class="post prev white-box shadow" >
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous&nbsp;
+            </section>
+          </a>
+        
+        <p class="current">
+          15 / 15
+        </p>
+        
+      </div>
+    
+    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+    
+    
+
+  
+
+
+</div>
+<aside class='l_side'>
+  
   
     
     
 
-
-
-  
-
-  
-    
-    
-
-
-
-  
-
-  
-    
-    
-
-<section class="widget copyright  desktop mobile">
+<section class="widget blogger shadow desktop mobile">
   <div class='content'>
     
-      <blockquote>
+      
+        <a class='avatar flat-box rectangle' href='/Awangyue-cn.github.io/about/'>
+          <img no-lazy src='http://qf3576d4h.hn-bkt.clouddn.com/2.jpg'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">Awangyue</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
         
           
-            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
+            <a href="/Awangyue-cn.github.io/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
           
         
           
-            <p>本文永久链接是：<a href=https://awangyue.cn/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/>https://awangyue.cn/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</a></p>
+            <a href="mailto:me@xxx.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
           
         
-      </blockquote>
+          
+            <a href="https://github.com/Awangyue-cn"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/Awangyue-cn"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
     
   </div>
 </section>
@@ -600,165 +765,16 @@
   
 
   
-
-
-              
-            </div>
-          
-        </div>
-        
-          
-
-
-  <section class='meta' id="footer-meta">
-    <div class='new-meta-box'>
-      
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-18T16:58:12+08:00">
-  <a class='notlink'>
-    <i class=" fa-fw" aria-hidden="true"></i>
-    <p>null2020-08-18</p>
-  </a>
-</div>
-
-        
-      
-        
-          
-
-        
-      
-        
-          
-
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
     
-      
-        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://awangyue.cn/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/&title= - Awangyue&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://awangyue.cn/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/&title= - Awangyue&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://awangyue.cn/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/&title= - Awangyue&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
-          
-        </a>
-      
-    
-  </div>
-</div>
-
-
-
-        
-      
-    </div>
-  </section>
-
-
-        
-        
-          <div class="prev-next">
-            
-              <a class='prev' href='/Awangyue-cn.github.io/2020/08/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90TK-MyBatis/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i></p>
-                <p class='content'>SpringBoot框架—SpringBoot集成TK_MyBatis1.搭建Tk_MyBatis环境
-在pom.xml导入坐标
-12345678910&lt;dependency&gt;   ...</p>
-              </a>
-            
-            
-              <a class='next' href='/Awangyue-cn.github.io/2020/08/15/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/'>
-                <p class='title'><i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>设计模式—代理模式代理模式是为某个对象提供一个代理对象，并由代理对象控制对原对象的访问，就像我们生活中的中介。
-例如我要结婚，但是结婚是一件很麻烦的事情，需要安排很多事情，我并不想去准备这些繁琐...</p>
-              </a>
-            
-          </div>
-        
-      </section>
-    </article>
-  
-
-  
     
 
-  <article class="post white-box reveal comments shadow">
-    <section class="article typo">
-      <p ct><i class='fas fa-comments'></i> 评论</p>
-      
-      <section id="comments">
-        <div id="valine_container" class="valine_thread">
-  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
-</div>
-
-      </section>
-    </section>
-  </article>
-
-
-  
-
-
-
-
-<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
-
-
-</div>
-<aside class='l_side'>
-  
   
 
   
     
     
 
-
-
-  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-SpringIOC%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC"><span class="toc-text">1.SpringIOC控制反转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BASpring%E9%A1%B9%E7%9B%AE"><span class="toc-text">2.创建Spring项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-SpringAOP%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B"><span class="toc-text">3.SpringAOP面向切面编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%9C%A8applicationContext-xml%E4%B8%AD%E9%85%8D%E7%BD%AEAOP%E5%88%87%E9%9D%A2"><span class="toc-text">4.在applicationContext.xml中配置AOP切面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E9%85%8D%E7%BD%AEAOP%E7%8E%AF%E7%BB%95%E9%80%9A%E7%9F%A5"><span class="toc-text">5.配置AOP环绕通知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-bean%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4"><span class="toc-text">6.bean标签的作用范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-bean%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">7.bean对象的的生命周期</span></a></li></ol>
-    </div>
-  </section>
-
+  
 
   
 

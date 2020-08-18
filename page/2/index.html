@@ -460,7 +460,7 @@
         
           
   <h2 class="title">
-    <a href="/Awangyue-cn.github.io/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94IOC%E5%92%8CAOP%E4%BD%BF%E7%94%A8%E6%89%A9%E5%B1%95/">
+    <a href="/Awangyue-cn.github.io/2020/08/15/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94SpringMVC%E6%8B%93%E5%B1%95/">
       2020-08-15
     </a>
   </h2>
@@ -508,7 +508,7 @@
     <a class='notlink'>
       <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
       
-      <span id="/Awangyue-cn.github.io/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94IOC%E5%92%8CAOP%E4%BD%BF%E7%94%A8%E6%89%A9%E5%B1%95/" class="leancloud_visitors" data-flag-title="">
+      <span id="/Awangyue-cn.github.io/2020/08/15/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94SpringMVC%E6%8B%93%E5%B1%95/" class="leancloud_visitors" data-flag-title="">
       <p>
         <span class="leancloud-visitors-count"></span>
       </p>
@@ -523,9 +523,9 @@
               
 <div class="new-meta-item comments-count">
   
-  <a href="/Awangyue-cn.github.io/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94IOC%E5%92%8CAOP%E4%BD%BF%E7%94%A8%E6%89%A9%E5%B1%95/#comments">
+  <a href="/Awangyue-cn.github.io/2020/08/15/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94SpringMVC%E6%8B%93%E5%B1%95/#comments">
     <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/Awangyue-cn.github.io/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94IOC%E5%92%8CAOP%E4%BD%BF%E7%94%A8%E6%89%A9%E5%B1%95/">0</span>
+    <span class="valine-comment-count" data-xid="/Awangyue-cn.github.io/2020/08/15/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94SpringMVC%E6%8B%93%E5%B1%95/">0</span>
     <span class="leancloud-comments-count">&nbsp;</span>
   </a>
 </div>
@@ -550,151 +550,39 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: Spring框架—IOC和AOP使用扩展</span><br><span class="line">date: 2020-05-28 09:56:17</span><br><span class="line">tags:Spring</span><br></pre></td></tr></table></figure>
-
-<p>1.多种方式实现依赖注入</p>
-<ol>
-<li><p>构造函数注入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id&#x3D;&quot;accountService&quot; class&#x3D;&quot;com.accp.service.impl.accountServiceImpl&quot;&gt;</span><br><span class="line">    &lt;constructor-arg name&#x3D;&quot;name&quot; value&#x3D;&quot;张三&quot;&gt;&lt;&#x2F;constructor-arg&gt;</span><br><span class="line">    &lt;constructor-arg name&#x3D;&quot;age&quot; value&#x3D;&quot;18&quot;&gt;&lt;&#x2F;constructor-arg&gt;</span><br><span class="line">    &lt;constructor-arg name&#x3D;&quot;birthday&quot; ref&#x3D;&quot;now&quot;&gt;&lt;&#x2F;constructor-arg&gt;</span><br><span class="line">&lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure>
-
-<p>标签的属性:</p>
-<ul>
-<li><p>type:用于指定要注入的数据的数据类型，该数据类型也是构造函数中的某个或某些参数          </p>
-<p>index:用于指定要注入的数据给构造函数中指定索引位置的参数赋值，索引位置从0开始          </p>
-<p>name:用于指定给构造函数中指定名称的参数赋值          </p>
-<p>value:用于提供基本类型和String类型的数据          </p>
+        <h1 id="SpringMVC框架—SpringMVC拓展"><a href="#SpringMVC框架—SpringMVC拓展" class="headerlink" title="SpringMVC框架—SpringMVC拓展"></a>SpringMVC框架—SpringMVC拓展</h1><h3 id="1-SpringMvc的Model与ModelAndView"><a href="#1-SpringMvc的Model与ModelAndView" class="headerlink" title="1.SpringMvc的Model与ModelAndView"></a>1.SpringMvc的Model与ModelAndView</h3><ol>
+<li>Model：用于接收数据传递到显示页面，需要作为参数传递<ul>
+<li>addAttribute(String name,Object value)：添加键值对属性</li>
+<li>addAttribute(Object obj)：将一个对象存到对象中，把该类名首字母小写作为key值</li>
+<li>asMap()：将当前model转换为Map</li>
+<li>mergeAttribute(Map &lt;String,?&gt; hashmap)：和addAttribute相同，但允许有相同的key值</li>
+<li>containsAttribute(String name)：判断model中是否包含一个键值对，返回boolean</li>
+</ul>
 </li>
+<li>ModelAndView：将控制器处理的结果数据返回到显示页面，作为返回类型使用，也可设置转向地址<ul>
+<li>setViewName(String  path)：设置转向地址</li>
+<li>addObject(String  name , Object value)：将控制器处理的结果数据返回到显示页面</li>
 </ul>
 </li>
 </ol>
-<ul>
-<li>ref:用于指定其他bean类型的数据。它指的是在spring的IOC核心容器出现过的bean对象</li>
-</ul>
-<ol>
-<li><p>使用set方法注入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id&#x3D;&quot;accountService&quot; class&#x3D;&quot;com.accp.service.impl.accountServiceImpl&quot;&gt;</span><br><span class="line">    &lt;property name&#x3D;&quot;name&quot; value&#x3D;&quot;李四&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">    &lt;property name&#x3D;&quot;age&quot; value&#x3D;&quot;18&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">    &lt;property name&#x3D;&quot;birthday&quot; ref&#x3D;&quot;now&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">&lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure>
-
-<p>标签的属性:</p>
-<ul>
-<li>name:用于指定注入时所调用的set方法名称          </li>
-<li>value:用于提供基本类型和String类型的数据          </li>
-<li>ref:用于指定其他bean类型的数据。它指的是在spring的IOC核心容器出现过的bean对象</li>
-</ul>
-</li>
-<li><p>复杂类型注入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id&#x3D;&quot;accountService&quot; class&#x3D;&quot;com.accp.service.impl.accountServiceImpl&quot;&gt;</span><br><span class="line">&lt;!--注入list--&gt;</span><br><span class="line">&lt;property name&#x3D;&quot;list&quot;&gt;</span><br><span class="line">    &lt;list&gt;</span><br><span class="line">        &lt;value&gt;王五&lt;&#x2F;value&gt;</span><br><span class="line">        &lt;value&gt;赵六&lt;&#x2F;value&gt;</span><br><span class="line">        &lt;value&gt;钱七&lt;&#x2F;value&gt;</span><br><span class="line">    &lt;&#x2F;list&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line">&lt;!--注入set--&gt;</span><br><span class="line">&lt;property name&#x3D;&quot;set&quot;&gt;</span><br><span class="line">    &lt;set&gt;</span><br><span class="line">        &lt;value&gt;王五&lt;&#x2F;value&gt;</span><br><span class="line">        &lt;value&gt;赵六&lt;&#x2F;value&gt;</span><br><span class="line">        &lt;value&gt;钱七&lt;&#x2F;value&gt;</span><br><span class="line">    &lt;&#x2F;set&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line">&lt;!--注入map--&gt;</span><br><span class="line">&lt;property name&#x3D;&quot;map&quot;&gt;</span><br><span class="line">    &lt;map&gt;</span><br><span class="line">        &lt;entry key&#x3D;&quot;a&quot; value&#x3D;&quot;王五&quot;&gt;&lt;&#x2F;entry&gt;</span><br><span class="line">        &lt;entry key&#x3D;&quot;b&quot; value&#x3D;&quot;赵六&quot;&gt;&lt;&#x2F;entry&gt;</span><br><span class="line">        &lt;entry key&#x3D;&quot;c&quot; value&#x3D;&quot;钱七&quot;&gt;&lt;&#x2F;entry&gt;</span><br><span class="line">    &lt;&#x2F;map&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line">&lt;!--注入properties--&gt;</span><br><span class="line">&lt;property name&#x3D;&quot;properties&quot;&gt;</span><br><span class="line">    &lt;props&gt;</span><br><span class="line">        &lt;prop key&#x3D;&quot;a&quot;&gt;王五&lt;&#x2F;prop&gt;</span><br><span class="line">        &lt;prop key&#x3D;&quot;b&quot;&gt;赵六&lt;&#x2F;prop&gt;</span><br><span class="line">        &lt;prop key&#x3D;&quot;c&quot;&gt;钱七&lt;&#x2F;prop&gt;</span><br><span class="line">    &lt;&#x2F;props&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line">&lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
+<h3 id="2-JSON数据传递处理"><a href="#2-JSON数据传递处理" class="headerlink" title="2.JSON数据传递处理"></a>2.JSON数据传递处理</h3><ol>
+<li>在方法上加@ResponseBody，通过JSON.toJSONString()将数据转换为json格式</li>
+<li>解决json数据传递乱码问题：在@RequestMapping里面加  produces = {“application/json;charset=UTF-8”}</li>
+<li>解决json数据传递日期问题：在属性上加 @JSONField(format = “yyyy-MM-dd”)</li>
 </ol>
-<h3 id="2-使用注解实现IoC配置"><a href="#2-使用注解实现IoC配置" class="headerlink" title="2.使用注解实现IoC配置"></a>2.使用注解实现IoC配置</h3><ol>
-<li><p>在applicationContext.xml中配置创建容器需要扫描的包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&quot;</span><br><span class="line">       xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;</span><br><span class="line">       xmlns:context&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;context&quot;</span><br><span class="line">       xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans</span><br><span class="line">        http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&#x2F;spring-beans.xsd</span><br><span class="line">        http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;context</span><br><span class="line">        http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;context&#x2F;spring-context.xsd&quot;&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;!--告知spring在创建容器时需要扫描的包，配置所需要的标签不是在beans约束中，</span><br><span class="line">        而是一个名称为context名称空间和约束中--&gt;</span><br><span class="line">    &lt;context:component-scan base-package&#x3D;&quot;com.accp&quot;&gt;&lt;&#x2F;context:component-scan&gt;</span><br><span class="line">&lt;&#x2F;beans&gt;</span><br></pre></td></tr></table></figure>
-
+<h3 id="3-SpringMVC文件上传"><a href="#3-SpringMVC文件上传" class="headerlink" title="3.SpringMVC文件上传"></a>3.SpringMVC文件上传</h3><ol>
+<li><p>导入maven坐标</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;commons-fileupload&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;commons-fileupload&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.3.2&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>springmvc.xml配置CommonsMultipartResolver</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id&#x3D;&quot;multipartResolver&quot;</span><br><span class="line">class&#x3D;&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;&gt;</span><br><span class="line">    &lt;!--上传文件的最大大小，单位为字节 --&gt; </span><br><span class="line">    &lt;property name&#x3D;&quot;maxUploadSize&quot; value&#x3D;&quot;17367648787&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">    &lt;!-- 上传文件的编码 --&gt;</span><br><span class="line">    &lt;property name&#x3D;&quot;defaultEncoding&quot; value&#x3D;&quot;UTF-8&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">&lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置前端jsp页面：input的type设置为file，from表单的enctype设置为multipart/form-data</p>
+</li>
+<li><p>Controller层使用MultipartFile对象作为参数，接收前端发送过来的文件，将文件写入本地文件中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;&#x2F;uploadFile&quot;)</span><br><span class="line">public String uploadFile(@RequestParam(&quot;file&quot;) MultipartFile file, HttpServletRequest req)</span><br><span class="line">        throws IllegalStateException, IOException &#123;</span><br><span class="line">    &#x2F;&#x2F; 判断文件是否为空，空则返回失败页面</span><br><span class="line">    if (file.isEmpty()) &#123;</span><br><span class="line">        return &quot;失败页面&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F; 获取文件存储路径（绝对路径）</span><br><span class="line">    String path &#x3D; req.getSession().getServletContext().getRealPath(&quot;&#x2F;WEB-INF&#x2F;file&quot;);</span><br><span class="line">    &#x2F;&#x2F; 获取原文件名</span><br><span class="line">    String fileName &#x3D; file.getOriginalFilename();</span><br><span class="line">    &#x2F;&#x2F; 创建文件实例</span><br><span class="line">    File filePath &#x3D; new File(path, fileName);</span><br><span class="line">    &#x2F;&#x2F; 如果文件目录不存在，创建目录</span><br><span class="line">    if (!filePath.getParentFile().exists()) &#123;</span><br><span class="line">        filePath.getParentFile().mkdirs();</span><br><span class="line">        System.out.println(&quot;创建目录&quot; + filePath);</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F; 写入文件</span><br><span class="line">    file.transferTo(filePath);</span><br><span class="line">    return &quot;成功页面&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<p>2.使用注解定义Bean</p>
-<ul>
-<li>@Component:，value用于指定bean的id，他的默认名称是当前类名，且首字母小写      </li>
-<li>@Controller:一般用于表现层     </li>
-<li>@Service:一般用于业务层 </li>
-<li>@Repository:一般用在持久层</li>
-</ul>
-<h3 id="3-使用注解实现Bean组件装配"><a href="#3-使用注解实现Bean组件装配" class="headerlink" title="3.使用注解实现Bean组件装配"></a>3.使用注解实现Bean组件装配</h3><h4 id="3-1-用于注入数据的"><a href="#3-1-用于注入数据的" class="headerlink" title="3.1.用于注入数据的"></a>3.1.用于注入数据的</h4><ul>
-<li><p>@Autowired:作用：自动按照类型注入。只要容器中有唯一的一个bean对象类型和要注入的变量类型匹配，就可以注入成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">private accountDao accountDao;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>@Qualifier(“Str”):作用:在按照类中注入的基础之上再按照名称注入，它在给类成员注入时不能单独使用（和Autowired组合在一起），但是在给方法参数注入时可以使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">@Qualifier(&quot;accountDao&quot;)</span><br><span class="line">private accountDao accountDao;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>@Resource(name = “Str”)：作用:直接按照bean的id注入，可以独立使用<br>属性:value用于指定bean的id</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Resource(name &#x3D; &quot;accountDao&quot;)</span><br><span class="line">private accountDao accountDao;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>@value:作用:用于注入基本数据类型和string类型数据<br>属性:value用于指定数据的值，它可以使用spring中的SpEl（spring的EL表达式）<br>SpEl写法:${表达式}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Value(&quot;$&#123;jdbc.driver&#125;&quot;)</span><br><span class="line">private String driver;</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<h4 id="3-2-用于改变作用范围"><a href="#3-2-用于改变作用范围" class="headerlink" title="3.2.用于改变作用范围"></a>3.2.用于改变作用范围</h4><ul>
-<li><p>@Scope:作用:用于指定bean的作用范围</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Scope(&quot;singleton&quot;)</span><br><span class="line">public class accountServiceImpl&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="3-3-和生命周期相关的"><a href="#3-3-和生命周期相关的" class="headerlink" title="3.3.和生命周期相关的"></a>3.3.和生命周期相关的</h4><ul>
-<li><p>@PostConstruct:用于指定初始化方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@PostConstruct</span><br><span class="line">public void init()&#123;</span><br><span class="line">    System.out.println(&quot;初始化&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>@PreDestroy:用于指定销毁方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@PreDestroy</span><br><span class="line">public void destroy()&#123;</span><br><span class="line">    System.out.println(&quot;销毁&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="3-4-spring中的新注解"><a href="#3-4-spring中的新注解" class="headerlink" title="3.4.spring中的新注解"></a>3.4.spring中的新注解</h4><ul>
-<li><p>@Configuration:指定当前类是一个配置类</p>
-<p> 细节:当配置类作为AnnotationConfigApplicationContext对象创建的参数时该注解可以不写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">public class SpringConfiguration &#123;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>@ComponentScan:通过注解指定spring在创建容器时要扫描的包</p>
-<p>使用此注解相当于在xml中配置了:&lt;context:component-scan base-package=”com.accp”/&gt;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@ComponentScan(basePackages &#x3D; &quot;com.accp&quot;)</span><br><span class="line">public class SpringConfiguration &#123;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>@PropertySource:用于指定PropertySource文件的位置属性:</p>
-<p> value指定文件的名称和路径，classPath指的是当前文件的类路径 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@ComponentScan(basePackages &#x3D; &quot;com.accp&quot;)</span><br><span class="line">@PropertySource(&quot;classpath:jdbc.properties&quot;)</span><br><span class="line">public class SpringConfiguration &#123;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>@Bean:用于把当前方法的返回值作为bean对象存入IOC容器中</p>
-<p>属性:name用于指定bean的id，默认值是当前方法的名称</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Bean(name &#x3D; &quot;dataSource&quot;)</span><br><span class="line">public DataSource createDataSource() &#123;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>@Import(Class):用于导入其他配置类</p>
-</li>
-</ul>
-<h3 id="4-使用注解标注AOP切面"><a href="#4-使用注解标注AOP切面" class="headerlink" title="4.使用注解标注AOP切面"></a>4.使用注解标注AOP切面</h3><ol>
-<li>@Aspect ：表示当前类是一个切面类</li>
-</ol>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Aspect</span><br><span class="line">public class Logger  &#123;&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="2">
-<li>@Pointcut：</li>
-</ol>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Pointcut(&quot;execution(* com.accp.service.impl.*.*(..))&quot;)</span><br><span class="line">private void pt1()&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="3">
-<li>@Before：前置通知</li>
-</ol>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Before(&quot;pt1()&quot;)</span><br><span class="line">public void prLogger()&#123;</span><br><span class="line">    System.out.println(&quot;前置prLogger日志开始工作&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="4">
-<li>@AfterReturning：后置通知</li>
-</ol>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@AfterReturning(&quot;pt1()&quot;)</span><br><span class="line">public void afterReturnPrLogger()&#123;</span><br><span class="line">    System.out.println(&quot;后置afterReturnPrLogger日志开始工作&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="5">
-<li>@AfterThrowing：异常通知</li>
-</ol>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@AfterThrowing(&quot;pt1()&quot;)</span><br><span class="line">public void afterThrowingPrLogger()&#123;</span><br><span class="line">    System.out.println(&quot;异常afterThrowingPrLogger日志开始工作&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="6">
-<li>@After：异常通知</li>
-</ol>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@After(&quot;pt1()&quot;)</span><br><span class="line">public void afterPrLogger()&#123;</span><br><span class="line">    System.out.println(&quot;最终afterPrLogger日志开始工作&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="7">
-<li>@Around：环绕通知</li>
-</ol>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@Around(&quot;pt1()&quot;)</span><br><span class="line">public Object aroundLogger(ProceedingJoinPoint pjp)&#123;</span><br><span class="line">    Object rtValue;</span><br><span class="line">    try &#123;</span><br><span class="line">        Object[] args&#x3D;pjp.getArgs();</span><br><span class="line">        System.out.println(&quot;前置aroundLogger日志开始工作&quot;);</span><br><span class="line">          &#x2F;&#x2F;proceed()方法相当于明确调用切入点方法。</span><br><span class="line">        rtValue&#x3D;pjp.proceed(args);</span><br><span class="line">        System.out.println(&quot;后置aroundLogger日志开始工作&quot;);</span><br><span class="line">        return rtValue;</span><br><span class="line">    &#125; catch (Throwable e) &#123;</span><br><span class="line">        System.out.println(&quot;异常aroundLogger日志开始工作&quot;);</span><br><span class="line">        throw new RuntimeException(e);</span><br><span class="line">    &#125;finally &#123;</span><br><span class="line">        System.out.println(&quot;最终aroundLogger日志开始工作&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -720,7 +608,7 @@
           </a>
         
         <p class="current">
-          2 / 13
+          2 / 15
         </p>
         
           <a class="next" rel="next" href="/Awangyue-cn.github.io/page/3/">

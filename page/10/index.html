@@ -460,7 +460,7 @@
         
           
   <h2 class="title">
-    <a href="/Awangyue-cn.github.io/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/">
+    <a href="/Awangyue-cn.github.io/2020/08/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90TK-MyBatis/">
       2020-08-15
     </a>
   </h2>
@@ -508,7 +508,7 @@
     <a class='notlink'>
       <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
       
-      <span id="/Awangyue-cn.github.io/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/" class="leancloud_visitors" data-flag-title="">
+      <span id="/Awangyue-cn.github.io/2020/08/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90TK-MyBatis/" class="leancloud_visitors" data-flag-title="">
       <p>
         <span class="leancloud-visitors-count"></span>
       </p>
@@ -523,9 +523,9 @@
               
 <div class="new-meta-item comments-count">
   
-  <a href="/Awangyue-cn.github.io/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/#comments">
+  <a href="/Awangyue-cn.github.io/2020/08/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90TK-MyBatis/#comments">
     <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/Awangyue-cn.github.io/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/">0</span>
+    <span class="valine-comment-count" data-xid="/Awangyue-cn.github.io/2020/08/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90TK-MyBatis/">0</span>
     <span class="leancloud-comments-count">&nbsp;</span>
   </a>
 </div>
@@ -550,55 +550,169 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: Spring框架—Spring核心概念</span><br><span class="line">date: 2020-06-1 08:11:17</span><br><span class="line">tags:Spring</span><br></pre></td></tr></table></figure>
+        <h1 id="SpringBoot框架—SpringBoot集成TK-MyBatis"><a href="#SpringBoot框架—SpringBoot集成TK-MyBatis" class="headerlink" title="SpringBoot框架—SpringBoot集成TK_MyBatis"></a>SpringBoot框架—SpringBoot集成TK_MyBatis</h1><h3 id="1-搭建Tk-MyBatis环境"><a href="#1-搭建Tk-MyBatis环境" class="headerlink" title="1.搭建Tk_MyBatis环境"></a>1.搭建Tk_MyBatis环境</h3><ol>
+<li><p>在pom.xml导入坐标</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;tk.mybatis&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mapper-spring-boot-starter&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.3-beta1&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;tk.mybatis&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mapper&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;4.0.0&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="1-SpringIOC控制反转"><a href="#1-SpringIOC控制反转" class="headerlink" title="1.SpringIOC控制反转"></a>1.SpringIOC控制反转</h3><p>​        控制反转（Inversion of Cpntrol IoC），也被称为依赖注入，是面向对象编程的中的一种设计理念，用来降低程序代码之间的耦合</p>
-<h3 id="2-创建Spring项目"><a href="#2-创建Spring项目" class="headerlink" title="2.创建Spring项目"></a>2.创建Spring项目</h3><ol>
-<li><p>在pom.xml中导入spring依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> &lt;properties&gt;</span><br><span class="line">    &lt;!-- spring版本号 --&gt;</span><br><span class="line">    &lt;spring.version&gt;4.3.6.RELEASE&lt;&#x2F;spring.version&gt;</span><br><span class="line">&lt;&#x2F;properties&gt;</span><br><span class="line">    &lt;!--Spring相关依赖--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-core&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-beans&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-context&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建applicationContext.xml配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">    &lt;beans xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&quot;</span><br><span class="line">           xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;</span><br><span class="line">           xmlns:aop&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;aop&quot;</span><br><span class="line">           xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans</span><br><span class="line">       http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&#x2F;spring-beans.xsd</span><br><span class="line">       http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;aop</span><br><span class="line">       http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;aop&#x2F;spring-aop.xsd&quot;&gt;</span><br><span class="line">   &lt;&#x2F;beans&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把对象创建交给spring管理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id&#x3D;&quot;accountService&quot; class&#x3D;&quot;com.accp.service.impl.AccountServiceImpl&quot;&gt;&lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建测试类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;1.获取核心容器对象</span><br><span class="line">ClassPathXmlApplicationContext ac&#x3D;new ClassPathXmlApplicationContext(&quot;bean.xml&quot;);</span><br><span class="line">&#x2F;&#x2F;2.根据id获取bean对象</span><br><span class="line">AccountService as &#x3D;ac.getBean(&quot;accountService&quot;,AccountService.class);</span><br><span class="line">&#x2F;&#x2F;3.根据对象调取方法</span><br><span class="line">as.saveAccount();</span><br><span class="line">&#x2F;&#x2F;4.关闭核心容器对象</span><br><span class="line">ac.close();</span><br></pre></td></tr></table></figure>
+
 
 </li>
 </ol>
-<h3 id="3-SpringAOP面向切面编程"><a href="#3-SpringAOP面向切面编程" class="headerlink" title="3.SpringAOP面向切面编程"></a>3.SpringAOP面向切面编程</h3><p>​            面向切面编程是软件编程思想发展到一定阶段的掺入，是面向对象编程的有益补充。AOP一般适用于具有横切逻辑的场合，如访问控制、事务管理、性能监测等。</p>
-<h3 id="4-在applicationContext-xml中配置AOP切面"><a href="#4-在applicationContext-xml中配置AOP切面" class="headerlink" title="4.在applicationContext.xml中配置AOP切面"></a>4.在applicationContext.xml中配置AOP切面</h3><ol>
-<li>把通知Bean也交给spring来管理</li>
-<li>使用aop:config标签表明开始配置AOP</li>
-<li>使用aop:aspect标签表明配置切面</li>
-<li>在aop:aspect内部使用对应标签来配置通知类型</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--配置Logger类--&gt;</span><br><span class="line">&lt;bean id&#x3D;&quot;logger&quot; class&#x3D;&quot;com.accp.utils.Logger&quot;&gt;&lt;&#x2F;bean&gt;</span><br><span class="line">&lt;aop:config&gt;</span><br><span class="line">     &lt;!--配置切入点表达式  id表示指定表达式的唯一标识   expression属性用于指定表达式内容</span><br><span class="line">         此标签写在aop:aspect标签内部只能当前切面使用</span><br><span class="line">         它还可以写在aop:aspect外面，此时变为所有切面可以用。注意必须写在aop:aspect前面</span><br><span class="line">     --&gt;</span><br><span class="line">    &lt;aop:pointcut id&#x3D;&quot;proxy&quot; expression&#x3D;&quot;execution(* com.accp.service.*.*(..))&quot;&#x2F;&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;aop:aspect id&#x3D;&quot;logAdvice&quot; ref&#x3D;&quot;logger&quot;&gt;</span><br><span class="line">        &lt;!--配置前置通知  在切入点方法之前执行--&gt;</span><br><span class="line">        &lt;aop:before method&#x3D;&quot;prLogger&quot; pointcut-ref&#x3D;&quot;proxy&quot;&gt;&lt;&#x2F;aop:before&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;!--配置后置通知  在切入点方法正常执行之后执行--&gt;</span><br><span class="line">        &lt;aop:after-returning method&#x3D;&quot;afterReturnPrLogger&quot; pointcut-ref&#x3D;&quot;proxy&quot;&gt;&lt;&#x2F;aop:after-returning&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;!--配置异常通知  在切入点方法产生异常之后执行--&gt;</span><br><span class="line">        &lt;aop:after-throwing method&#x3D;&quot;afterThrowingPrLogger&quot; pointcut-ref&#x3D;&quot;proxy&quot;&gt;&lt;&#x2F;aop:after-throwing&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;!--配置最终通知  无论切入点是否正常都会执行--&gt;</span><br><span class="line">        &lt;aop:after method&#x3D;&quot;afterPrLogger&quot; pointcut-ref&#x3D;&quot;proxy&quot;&gt;&lt;&#x2F;aop:after&gt;</span><br><span class="line">    &lt;&#x2F;aop:aspect&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-配置AOP环绕通知"><a href="#5-配置AOP环绕通知" class="headerlink" title="5.配置AOP环绕通知"></a>5.配置AOP环绕通知</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--配置环绕通知--&gt;</span><br><span class="line">&lt;aop:around method&#x3D;&quot;aroundLogger&quot; pointcut-ref&#x3D;&quot;proxy&quot;&gt;&lt;&#x2F;aop:around&gt;</span><br><span class="line"> if (&quot;&quot;.equals(username) &amp;&amp; &quot;&quot;.equals(pwd)) &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        pp.proceed();</span><br><span class="line">    &#125; catch (Throwable throwable) &#123;</span><br><span class="line">        throw new RuntimeException(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    System.out.println(&quot;用户名或密码错误&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​        spring框架为我们提供一个接口：该接口中有一个方法proceed()此方法相当于明确调用切入点方法。该方法可以作环绕通知方法的参数，在程序执行时，spring框架会为我们提供该接口的实现类供我们使用</p>
-<h3 id="6-bean标签的作用范围"><a href="#6-bean标签的作用范围" class="headerlink" title="6.bean标签的作用范围"></a>6.bean标签的作用范围</h3><ol>
-<li>singleton：单例的（默认值）</li>
-<li>prototype：多例的</li>
-<li>request：用于web应用的请求范围</li>
-<li>session：用于web应用的会话范围</li>
-<li>global_session：作用于web应用的集群范围（全局会话范围），当不是集群范围的时候他就是session</li>
-</ol>
-<h3 id="7-bean对象的的生命周期"><a href="#7-bean对象的的生命周期" class="headerlink" title="7.bean对象的的生命周期"></a>7.bean对象的的生命周期</h3><ol>
-<li><p>单例对象：出生：当容器创建时就一直活着</p>
-<p>​                  活着：只要容器还在就一直活着</p>
-<p>​                  死亡：容器销毁，对象死亡</p>
-<p>​                  总结：单例对象的生命周期和容器相同</p>
+<ol start="2">
+<li><p>更改实体类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">@Data</span><br><span class="line">@Table(name &#x3D; &quot;smbms_user&quot;)</span><br><span class="line">public class User implements Serializable &#123;</span><br><span class="line"></span><br><span class="line">    @Id</span><br><span class="line">    @GeneratedValue(strategy &#x3D; GenerationType.IDENTITY,generator &#x3D; &quot;JDBC&quot;)</span><br><span class="line">    private Integer id;</span><br><span class="line"></span><br><span class="line">    @Column(name &#x3D; &quot;userCode&quot;)</span><br><span class="line">    private String userCode;</span><br><span class="line"></span><br><span class="line">    @Column(name &#x3D; &quot;userName&quot;)</span><br><span class="line">    private String userName;</span><br><span class="line"></span><br><span class="line">    @Column(name &#x3D; &quot;userPassword&quot;)</span><br><span class="line">    private String userPassword;</span><br><span class="line"></span><br><span class="line">    @Column(name &#x3D; &quot;birthday&quot;)</span><br><span class="line">    private Date birthday;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>多例对象：出生：当我们使用对象时spring框架为我们创建</p>
-<p>​                  活着：对象在使用过程中就就一直活着</p>
-<p>​                  死亡：当对象长时间不使用或者没有其他对象应用是，有java的垃圾回收机制回收</p>
+<li><p>继承Mapper&lt;&gt;类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public interface BaseMapper extends Mapper&lt;User&gt;&#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可能需要在application.yml中写的配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mybatis:</span><br><span class="line">  type-aliases-package: com.accp.pojo</span><br><span class="line">  mapper-locations: classpath:xml&#x2F;mapper&#x2F;*.xml</span><br><span class="line">  configuration:</span><br><span class="line">    map-underscore-to-camel-case: true</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
-
+<h3 id="2-TK-MyBatis中的方法详解"><a href="#2-TK-MyBatis中的方法详解" class="headerlink" title="2.TK_MyBatis中的方法详解"></a>2.TK_MyBatis中的方法详解</h3><ol>
+<li><p>INSERT方法</p>
+<table>
+<thead>
+<tr>
+<th align="left">方法名及返回类型</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">int insert(Object record)</td>
+<td align="left">保存一个实体，null的属性也会保存，不会使用数据库默认值</td>
+</tr>
+<tr>
+<td align="left">int insertSelective(Object record)</td>
+<td align="left">保存一个实体，null的属性不会保存，会使用数据库默认值</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>DELETE方法</p>
+<table>
+<thead>
+<tr>
+<th align="left">方法名及返回类型</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">int delete(Object record)</td>
+<td align="left">根据实体属性作为条件进行删除，查询条件使用等号</td>
+</tr>
+<tr>
+<td align="left">int deleteByPrimaryKey(Object key)</td>
+<td align="left">根据主键字段进行删除，方法参数必须包含完整的主键属性</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>UPDATE方法</p>
+<table>
+<thead>
+<tr>
+<th align="left">方法名及返回类型</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">int updateByPrimaryKey(Object record)</td>
+<td align="left">根据主键更新实体全部字段，null值会被更新</td>
+</tr>
+<tr>
+<td align="left">int updateByPrimaryKeySelective(Object record)</td>
+<td align="left">根据主键更新属性不为null的值</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>SELECT方法</p>
+<table>
+<thead>
+<tr>
+<th align="left">方法名及返回类型</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">List select(Object record)</td>
+<td align="left">根据实体中的属性值进行查询，查询条件使用等号</td>
+</tr>
+<tr>
+<td align="left">List selectAll()</td>
+<td align="left">查询全部结果，select(null)方法能达到同样的效果</td>
+</tr>
+<tr>
+<td align="left">int selectCount(Object record)</td>
+<td align="left">根据实体中的属性查询总数，查询条件使用等号</td>
+</tr>
+<tr>
+<td align="left">Object selectOne(Object record)</td>
+<td align="left">根据实体中的属性进行查询，只能有一个返回值，有多个结果是抛出异常，查询条件使用等号</td>
+</tr>
+<tr>
+<td align="left">Object selectByPrimaryKey(Object key)</td>
+<td align="left">根据主键字段进行查询，方法参数必须包含完整的主键属性，查询条件使用等号</td>
+</tr>
+<tr>
+<td align="left">boolean existsWithPrimaryKey(Object key)</td>
+<td align="left">通过主键查询此主键是否存在</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>Examle条件方法</p>
+<table>
+<thead>
+<tr>
+<th align="left">方法名及返回类型</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">int deleteByExample(Object example)</td>
+<td align="left">根据Example条件删除数据</td>
+</tr>
+<tr>
+<td align="left">int updateByExample(Object record, Object example)</td>
+<td align="left">根据Example条件更新实体record包含的全部属性，null值会被更新</td>
+</tr>
+<tr>
+<td align="left">int updateByExampleSelective(Object record, Object example)</td>
+<td align="left">根据Example条件更新实体record包含的不是null的属性值</td>
+</tr>
+<tr>
+<td align="left">List selectByExample(Object example)</td>
+<td align="left">根据Example条件进行查询</td>
+</tr>
+<tr>
+<td align="left">Object selectOneByExample(Object example)</td>
+<td align="left">根据Example条件进行查询，若有多条数据则抛出异常</td>
+</tr>
+<tr>
+<td align="left">int selectCountByExample(Object example)</td>
+<td align="left">根据Example条件进行查询总数</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>分页的方法</p>
+<table>
+<thead>
+<tr>
+<th align="left">方法名及返回类型</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">List selectByRowBounds(Object record, RowBounds rowBounds)</td>
+<td align="left">根据实体属性和RowBounds进行分页查询</td>
+</tr>
+<tr>
+<td align="left">List selectByExampleAndRowBounds(Object example, RowBounds rowBounds)</td>
+<td align="left">根据example条件和RowBounds进行分页查询</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h3 id="3-TK-MyBatis中的方法示例"><a href="#3-TK-MyBatis中的方法示例" class="headerlink" title="3.TK_MyBatis中的方法示例"></a>3.TK_MyBatis中的方法示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class BillServiceImpl implements BillService &#123;</span><br><span class="line"></span><br><span class="line">    @Resource</span><br><span class="line">    private BillMapper billMapper;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public List&lt;Bill&gt; findBill() &#123;</span><br><span class="line">        return billMapper.selectAll();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Bill findBillById(Integer id) &#123;</span><br><span class="line">        return billMapper.selectByPrimaryKey(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">      &#x2F;** </span><br><span class="line">    * @Description: TK_Mybatis根据条件模糊查询 </span><br><span class="line">    * @Param: [productName] </span><br><span class="line">    * @return: List&lt;Bill&gt; </span><br><span class="line">    * @Author: Mr.Du</span><br><span class="line">    *&#x2F; </span><br><span class="line">    @Override</span><br><span class="line">    public List&lt;Bill&gt; findBillExample(String productName) &#123;</span><br><span class="line">        Example example &#x3D; new Example(Bill.class);</span><br><span class="line">        example.createCriteria()</span><br><span class="line">                .andLike(&quot;productName&quot;,&#39;%&#39;+productName+&#39;%&#39;);</span><br><span class="line">        return billMapper.selectByExample(example);</span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">      &#x2F;** </span><br><span class="line">    * @Description: TK_Mybatis根据条件模糊查询 </span><br><span class="line">    * @Param: [productName,productDesc] </span><br><span class="line">    * @return: List&lt;Bill&gt; </span><br><span class="line">    * @Author: Mr.Du</span><br><span class="line">    *&#x2F; </span><br><span class="line">    @Override</span><br><span class="line">    public List&lt;Bill&gt; selectBillExample(String productName,String productDesc) &#123;</span><br><span class="line">        Example example &#x3D; new Example(Bill.class);</span><br><span class="line">        example.createCriteria()</span><br><span class="line">                .andEqualTo(&quot;productName&quot;,productName)</span><br><span class="line">                .andEqualTo(&quot;productDesc&quot;,productDesc);</span><br><span class="line">        return billMapper.selectByExample(example);</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -624,7 +738,7 @@
           </a>
         
         <p class="current">
-          10 / 13
+          10 / 15
         </p>
         
           <a class="next" rel="next" href="/Awangyue-cn.github.io/page/11/">
