@@ -551,7 +551,7 @@
       
         <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: 设计模式—代理模式</span><br><span class="line">date: 2020-06-28 13:26:17</span><br><span class="line">tags:设计模式</span><br></pre></td></tr></table></figure>
 
-<p>代理模式是为某个对象提供一个代理对象，并由代理对象控制对原对象的访问，就像我们生活中的中介。</p>
+<h2 id="设计模式—代理模式"><a href="#设计模式—代理模式" class="headerlink" title="设计模式—代理模式"></a>设计模式—代理模式</h2><p>代理模式是为某个对象提供一个代理对象，并由代理对象控制对原对象的访问，就像我们生活中的中介。</p>
 <p>例如我要结婚，但是结婚是一件很麻烦的事情，需要安排很多事情，我并不想去准备这些繁琐的事情，只想和心爱的人结婚，其他的事情我还可以出钱交给婚庆公司去准备，婚庆公司为我们安排一整套流程。婚庆公司就相当于我们的代理角色</p>
 <h3 id="1-静态代理"><a href="#1-静态代理" class="headerlink" title="1.静态代理"></a>1.静态代理</h3><blockquote>
 <p>由程序员创建或特定工具自动生成源代码，再对其进行编译。<strong>在程序运行之前，代理类.class文件就已经被创建</strong>，代理类和委托类的关系在运行前就确定</p>
@@ -874,7 +874,7 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-SQL映射文件的几个顶级元素配置"><a href="#1-SQL映射文件的几个顶级元素配置" class="headerlink" title="1.SQL映射文件的几个顶级元素配置"></a>1.SQL映射文件的几个顶级元素配置</h3><ol>
+        <h1 id="Mybatis框架—SQL映射文件"><a href="#Mybatis框架—SQL映射文件" class="headerlink" title="Mybatis框架—SQL映射文件"></a>Mybatis框架—SQL映射文件</h1><h3 id="1-SQL映射文件的几个顶级元素配置"><a href="#1-SQL映射文件的几个顶级元素配置" class="headerlink" title="1.SQL映射文件的几个顶级元素配置"></a>1.SQL映射文件的几个顶级元素配置</h3><ol>
 <li><p>mapper：映射文件的根元素节点，只有一个namespace属性，其作用是用于区分不同的mapper；绑定DAO接口，即面向接口编程，当namespace绑定某一接口后，可以不用写该接口的实现类，mybatis会通过接口的完整限定类名查找到对应的mapper配置来执行SQL语句。因此namespace的命名必须要跟接口同名</p>
 </li>
 <li><p>cache：配置给定命名空间的缓存</p>
