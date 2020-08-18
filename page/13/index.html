@@ -5,6 +5,10 @@
   <!-- SEO相关 -->
   
     
+      
+        <meta name="robots" content="noindex,follow">
+      
+    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -93,7 +97,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover post' style="display: none;">
+    <cover class='cover ' style="display: none;">
       <div class='cover-body'>
   <div class='a'>
     
@@ -107,32 +111,32 @@
       <div class='list-h'>
         
           
-            <a href="/Awangyue-cn.github.io/v3/getting-started/"
+            <a target="_blank" rel="noopener" href="https://volantis.js.org/v3/getting-started/"
               
               
-              id="Awangyue-cngithubiov3getting-started">
+              id="https:volantisjsorgv3getting-started">
               <i class='fas fa-book fa-fw'></i><p>文档</p>
             </a>
           
-            <a href="/Awangyue-cn.github.io/faqs/"
+            <a target="_blank" rel="noopener" href="https://volantis.js.org/faqs/"
               
               
-              id="Awangyue-cngithubiofaqs">
-              <i class='fas fa-folder-open fa-fw'></i><p>分类</p>
+              id="https:volantisjsorgfaqs">
+              <i class='fas fa-question-circle fa-fw'></i><p>帮助</p>
             </a>
           
-            <a href="/Awangyue-cn.github.io/examples/"
+            <a target="_blank" rel="noopener" href="https://volantis.js.org/examples/"
               
               
-              id="Awangyue-cngithubioexamples">
-              <i class='fas fa-tags fa-fw'></i><p>标签</p>
+              id="https:volantisjsorgexamples">
+              <i class='fas fa-play-circle fa-fw'></i><p>示例</p>
             </a>
           
-            <a href="/Awangyue-cn.github.io/contributors/"
+            <a target="_blank" rel="noopener" href="https://volantis.js.org/contributors/"
               
               
-              id="Awangyue-cngithubiocontributors">
-              <i class='fas fa-fan fa-spin fa-fw'></i><p>关于</p>
+              id="https:volantisjsorgcontributors">
+              <i class='fas fa-fan fa-spin fa-fw'></i><p>社区</p>
             </a>
           
         
@@ -438,10 +442,14 @@
 
 <div class='l_main'>
   
-
-  
-    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+  <section class="post-list ">
+    
+    
       
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal no-title">
+  
 
 
   <section class='meta'>
@@ -451,11 +459,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h1 class="title">
-    <a href="/Awangyue-cn.github.io/2020/08/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90TK_MyBatis/">
+  <h2 class="title">
+    <a href="/Awangyue-cn.github.io/2020/08/15/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94SQL%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/">
       2020-08-15
     </a>
-  </h1>
+  </h2>
 
 
         
@@ -494,6 +502,42 @@
 
             
           
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/Awangyue-cn.github.io/2020/08/15/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94SQL%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/" class="leancloud_visitors" data-flag-title="">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+<div class="new-meta-item comments-count">
+  
+  <a href="/Awangyue-cn.github.io/2020/08/15/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94SQL%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/Awangyue-cn.github.io/2020/08/15/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94SQL%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+            
+          
+            
+              
+
+            
+          
         </div>
         
           <hr>
@@ -503,212 +547,217 @@
   </section>
 
 
-      <section class="article typo">
-        <div class="article-entry" itemprop="articleBody">
-          
-          
-          <h3 id="1-搭建Tk-MyBatis环境"><a href="#1-搭建Tk-MyBatis环境" class="headerlink" title="1.搭建Tk_MyBatis环境"></a>1.搭建Tk_MyBatis环境</h3><ol>
-<li><p>在pom.xml导入坐标</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;tk.mybatis&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mapper-spring-boot-starter&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.3-beta1&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;tk.mybatis&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mapper&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;4.0.0&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
-
-
-
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-SQL映射文件的几个顶级元素配置"><a href="#1-SQL映射文件的几个顶级元素配置" class="headerlink" title="1.SQL映射文件的几个顶级元素配置"></a>1.SQL映射文件的几个顶级元素配置</h3><ol>
+<li><p>mapper：映射文件的根元素节点，只有一个namespace属性，其作用是用于区分不同的mapper；绑定DAO接口，即面向接口编程，当namespace绑定某一接口后，可以不用写该接口的实现类，mybatis会通过接口的完整限定类名查找到对应的mapper配置来执行SQL语句。因此namespace的命名必须要跟接口同名</p>
+</li>
+<li><p>cache：配置给定命名空间的缓存</p>
+</li>
+<li><p>acahe-ref：从其他命名空间引用缓存配置</p>
+</li>
+<li><p>resultMap：用来描述数据库结果集和对象的对应关系</p>
+</li>
+<li><p>sql：可重用的SQL块，也可以被其他语句引用</p>
 </li>
 </ol>
-<ol start="2">
-<li><p>更改实体类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">@Data</span><br><span class="line">@Table(name &#x3D; &quot;smbms_user&quot;)</span><br><span class="line">public class User implements Serializable &#123;</span><br><span class="line"></span><br><span class="line">    @Id</span><br><span class="line">    @GeneratedValue(strategy &#x3D; GenerationType.IDENTITY,generator &#x3D; &quot;JDBC&quot;)</span><br><span class="line">    private Integer id;</span><br><span class="line"></span><br><span class="line">    @Column(name &#x3D; &quot;userCode&quot;)</span><br><span class="line">    private String userCode;</span><br><span class="line"></span><br><span class="line">    @Column(name &#x3D; &quot;userName&quot;)</span><br><span class="line">    private String userName;</span><br><span class="line"></span><br><span class="line">    @Column(name &#x3D; &quot;userPassword&quot;)</span><br><span class="line">    private String userPassword;</span><br><span class="line"></span><br><span class="line">    @Column(name &#x3D; &quot;birthday&quot;)</span><br><span class="line">    private Date birthday;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>继承Mapper&lt;&gt;类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public interface BaseMapper extends Mapper&lt;User&gt;&#123;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>可能需要在application.yml中写的配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mybatis:</span><br><span class="line">  type-aliases-package: com.accp.pojo</span><br><span class="line">  mapper-locations: classpath:xml&#x2F;mapper&#x2F;*.xml</span><br><span class="line">  configuration:</span><br><span class="line">    map-underscore-to-camel-case: true</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>insert：映射插入语句</li>
+</ol>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;insert id&#x3D;&quot;insertProvider&quot; parameterType&#x3D;&quot;com.accp.pojo.provider&quot;&gt;</span><br><span class="line">    INSERT INTO &#96;smbms_provider&#96; (proCode,proName,proDesc)</span><br><span class="line">    VALUES (#&#123;proCode&#125;, #&#123;proName&#125;,#&#123;proDesc&#125;)</span><br><span class="line">&lt;&#x2F;insert&gt;</span><br></pre></td></tr></table></figure>
 
+
+
+<ol start="7">
+<li>update：映射更新语句</li>
+</ol>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;update id&#x3D;&quot;updateProvider&quot; parameterType&#x3D;&quot;com.accp.pojo.provider&quot;&gt;</span><br><span class="line">    UPDATE &#96;smbms_provider&#96; SET modifyDate&#x3D;#&#123;modifyDate&#125;,modifyBy&#x3D;#&#123;modifyBy&#125; WHERE id&#x3D;#&#123;id&#125;</span><br><span class="line">&lt;&#x2F;update&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="8">
+<li>delete：映射删除语句</li>
+</ol>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;delete id&#x3D;&quot;deleteById&quot; parameterType&#x3D;&quot;com.accp.pojo.provider&quot;&gt;</span><br><span class="line">    DELETE FROM &#96;smbms_provider&#96; WHERE id&#x3D;#&#123;id&#125;</span><br><span class="line">&lt;&#x2F;delete&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="9">
+<li>select：映射查询语句</li>
+</ol>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id&#x3D;&quot;selectBill&quot; resultType&#x3D;&quot;com.accp.pojo.bill&quot;&gt;</span><br><span class="line">     SELECT b.*,p.*</span><br><span class="line">     FROM smbms_bill b, smbms_provider p</span><br><span class="line">     WHERE b.providerId&#x3D;p.&#96;id&#96;</span><br><span class="line">     AND b.providerId&#x3D;#&#123;providerId&#125;</span><br><span class="line">     AND b.&#96;isPayment&#96;&#x3D;#&#123;isPayment&#125;</span><br><span class="line">     AND b.productName like CONCAT (&#39;%&#39;,#&#123;productName&#125;,&#39;%&#39;)</span><br><span class="line">&lt;&#x2F;select&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="10">
+<li></li>
+<li><h3 id="2-resultType和resultMap的关联和区别"><a href="#2-resultType和resultMap的关联和区别" class="headerlink" title="2.resultType和resultMap的关联和区别"></a>2.resultType和resultMap的关联和区别</h3></li>
+<li><ol>
+<li>resultType表示返回类型，包括是基础数据类型和复杂数据类型</li>
+<li>resultMap则是对应外部resultMap定义的引用，对应外部resultMap的id，表示返回结果映射到哪一个resultMap上</li>
+<li>resultType和resultMap的关联：                                                                                                                                           在mybatis进行查询映射时候，其实查询出来的每个字段值都放在一个对应的Map中，其中键名是字段名，值则是其对应的值。当select元素提供返回类型属性是resultType的时候，mybatis会将Map里面的键值对取出赋给resultType所指定对象的对应属性（既调用对象里属性的set方法进行填充）。                                                                                    当我们提供的返回类型是resultMap时候，因为Map不能很好的表示领域模型，所以就需要通过进一步的定义把它转化为对应的实体对象。                                                                                                                                                   resultType和resultMap本质上是一样的，都是Map数据结构，但是这两者只能二选一</li>
+<li>resultMap的自动映射级别：<ul>
+<li>NONE：禁止自动匹配</li>
+<li>PARTIAL：（默认）自动匹配所有属性，有内部嵌套（association、collection）的除外</li>
+<li>FULL：自动匹配所有</li>
+</ul>
 </li>
 </ol>
-<h3 id="2-TK-MyBatis中的方法详解"><a href="#2-TK-MyBatis中的方法详解" class="headerlink" title="2.TK_MyBatis中的方法详解"></a>2.TK_MyBatis中的方法详解</h3><ol>
-<li><p>INSERT方法</p>
-<table>
-<thead>
-<tr>
-<th align="left">方法名及返回类型</th>
-<th align="left">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">int insert(Object record)</td>
-<td align="left">保存一个实体，null的属性也会保存，不会使用数据库默认值</td>
-</tr>
-<tr>
-<td align="left">int insertSelective(Object record)</td>
-<td align="left">保存一个实体，null的属性不会保存，会使用数据库默认值</td>
-</tr>
-</tbody></table>
 </li>
-<li><p>DELETE方法</p>
-<table>
-<thead>
-<tr>
-<th align="left">方法名及返回类型</th>
-<th align="left">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">int delete(Object record)</td>
-<td align="left">根据实体属性作为条件进行删除，查询条件使用等号</td>
-</tr>
-<tr>
-<td align="left">int deleteByPrimaryKey(Object key)</td>
-<td align="left">根据主键字段进行删除，方法参数必须包含完整的主键属性</td>
-</tr>
-</tbody></table>
+<li><pre><code>&lt;settings&gt;
+    &lt;setting name=&quot;autoMappingBehavior&quot; value=&quot;NONE&quot;/&gt;
+&lt;/settings&gt;
+&lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14. ### 3.使用@Param注解实现多参数入参 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15. &amp;#96;&amp;#96;&amp;#96;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    int deleteById(@Param(&amp;quot;id&amp;quot;) int id);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;</code></pre>
 </li>
-<li><p>UPDATE方法</p>
-<table>
-<thead>
-<tr>
-<th align="left">方法名及返回类型</th>
-<th align="left">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">int updateByPrimaryKey(Object record)</td>
-<td align="left">根据主键更新实体全部字段，null值会被更新</td>
-</tr>
-<tr>
-<td align="left">int updateByPrimaryKeySelective(Object record)</td>
-<td align="left">根据主键更新属性不为null的值</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>SELECT方法</p>
-<table>
-<thead>
-<tr>
-<th align="left">方法名及返回类型</th>
-<th align="left">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">List select(Object record)</td>
-<td align="left">根据实体中的属性值进行查询，查询条件使用等号</td>
-</tr>
-<tr>
-<td align="left">List selectAll()</td>
-<td align="left">查询全部结果，select(null)方法能达到同样的效果</td>
-</tr>
-<tr>
-<td align="left">int selectCount(Object record)</td>
-<td align="left">根据实体中的属性查询总数，查询条件使用等号</td>
-</tr>
-<tr>
-<td align="left">Object selectOne(Object record)</td>
-<td align="left">根据实体中的属性进行查询，只能有一个返回值，有多个结果是抛出异常，查询条件使用等号</td>
-</tr>
-<tr>
-<td align="left">Object selectByPrimaryKey(Object key)</td>
-<td align="left">根据主键字段进行查询，方法参数必须包含完整的主键属性，查询条件使用等号</td>
-</tr>
-<tr>
-<td align="left">boolean existsWithPrimaryKey(Object key)</td>
-<td align="left">通过主键查询此主键是否存在</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>Examle条件方法</p>
-<table>
-<thead>
-<tr>
-<th align="left">方法名及返回类型</th>
-<th align="left">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">int deleteByExample(Object example)</td>
-<td align="left">根据Example条件删除数据</td>
-</tr>
-<tr>
-<td align="left">int updateByExample(Object record, Object example)</td>
-<td align="left">根据Example条件更新实体record包含的全部属性，null值会被更新</td>
-</tr>
-<tr>
-<td align="left">int updateByExampleSelective(Object record, Object example)</td>
-<td align="left">根据Example条件更新实体record包含的不是null的属性值</td>
-</tr>
-<tr>
-<td align="left">List selectByExample(Object example)</td>
-<td align="left">根据Example条件进行查询</td>
-</tr>
-<tr>
-<td align="left">Object selectOneByExample(Object example)</td>
-<td align="left">根据Example条件进行查询，若有多条数据则抛出异常</td>
-</tr>
-<tr>
-<td align="left">int selectCountByExample(Object example)</td>
-<td align="left">根据Example条件进行查询总数</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>分页的方法</p>
-<table>
-<thead>
-<tr>
-<th align="left">方法名及返回类型</th>
-<th align="left">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">List selectByRowBounds(Object record, RowBounds rowBounds)</td>
-<td align="left">根据实体属性和RowBounds进行分页查询</td>
-</tr>
-<tr>
-<td align="left">List selectByExampleAndRowBounds(Object example, RowBounds rowBounds)</td>
-<td align="left">根据example条件和RowBounds进行分页查询</td>
-</tr>
-</tbody></table>
+<li><pre><code>&lt;delete id=&quot;deleteById&quot; parameterType=&quot;com.accp.pojo.provider&quot;&gt;
+    DELETE FROM `smbms_provider` WHERE id=#&#123;id&#125;
+&lt;/delete&gt;
+&lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17. ### 4.使用resultMap实现高级结果映射 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18. 1. resultMap基本配置项&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       1.1.resultMap属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       - id：resultMap的唯一标识&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       - type：表示该resultMap的映射结果类型（通常是java实体类）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       1.2.resultMap子节点属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       - id：一般对应数据库中该行的主键id，设置此项可以提升mybatis性能&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       - result：映射到JavaBean的某个“简单类型”属性，如基础类型、包装类&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+   &lt;resultMap type=&quot;com.accp.pojo.user&quot; id=&quot;userMap&quot;&gt;
+       &lt;id property=&quot;id&quot; column=&quot;id&quot;&gt;&lt;/id&gt;
+       &lt;result property=&quot;userCode&quot; column=&quot;userCode&quot;/&gt;
+       &lt;result property=&quot;userName&quot; column=&quot;userName&quot;/&gt;
+       &lt;result property=&quot;userPassword&quot; column=&quot;userPassword&quot;/&gt;
+   &lt;/resultMap&gt;
+   &lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2. association&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   2.1.association属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - JavaType：完整地java类名或别名，若映射到JavaBean，则mybatis通常会自动检测到其类型；若映射到一个HashMap，则应明确指定JavaType，来确保所需行为。此处为com.accp.pojo.role&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - property：映射数据库列的实体对象的属性，此处为在user里面定义的role属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   2.2.association子节点属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - id&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - result&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     - property：映射数据库列的实体对象的属性。此处为role属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     - column：数据库列名或别名&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+    &lt;resultMap type=&quot;com.accp.pojo.user&quot; id=&quot;userMap&quot;&gt;
+       &lt;id property=&quot;id&quot; column=&quot;id&quot;&gt;&lt;/id&gt;
+       &lt;result property=&quot;userCode&quot; column=&quot;userCode&quot;/&gt;
+       &lt;result property=&quot;userName&quot; column=&quot;userName&quot;/&gt;
+       &lt;result property=&quot;userPassword&quot; column=&quot;userPassword&quot;/&gt;
+       &lt;association property=&quot;role&quot; javaType=&quot;com.accp.pojo.role&quot;&gt;
+           &lt;id property=&quot;id&quot; column=&quot;id&quot;&gt;&lt;/id&gt;
+           &lt;result property=&quot;roleCode&quot; column=&quot;roleCode&quot;/&gt;
+           &lt;result property=&quot;roleName&quot; column=&quot;roleName&quot;/&gt;
+       &lt;/association&gt;
+   &lt;/resultMap&gt;
+   &lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3. collection&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - ofType：完整的java类名或别名，即集合所包含的类型。此处为Address&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - property：映射数据库列的实体对象的属性。此处为在User里定义的属性：addressList&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+   private List&lt;Address&gt; addressList;
+   &lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+   &lt;resultMap type=&quot;com.accp.pojo.user&quot; id=&quot;userMap&quot;&gt;
+           &lt;id property=&quot;id&quot; column=&quot;id&quot;&gt;&lt;/id&gt;
+           &lt;result property=&quot;userCode&quot; column=&quot;userCode&quot;/&gt;
+           &lt;result property=&quot;userName&quot; column=&quot;userName&quot;/&gt;
+           &lt;result property=&quot;userPassword&quot; column=&quot;userPassword&quot;/&gt;
+           &lt;collection property=&quot;addressList&quot; ofType=&quot;address&quot;&gt;
+               &lt;id property=&quot;id&quot; column=&quot;id&quot;&gt;&lt;/id&gt;
+               &lt;result property=&quot;tel&quot; column=&quot;tel&quot;/&gt;
+               &lt;result property=&quot;postCode&quot; column=&quot;postCode&quot;/&gt;
+           &lt;/collection&gt;
+       &lt;/resultMap&gt;
+   &lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19. ### 5.mybatis缓存 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20. 1. 一级缓存：是基于mybatis自带的HashMap本地缓存，作用范围为session域内，当session调用flish()或close()方法后，该session中的所有缓存就会被清空&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    2. 二级缓存：超出session范围之外，可以被所有sqlsession共享&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    3. 二级缓存配置&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       （1）在mybatis-config.xml中设置&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+   &lt;settings&gt;
+       &lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot;/&gt;
+   &lt;/settings&gt;
+   &lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;（2）在mapper.xml中设置缓存&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+   &lt;cache eviction=&quot;FIFO&quot; flushInterval=&quot;60000&quot; size=&quot;512&quot; readOnly=&quot;true&quot;&gt;&lt;/cache&gt;
+   &lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;（3）在mapper文件配置支持cache后，如需对个别查询进行调整，可单独设置cache&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+   &lt;select id=&quot;selectBill&quot; resultType=&quot;com.accp.pojo.bill&quot; useCache=&quot;true&quot;&gt;
+        ......
+   &lt;/select&gt;</code></pre>
 </li>
 </ol>
-<h3 id="3-TK-MyBatis中的方法示例"><a href="#3-TK-MyBatis中的方法示例" class="headerlink" title="3.TK_MyBatis中的方法示例"></a>3.TK_MyBatis中的方法示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class BillServiceImpl implements BillService &#123;</span><br><span class="line"></span><br><span class="line">    @Resource</span><br><span class="line">    private BillMapper billMapper;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public List&lt;Bill&gt; findBill() &#123;</span><br><span class="line">        return billMapper.selectAll();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Bill findBillById(Integer id) &#123;</span><br><span class="line">        return billMapper.selectByPrimaryKey(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">      &#x2F;** </span><br><span class="line">    * @Description: TK_Mybatis根据条件模糊查询 </span><br><span class="line">    * @Param: [productName] </span><br><span class="line">    * @return: List&lt;Bill&gt; </span><br><span class="line">    * @Author: Mr.Du</span><br><span class="line">    *&#x2F; </span><br><span class="line">    @Override</span><br><span class="line">    public List&lt;Bill&gt; findBillExample(String productName) &#123;</span><br><span class="line">        Example example &#x3D; new Example(Bill.class);</span><br><span class="line">        example.createCriteria()</span><br><span class="line">                .andLike(&quot;productName&quot;,&#39;%&#39;+productName+&#39;%&#39;);</span><br><span class="line">        return billMapper.selectByExample(example);</span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">      &#x2F;** </span><br><span class="line">    * @Description: TK_Mybatis根据条件模糊查询 </span><br><span class="line">    * @Param: [productName,productDesc] </span><br><span class="line">    * @return: List&lt;Bill&gt; </span><br><span class="line">    * @Author: Mr.Du</span><br><span class="line">    *&#x2F; </span><br><span class="line">    @Override</span><br><span class="line">    public List&lt;Bill&gt; selectBillExample(String productName,String productDesc) &#123;</span><br><span class="line">        Example example &#x3D; new Example(Bill.class);</span><br><span class="line">        example.createCriteria()</span><br><span class="line">                .andEqualTo(&quot;productName&quot;,productName)</span><br><span class="line">                .andEqualTo(&quot;productDesc&quot;,productDesc);</span><br><span class="line">        return billMapper.selectByExample(example);</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-            <div class='article_footer'>
-              
-                
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+    
+  </section>
+  
+    
+      <br>
+      <div class="prev-next">
+        
+          <a class="prev" rel="prev" href="/Awangyue-cn.github.io/page/12/">
+            <section class="post prev white-box shadow" >
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous&nbsp;
+            </section>
+          </a>
+        
+        <p class="current">
+          13 / 13
+        </p>
+        
+      </div>
+    
+    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+    
+    
+
+  
+
+
+</div>
+<aside class='l_side'>
+  
   
     
     
 
-
-
-  
-
-  
-    
-    
-
-
-
-  
-
-  
-    
-    
-
-<section class="widget copyright  desktop mobile">
+<section class="widget blogger shadow desktop mobile">
   <div class='content'>
     
-      <blockquote>
+      
+        <a class='avatar flat-box rectangle' href='/Awangyue-cn.github.io/about/'>
+          <img no-lazy src='http://qf3576d4h.hn-bkt.clouddn.com/2.jpg'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">Awangyue</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
         
           
-            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
+            <a href="/Awangyue-cn.github.io/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
           
         
           
-            <p>本文永久链接是：<a href=http://awangyue.cn/2020/08/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90TK_MyBatis/>http://awangyue.cn/2020/08/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90TK_MyBatis/</a></p>
+            <a href="mailto:me@xxx.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
           
         
-      </blockquote>
+          
+            <a href="https://github.com/Awangyue-cn"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/Awangyue-cn"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
     
   </div>
 </section>
@@ -716,162 +765,16 @@
   
 
   
-
-
-              
-            </div>
-          
-        </div>
-        
-          
-
-
-  <section class='meta' id="footer-meta">
-    <div class='new-meta-box'>
-      
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-15T10:12:10+08:00">
-  <a class='notlink'>
-    <i class=" fa-fw" aria-hidden="true"></i>
-    <p>null2020-08-15</p>
-  </a>
-</div>
-
-        
-      
-        
-          
-
-        
-      
-        
-          
-
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
     
-      
-        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://awangyue.cn/2020/08/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90TK_MyBatis/&title= - Awangyue&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://awangyue.cn/2020/08/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90TK_MyBatis/&title= - Awangyue&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://awangyue.cn/2020/08/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90TK_MyBatis/&title= - Awangyue&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
-          
-        </a>
-      
-    
-  </div>
-</div>
-
-
-
-        
-      
-    </div>
-  </section>
-
-
-        
-        
-          <div class="prev-next">
-            
-              <a class='prev' href='/Awangyue-cn.github.io/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E4%B8%8EMybatis%E6%95%B4%E5%90%88/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i></p>
-                <p class='content'>1.在pom.xml中导入相关坐标依赖123456789101112131415161718192021222324252627282930313233343536373839404142434...</p>
-              </a>
-            
-            
-              <a class='next' href='/Awangyue-cn.github.io/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/'>
-                <p class='title'><i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>1.什么是SpringIOC控制反转​        控制反转（Inversion of Cpntrol IoC），也被称为依赖注入，是面向对象编程的中的一种设计理念，用来降低程序代码之间的耦合...</p>
-              </a>
-            
-          </div>
-        
-      </section>
-    </article>
-  
-
-  
     
 
-  <article class="post white-box reveal comments shadow">
-    <section class="article typo">
-      <p ct><i class='fas fa-comments'></i> 评论</p>
-      
-      <section id="comments">
-        <div id="valine_container" class="valine_thread">
-  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
-</div>
-
-      </section>
-    </section>
-  </article>
-
-
-  
-
-
-
-
-<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
-
-
-</div>
-<aside class='l_side'>
-  
   
 
   
     
     
 
-
-
-  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%90%AD%E5%BB%BATk-MyBatis%E7%8E%AF%E5%A2%83"><span class="toc-text">1.搭建Tk_MyBatis环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-TK-MyBatis%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95%E8%AF%A6%E8%A7%A3"><span class="toc-text">2.TK_MyBatis中的方法详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-TK-MyBatis%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95%E7%A4%BA%E4%BE%8B"><span class="toc-text">3.TK_MyBatis中的方法示例</span></a></li></ol>
-    </div>
-  </section>
-
+  
 
   
 

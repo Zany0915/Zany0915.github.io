@@ -5,6 +5,10 @@
   <!-- SEO相关 -->
   
     
+      
+        <meta name="robots" content="noindex,follow">
+      
+    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -93,7 +97,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover post' style="display: none;">
+    <cover class='cover ' style="display: none;">
       <div class='cover-body'>
   <div class='a'>
     
@@ -438,10 +442,14 @@
 
 <div class='l_main'>
   
-
-  
-    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+  <section class="post-list ">
+    
+    
       
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal no-title">
+  
 
 
   <section class='meta'>
@@ -451,11 +459,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h1 class="title">
+  <h2 class="title">
     <a href="/Awangyue-cn.github.io/2020/08/15/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/">
       2020-08-15
     </a>
-  </h1>
+  </h2>
 
 
         
@@ -494,6 +502,42 @@
 
             
           
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/Awangyue-cn.github.io/2020/08/15/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/" class="leancloud_visitors" data-flag-title="">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+<div class="new-meta-item comments-count">
+  
+  <a href="/Awangyue-cn.github.io/2020/08/15/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/Awangyue-cn.github.io/2020/08/15/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+            
+          
+            
+              
+
+            
+          
         </div>
         
           <hr>
@@ -503,11 +547,10 @@
   </section>
 
 
-      <section class="article typo">
-        <div class="article-entry" itemprop="articleBody">
-          
-          
-          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: SSM框架整合</span><br><span class="line">date: 2020-07-01 09:56:17</span><br><span class="line">tags:SSM</span><br></pre></td></tr></table></figure>
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: SSM框架整合</span><br><span class="line">date: 2020-07-01 09:56:17</span><br><span class="line">tags:SSM</span><br></pre></td></tr></table></figure>
 
 
 
@@ -536,45 +579,111 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class UserServiceImpl implements UserService &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    private UserMapper userMapper;</span><br><span class="line">    @Override</span><br><span class="line">    public Map&lt;String, Object&gt; findUserList(User user, Integer pageNum, Integer pageSize) &#123;</span><br><span class="line">        PageHelper.startPage(pageNum,pageSize);</span><br><span class="line">        List&lt;User&gt; userList &#x3D; userMapper.findUser(user.getUserName(),user.getUserRole());</span><br><span class="line">        PageInfo&lt;User&gt; pageInfo &#x3D; new PageInfo(userList);</span><br><span class="line">        Map&lt;String,Object&gt; map &#x3D; new HashMap&lt;&gt;();</span><br><span class="line">        map.put(&quot;code&quot;,0);</span><br><span class="line">        map.put(&quot;msg&quot;,&quot;success&quot;);</span><br><span class="line">        map.put(&quot;count&quot;,pageInfo.getTotal());</span><br><span class="line">        map.put(&quot;data&quot;,pageInfo.getList());</span><br><span class="line">        return map;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 
-          
-            <div class='article_footer'>
-              
-                
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+    
+  </section>
+  
+    
+      <br>
+      <div class="prev-next">
+        
+          <a class="prev" rel="prev" href="/Awangyue-cn.github.io/page/2/">
+            <section class="post prev white-box shadow" >
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous&nbsp;
+            </section>
+          </a>
+        
+        <p class="current">
+          3 / 13
+        </p>
+        
+          <a class="next" rel="next" href="/Awangyue-cn.github.io/page/4/">
+            <section class="post next white-box shadow">
+              &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
+            </section>
+          </a>
+        
+      </div>
+    
+    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+    
+    
+
+  
+
+
+</div>
+<aside class='l_side'>
+  
   
     
     
 
-
-
-  
-
-  
-    
-    
-
-
-
-  
-
-  
-    
-    
-
-<section class="widget copyright  desktop mobile">
+<section class="widget blogger shadow desktop mobile">
   <div class='content'>
     
-      <blockquote>
+      
+        <a class='avatar flat-box rectangle' href='/Awangyue-cn.github.io/about/'>
+          <img no-lazy src='http://qf3576d4h.hn-bkt.clouddn.com/2.jpg'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">Awangyue</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
         
           
-            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
+            <a href="/Awangyue-cn.github.io/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
           
         
           
-            <p>本文永久链接是：<a href=http://awangyue.cn/2020/08/15/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/>http://awangyue.cn/2020/08/15/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/</a></p>
+            <a href="mailto:me@xxx.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
           
         
-      </blockquote>
+          
+            <a href="https://github.com/Awangyue-cn"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/Awangyue-cn"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
     
   </div>
 </section>
@@ -582,170 +691,16 @@
   
 
   
-
-
-              
-            </div>
-          
-        </div>
-        
-          
-
-
-  <section class='meta' id="footer-meta">
-    <div class='new-meta-box'>
-      
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-16T10:19:54+08:00">
-  <a class='notlink'>
-    <i class=" fa-fw" aria-hidden="true"></i>
-    <p>null2020-08-16</p>
-  </a>
-</div>
-
-        
-      
-        
-          
-
-        
-      
-        
-          
-
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
     
-      
-        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://awangyue.cn/2020/08/15/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/&title= - Awangyue&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://awangyue.cn/2020/08/15/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/&title= - Awangyue&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://awangyue.cn/2020/08/15/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/&title= - Awangyue&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
-          
-        </a>
-      
-    
-  </div>
-</div>
-
-
-
-        
-      
-    </div>
-  </section>
-
-
-        
-        
-          <div class="prev-next">
-            
-              <a class='prev' href='/Awangyue-cn.github.io/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94IOC%E5%92%8CAOP%E4%BD%BF%E7%94%A8%E6%89%A9%E5%B1%95/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i></p>
-                <p class='content'>123title: Spring框架—IOC和AOP使用扩展date: 2020-05-28 09:56:17tags:Spring
-
-1.多种方式实现依赖注入
-
-构造函数注入
-12345&lt...</p>
-              </a>
-            
-            
-              <a class='next' href='/Awangyue-cn.github.io/2020/08/15/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94%E5%8A%A8%E6%80%81SQL/'>
-                <p class='title'><i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>1.实现动态sql的元素
-if：利用if实现简单的条件选择
-choose(when，otherwise)：相当于java中的switch语句，通常与when和otherwise搭配
-where：...</p>
-              </a>
-            
-          </div>
-        
-      </section>
-    </article>
-  
-
-  
     
 
-  <article class="post white-box reveal comments shadow">
-    <section class="article typo">
-      <p ct><i class='fas fa-comments'></i> 评论</p>
-      
-      <section id="comments">
-        <div id="valine_container" class="valine_thread">
-  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
-</div>
-
-      </section>
-    </section>
-  </article>
-
-
-  
-
-
-
-
-<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
-
-
-</div>
-<aside class='l_side'>
-  
   
 
   
     
     
 
-
-
-  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ssm%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA"><span class="toc-text">ssm框架搭建</span></a></li></ol>
-    </div>
-  </section>
-
+  
 
   
 

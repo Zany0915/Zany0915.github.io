@@ -5,6 +5,10 @@
   <!-- SEO相关 -->
   
     
+      
+        <meta name="robots" content="noindex,follow">
+      
+    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -93,7 +97,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover post' style="display: none;">
+    <cover class='cover ' style="display: none;">
       <div class='cover-body'>
   <div class='a'>
     
@@ -438,10 +442,14 @@
 
 <div class='l_main'>
   
-
-  
-    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+  <section class="post-list ">
+    
+    
       
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal no-title">
+  
 
 
   <section class='meta'>
@@ -451,11 +459,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h1 class="title">
-    <a href="/Awangyue-cn.github.io/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94IOC%E5%92%8CAOP%E4%BD%BF%E7%94%A8%E6%89%A9%E5%B1%95/">
+  <h2 class="title">
+    <a href="/Awangyue-cn.github.io/2020/08/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90TK-MyBatis/">
       2020-08-15
     </a>
-  </h1>
+  </h2>
 
 
         
@@ -494,6 +502,42 @@
 
             
           
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/Awangyue-cn.github.io/2020/08/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90TK-MyBatis/" class="leancloud_visitors" data-flag-title="">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+<div class="new-meta-item comments-count">
+  
+  <a href="/Awangyue-cn.github.io/2020/08/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90TK-MyBatis/#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/Awangyue-cn.github.io/2020/08/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90TK-MyBatis/">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+            
+          
+            
+              
+
+            
+          
         </div>
         
           <hr>
@@ -503,194 +547,277 @@
   </section>
 
 
-      <section class="article typo">
-        <div class="article-entry" itemprop="articleBody">
-          
-          
-          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: Spring框架—IOC和AOP使用扩展</span><br><span class="line">date: 2020-05-28 09:56:17</span><br><span class="line">tags:Spring</span><br></pre></td></tr></table></figure>
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-搭建Tk-MyBatis环境"><a href="#1-搭建Tk-MyBatis环境" class="headerlink" title="1.搭建Tk_MyBatis环境"></a>1.搭建Tk_MyBatis环境</h3><ol>
+<li><p>在pom.xml导入坐标</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;tk.mybatis&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mapper-spring-boot-starter&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.3-beta1&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;tk.mybatis&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mapper&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;4.0.0&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
 
-<p>1.多种方式实现依赖注入</p>
-<ol>
-<li><p>构造函数注入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id&#x3D;&quot;accountService&quot; class&#x3D;&quot;com.accp.service.impl.accountServiceImpl&quot;&gt;</span><br><span class="line">    &lt;constructor-arg name&#x3D;&quot;name&quot; value&#x3D;&quot;张三&quot;&gt;&lt;&#x2F;constructor-arg&gt;</span><br><span class="line">    &lt;constructor-arg name&#x3D;&quot;age&quot; value&#x3D;&quot;18&quot;&gt;&lt;&#x2F;constructor-arg&gt;</span><br><span class="line">    &lt;constructor-arg name&#x3D;&quot;birthday&quot; ref&#x3D;&quot;now&quot;&gt;&lt;&#x2F;constructor-arg&gt;</span><br><span class="line">&lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure>
 
-<p>标签的属性:</p>
-<ul>
-<li><p>type:用于指定要注入的数据的数据类型，该数据类型也是构造函数中的某个或某些参数          </p>
-<p>index:用于指定要注入的数据给构造函数中指定索引位置的参数赋值，索引位置从0开始          </p>
-<p>name:用于指定给构造函数中指定名称的参数赋值          </p>
-<p>value:用于提供基本类型和String类型的数据          </p>
-</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>ref:用于指定其他bean类型的数据。它指的是在spring的IOC核心容器出现过的bean对象</li>
-</ul>
-<ol>
-<li><p>使用set方法注入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id&#x3D;&quot;accountService&quot; class&#x3D;&quot;com.accp.service.impl.accountServiceImpl&quot;&gt;</span><br><span class="line">    &lt;property name&#x3D;&quot;name&quot; value&#x3D;&quot;李四&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">    &lt;property name&#x3D;&quot;age&quot; value&#x3D;&quot;18&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">    &lt;property name&#x3D;&quot;birthday&quot; ref&#x3D;&quot;now&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">&lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure>
-
-<p>标签的属性:</p>
-<ul>
-<li>name:用于指定注入时所调用的set方法名称          </li>
-<li>value:用于提供基本类型和String类型的数据          </li>
-<li>ref:用于指定其他bean类型的数据。它指的是在spring的IOC核心容器出现过的bean对象</li>
-</ul>
-</li>
-<li><p>复杂类型注入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id&#x3D;&quot;accountService&quot; class&#x3D;&quot;com.accp.service.impl.accountServiceImpl&quot;&gt;</span><br><span class="line">&lt;!--注入list--&gt;</span><br><span class="line">&lt;property name&#x3D;&quot;list&quot;&gt;</span><br><span class="line">    &lt;list&gt;</span><br><span class="line">        &lt;value&gt;王五&lt;&#x2F;value&gt;</span><br><span class="line">        &lt;value&gt;赵六&lt;&#x2F;value&gt;</span><br><span class="line">        &lt;value&gt;钱七&lt;&#x2F;value&gt;</span><br><span class="line">    &lt;&#x2F;list&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line">&lt;!--注入set--&gt;</span><br><span class="line">&lt;property name&#x3D;&quot;set&quot;&gt;</span><br><span class="line">    &lt;set&gt;</span><br><span class="line">        &lt;value&gt;王五&lt;&#x2F;value&gt;</span><br><span class="line">        &lt;value&gt;赵六&lt;&#x2F;value&gt;</span><br><span class="line">        &lt;value&gt;钱七&lt;&#x2F;value&gt;</span><br><span class="line">    &lt;&#x2F;set&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line">&lt;!--注入map--&gt;</span><br><span class="line">&lt;property name&#x3D;&quot;map&quot;&gt;</span><br><span class="line">    &lt;map&gt;</span><br><span class="line">        &lt;entry key&#x3D;&quot;a&quot; value&#x3D;&quot;王五&quot;&gt;&lt;&#x2F;entry&gt;</span><br><span class="line">        &lt;entry key&#x3D;&quot;b&quot; value&#x3D;&quot;赵六&quot;&gt;&lt;&#x2F;entry&gt;</span><br><span class="line">        &lt;entry key&#x3D;&quot;c&quot; value&#x3D;&quot;钱七&quot;&gt;&lt;&#x2F;entry&gt;</span><br><span class="line">    &lt;&#x2F;map&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line">&lt;!--注入properties--&gt;</span><br><span class="line">&lt;property name&#x3D;&quot;properties&quot;&gt;</span><br><span class="line">    &lt;props&gt;</span><br><span class="line">        &lt;prop key&#x3D;&quot;a&quot;&gt;王五&lt;&#x2F;prop&gt;</span><br><span class="line">        &lt;prop key&#x3D;&quot;b&quot;&gt;赵六&lt;&#x2F;prop&gt;</span><br><span class="line">        &lt;prop key&#x3D;&quot;c&quot;&gt;钱七&lt;&#x2F;prop&gt;</span><br><span class="line">    &lt;&#x2F;props&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line">&lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
-<h3 id="2-使用注解实现IoC配置"><a href="#2-使用注解实现IoC配置" class="headerlink" title="2.使用注解实现IoC配置"></a>2.使用注解实现IoC配置</h3><ol>
-<li><p>在applicationContext.xml中配置创建容器需要扫描的包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&quot;</span><br><span class="line">       xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;</span><br><span class="line">       xmlns:context&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;context&quot;</span><br><span class="line">       xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans</span><br><span class="line">        http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&#x2F;spring-beans.xsd</span><br><span class="line">        http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;context</span><br><span class="line">        http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;context&#x2F;spring-context.xsd&quot;&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;!--告知spring在创建容器时需要扫描的包，配置所需要的标签不是在beans约束中，</span><br><span class="line">        而是一个名称为context名称空间和约束中--&gt;</span><br><span class="line">    &lt;context:component-scan base-package&#x3D;&quot;com.accp&quot;&gt;&lt;&#x2F;context:component-scan&gt;</span><br><span class="line">&lt;&#x2F;beans&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>2.使用注解定义Bean</p>
-<ul>
-<li>@Component:，value用于指定bean的id，他的默认名称是当前类名，且首字母小写      </li>
-<li>@Controller:一般用于表现层     </li>
-<li>@Service:一般用于业务层 </li>
-<li>@Repository:一般用在持久层</li>
-</ul>
-<h3 id="3-使用注解实现Bean组件装配"><a href="#3-使用注解实现Bean组件装配" class="headerlink" title="3.使用注解实现Bean组件装配"></a>3.使用注解实现Bean组件装配</h3><h4 id="3-1-用于注入数据的"><a href="#3-1-用于注入数据的" class="headerlink" title="3.1.用于注入数据的"></a>3.1.用于注入数据的</h4><ul>
-<li><p>@Autowired:作用：自动按照类型注入。只要容器中有唯一的一个bean对象类型和要注入的变量类型匹配，就可以注入成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">private accountDao accountDao;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>@Qualifier(“Str”):作用:在按照类中注入的基础之上再按照名称注入，它在给类成员注入时不能单独使用（和Autowired组合在一起），但是在给方法参数注入时可以使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">@Qualifier(&quot;accountDao&quot;)</span><br><span class="line">private accountDao accountDao;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>@Resource(name = “Str”)：作用:直接按照bean的id注入，可以独立使用<br>属性:value用于指定bean的id</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Resource(name &#x3D; &quot;accountDao&quot;)</span><br><span class="line">private accountDao accountDao;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>@value:作用:用于注入基本数据类型和string类型数据<br>属性:value用于指定数据的值，它可以使用spring中的SpEl（spring的EL表达式）<br>SpEl写法:${表达式}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Value(&quot;$&#123;jdbc.driver&#125;&quot;)</span><br><span class="line">private String driver;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="3-2-用于改变作用范围"><a href="#3-2-用于改变作用范围" class="headerlink" title="3.2.用于改变作用范围"></a>3.2.用于改变作用范围</h4><ul>
-<li><p>@Scope:作用:用于指定bean的作用范围</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Scope(&quot;singleton&quot;)</span><br><span class="line">public class accountServiceImpl&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="3-3-和生命周期相关的"><a href="#3-3-和生命周期相关的" class="headerlink" title="3.3.和生命周期相关的"></a>3.3.和生命周期相关的</h4><ul>
-<li><p>@PostConstruct:用于指定初始化方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@PostConstruct</span><br><span class="line">public void init()&#123;</span><br><span class="line">    System.out.println(&quot;初始化&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>@PreDestroy:用于指定销毁方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@PreDestroy</span><br><span class="line">public void destroy()&#123;</span><br><span class="line">    System.out.println(&quot;销毁&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="3-4-spring中的新注解"><a href="#3-4-spring中的新注解" class="headerlink" title="3.4.spring中的新注解"></a>3.4.spring中的新注解</h4><ul>
-<li><p>@Configuration:指定当前类是一个配置类</p>
-<p> 细节:当配置类作为AnnotationConfigApplicationContext对象创建的参数时该注解可以不写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">public class SpringConfiguration &#123;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>@ComponentScan:通过注解指定spring在创建容器时要扫描的包</p>
-<p>使用此注解相当于在xml中配置了:&lt;context:component-scan base-package=”com.accp”/&gt;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@ComponentScan(basePackages &#x3D; &quot;com.accp&quot;)</span><br><span class="line">public class SpringConfiguration &#123;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>@PropertySource:用于指定PropertySource文件的位置属性:</p>
-<p> value指定文件的名称和路径，classPath指的是当前文件的类路径 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@ComponentScan(basePackages &#x3D; &quot;com.accp&quot;)</span><br><span class="line">@PropertySource(&quot;classpath:jdbc.properties&quot;)</span><br><span class="line">public class SpringConfiguration &#123;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>@Bean:用于把当前方法的返回值作为bean对象存入IOC容器中</p>
-<p>属性:name用于指定bean的id，默认值是当前方法的名称</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Bean(name &#x3D; &quot;dataSource&quot;)</span><br><span class="line">public DataSource createDataSource() &#123;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>@Import(Class):用于导入其他配置类</p>
-</li>
-</ul>
-<h3 id="4-使用注解标注AOP切面"><a href="#4-使用注解标注AOP切面" class="headerlink" title="4.使用注解标注AOP切面"></a>4.使用注解标注AOP切面</h3><ol>
-<li>@Aspect ：表示当前类是一个切面类</li>
-</ol>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Aspect</span><br><span class="line">public class Logger  &#123;&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 <ol start="2">
-<li>@Pointcut：</li>
+<li><p>更改实体类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">@Data</span><br><span class="line">@Table(name &#x3D; &quot;smbms_user&quot;)</span><br><span class="line">public class User implements Serializable &#123;</span><br><span class="line"></span><br><span class="line">    @Id</span><br><span class="line">    @GeneratedValue(strategy &#x3D; GenerationType.IDENTITY,generator &#x3D; &quot;JDBC&quot;)</span><br><span class="line">    private Integer id;</span><br><span class="line"></span><br><span class="line">    @Column(name &#x3D; &quot;userCode&quot;)</span><br><span class="line">    private String userCode;</span><br><span class="line"></span><br><span class="line">    @Column(name &#x3D; &quot;userName&quot;)</span><br><span class="line">    private String userName;</span><br><span class="line"></span><br><span class="line">    @Column(name &#x3D; &quot;userPassword&quot;)</span><br><span class="line">    private String userPassword;</span><br><span class="line"></span><br><span class="line">    @Column(name &#x3D; &quot;birthday&quot;)</span><br><span class="line">    private Date birthday;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>继承Mapper&lt;&gt;类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public interface BaseMapper extends Mapper&lt;User&gt;&#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可能需要在application.yml中写的配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mybatis:</span><br><span class="line">  type-aliases-package: com.accp.pojo</span><br><span class="line">  mapper-locations: classpath:xml&#x2F;mapper&#x2F;*.xml</span><br><span class="line">  configuration:</span><br><span class="line">    map-underscore-to-camel-case: true</span><br></pre></td></tr></table></figure>
+
+</li>
 </ol>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Pointcut(&quot;execution(* com.accp.service.impl.*.*(..))&quot;)</span><br><span class="line">private void pt1()&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="3">
-<li>@Before：前置通知</li>
+<h3 id="2-TK-MyBatis中的方法详解"><a href="#2-TK-MyBatis中的方法详解" class="headerlink" title="2.TK_MyBatis中的方法详解"></a>2.TK_MyBatis中的方法详解</h3><ol>
+<li><p>INSERT方法</p>
+<table>
+<thead>
+<tr>
+<th align="left">方法名及返回类型</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">int insert(Object record)</td>
+<td align="left">保存一个实体，null的属性也会保存，不会使用数据库默认值</td>
+</tr>
+<tr>
+<td align="left">int insertSelective(Object record)</td>
+<td align="left">保存一个实体，null的属性不会保存，会使用数据库默认值</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>DELETE方法</p>
+<table>
+<thead>
+<tr>
+<th align="left">方法名及返回类型</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">int delete(Object record)</td>
+<td align="left">根据实体属性作为条件进行删除，查询条件使用等号</td>
+</tr>
+<tr>
+<td align="left">int deleteByPrimaryKey(Object key)</td>
+<td align="left">根据主键字段进行删除，方法参数必须包含完整的主键属性</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>UPDATE方法</p>
+<table>
+<thead>
+<tr>
+<th align="left">方法名及返回类型</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">int updateByPrimaryKey(Object record)</td>
+<td align="left">根据主键更新实体全部字段，null值会被更新</td>
+</tr>
+<tr>
+<td align="left">int updateByPrimaryKeySelective(Object record)</td>
+<td align="left">根据主键更新属性不为null的值</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>SELECT方法</p>
+<table>
+<thead>
+<tr>
+<th align="left">方法名及返回类型</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">List select(Object record)</td>
+<td align="left">根据实体中的属性值进行查询，查询条件使用等号</td>
+</tr>
+<tr>
+<td align="left">List selectAll()</td>
+<td align="left">查询全部结果，select(null)方法能达到同样的效果</td>
+</tr>
+<tr>
+<td align="left">int selectCount(Object record)</td>
+<td align="left">根据实体中的属性查询总数，查询条件使用等号</td>
+</tr>
+<tr>
+<td align="left">Object selectOne(Object record)</td>
+<td align="left">根据实体中的属性进行查询，只能有一个返回值，有多个结果是抛出异常，查询条件使用等号</td>
+</tr>
+<tr>
+<td align="left">Object selectByPrimaryKey(Object key)</td>
+<td align="left">根据主键字段进行查询，方法参数必须包含完整的主键属性，查询条件使用等号</td>
+</tr>
+<tr>
+<td align="left">boolean existsWithPrimaryKey(Object key)</td>
+<td align="left">通过主键查询此主键是否存在</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>Examle条件方法</p>
+<table>
+<thead>
+<tr>
+<th align="left">方法名及返回类型</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">int deleteByExample(Object example)</td>
+<td align="left">根据Example条件删除数据</td>
+</tr>
+<tr>
+<td align="left">int updateByExample(Object record, Object example)</td>
+<td align="left">根据Example条件更新实体record包含的全部属性，null值会被更新</td>
+</tr>
+<tr>
+<td align="left">int updateByExampleSelective(Object record, Object example)</td>
+<td align="left">根据Example条件更新实体record包含的不是null的属性值</td>
+</tr>
+<tr>
+<td align="left">List selectByExample(Object example)</td>
+<td align="left">根据Example条件进行查询</td>
+</tr>
+<tr>
+<td align="left">Object selectOneByExample(Object example)</td>
+<td align="left">根据Example条件进行查询，若有多条数据则抛出异常</td>
+</tr>
+<tr>
+<td align="left">int selectCountByExample(Object example)</td>
+<td align="left">根据Example条件进行查询总数</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>分页的方法</p>
+<table>
+<thead>
+<tr>
+<th align="left">方法名及返回类型</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">List selectByRowBounds(Object record, RowBounds rowBounds)</td>
+<td align="left">根据实体属性和RowBounds进行分页查询</td>
+</tr>
+<tr>
+<td align="left">List selectByExampleAndRowBounds(Object example, RowBounds rowBounds)</td>
+<td align="left">根据example条件和RowBounds进行分页查询</td>
+</tr>
+</tbody></table>
+</li>
 </ol>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Before(&quot;pt1()&quot;)</span><br><span class="line">public void prLogger()&#123;</span><br><span class="line">    System.out.println(&quot;前置prLogger日志开始工作&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-TK-MyBatis中的方法示例"><a href="#3-TK-MyBatis中的方法示例" class="headerlink" title="3.TK_MyBatis中的方法示例"></a>3.TK_MyBatis中的方法示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class BillServiceImpl implements BillService &#123;</span><br><span class="line"></span><br><span class="line">    @Resource</span><br><span class="line">    private BillMapper billMapper;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public List&lt;Bill&gt; findBill() &#123;</span><br><span class="line">        return billMapper.selectAll();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Bill findBillById(Integer id) &#123;</span><br><span class="line">        return billMapper.selectByPrimaryKey(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">      &#x2F;** </span><br><span class="line">    * @Description: TK_Mybatis根据条件模糊查询 </span><br><span class="line">    * @Param: [productName] </span><br><span class="line">    * @return: List&lt;Bill&gt; </span><br><span class="line">    * @Author: Mr.Du</span><br><span class="line">    *&#x2F; </span><br><span class="line">    @Override</span><br><span class="line">    public List&lt;Bill&gt; findBillExample(String productName) &#123;</span><br><span class="line">        Example example &#x3D; new Example(Bill.class);</span><br><span class="line">        example.createCriteria()</span><br><span class="line">                .andLike(&quot;productName&quot;,&#39;%&#39;+productName+&#39;%&#39;);</span><br><span class="line">        return billMapper.selectByExample(example);</span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">      &#x2F;** </span><br><span class="line">    * @Description: TK_Mybatis根据条件模糊查询 </span><br><span class="line">    * @Param: [productName,productDesc] </span><br><span class="line">    * @return: List&lt;Bill&gt; </span><br><span class="line">    * @Author: Mr.Du</span><br><span class="line">    *&#x2F; </span><br><span class="line">    @Override</span><br><span class="line">    public List&lt;Bill&gt; selectBillExample(String productName,String productDesc) &#123;</span><br><span class="line">        Example example &#x3D; new Example(Bill.class);</span><br><span class="line">        example.createCriteria()</span><br><span class="line">                .andEqualTo(&quot;productName&quot;,productName)</span><br><span class="line">                .andEqualTo(&quot;productDesc&quot;,productDesc);</span><br><span class="line">        return billMapper.selectByExample(example);</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+    
+  </section>
+  
+    
+      <br>
+      <div class="prev-next">
+        
+          <a class="prev" rel="prev" href="/Awangyue-cn.github.io/page/8/">
+            <section class="post prev white-box shadow" >
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous&nbsp;
+            </section>
+          </a>
+        
+        <p class="current">
+          9 / 13
+        </p>
+        
+          <a class="next" rel="next" href="/Awangyue-cn.github.io/page/10/">
+            <section class="post next white-box shadow">
+              &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
+            </section>
+          </a>
+        
+      </div>
+    
+    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+    
+    
+
+  
 
 
-
-<ol start="4">
-<li>@AfterReturning：后置通知</li>
-</ol>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@AfterReturning(&quot;pt1()&quot;)</span><br><span class="line">public void afterReturnPrLogger()&#123;</span><br><span class="line">    System.out.println(&quot;后置afterReturnPrLogger日志开始工作&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="5">
-<li>@AfterThrowing：异常通知</li>
-</ol>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@AfterThrowing(&quot;pt1()&quot;)</span><br><span class="line">public void afterThrowingPrLogger()&#123;</span><br><span class="line">    System.out.println(&quot;异常afterThrowingPrLogger日志开始工作&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="6">
-<li>@After：异常通知</li>
-</ol>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@After(&quot;pt1()&quot;)</span><br><span class="line">public void afterPrLogger()&#123;</span><br><span class="line">    System.out.println(&quot;最终afterPrLogger日志开始工作&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="7">
-<li>@Around：环绕通知</li>
-</ol>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@Around(&quot;pt1()&quot;)</span><br><span class="line">public Object aroundLogger(ProceedingJoinPoint pjp)&#123;</span><br><span class="line">    Object rtValue;</span><br><span class="line">    try &#123;</span><br><span class="line">        Object[] args&#x3D;pjp.getArgs();</span><br><span class="line">        System.out.println(&quot;前置aroundLogger日志开始工作&quot;);</span><br><span class="line">          &#x2F;&#x2F;proceed()方法相当于明确调用切入点方法。</span><br><span class="line">        rtValue&#x3D;pjp.proceed(args);</span><br><span class="line">        System.out.println(&quot;后置aroundLogger日志开始工作&quot;);</span><br><span class="line">        return rtValue;</span><br><span class="line">    &#125; catch (Throwable e) &#123;</span><br><span class="line">        System.out.println(&quot;异常aroundLogger日志开始工作&quot;);</span><br><span class="line">        throw new RuntimeException(e);</span><br><span class="line">    &#125;finally &#123;</span><br><span class="line">        System.out.println(&quot;最终aroundLogger日志开始工作&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-            <div class='article_footer'>
-              
-                
+</div>
+<aside class='l_side'>
+  
   
     
     
 
-
-
-  
-
-  
-    
-    
-
-
-
-  
-
-  
-    
-    
-
-<section class="widget copyright  desktop mobile">
+<section class="widget blogger shadow desktop mobile">
   <div class='content'>
     
-      <blockquote>
+      
+        <a class='avatar flat-box rectangle' href='/Awangyue-cn.github.io/about/'>
+          <img no-lazy src='http://qf3576d4h.hn-bkt.clouddn.com/2.jpg'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">Awangyue</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
         
           
-            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
+            <a href="/Awangyue-cn.github.io/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
           
         
           
-            <p>本文永久链接是：<a href=http://awangyue.cn/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94IOC%E5%92%8CAOP%E4%BD%BF%E7%94%A8%E6%89%A9%E5%B1%95/>http://awangyue.cn/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94IOC%E5%92%8CAOP%E4%BD%BF%E7%94%A8%E6%89%A9%E5%B1%95/</a></p>
+            <a href="mailto:me@xxx.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
           
         
-      </blockquote>
+          
+            <a href="https://github.com/Awangyue-cn"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/Awangyue-cn"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
     
   </div>
 </section>
@@ -698,169 +825,16 @@
   
 
   
-
-
-              
-            </div>
-          
-        </div>
-        
-          
-
-
-  <section class='meta' id="footer-meta">
-    <div class='new-meta-box'>
-      
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-16T10:08:23+08:00">
-  <a class='notlink'>
-    <i class=" fa-fw" aria-hidden="true"></i>
-    <p>null2020-08-16</p>
-  </a>
-</div>
-
-        
-      
-        
-          
-
-        
-      
-        
-          
-
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
     
-      
-        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://awangyue.cn/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94IOC%E5%92%8CAOP%E4%BD%BF%E7%94%A8%E6%89%A9%E5%B1%95/&title= - Awangyue&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://awangyue.cn/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94IOC%E5%92%8CAOP%E4%BD%BF%E7%94%A8%E6%89%A9%E5%B1%95/&title= - Awangyue&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://awangyue.cn/2020/08/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94IOC%E5%92%8CAOP%E4%BD%BF%E7%94%A8%E6%89%A9%E5%B1%95/&title= - Awangyue&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
-          
-        </a>
-      
-    
-  </div>
-</div>
-
-
-
-        
-      
-    </div>
-  </section>
-
-
-        
-        
-          <div class="prev-next">
-            
-              <a class='prev' href='/Awangyue-cn.github.io/2020/08/15/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i></p>
-                <p class='content'>一.SpringCloud
-Spring Cloud是一系列框架的有序集合。它利用Spring Boot的开发便利性巧妙地简化了分布式系统基础设施的开发，如服务发现注册、配置中心、智能路由、消息...</p>
-              </a>
-            
-            
-              <a class='next' href='/Awangyue-cn.github.io/2020/08/15/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/'>
-                <p class='title'><i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>123title: SSM框架整合date: 2020-07-01 09:56:17tags:SSM
-
-
-
-ssm框架搭建
-在pom.xml导入所需依赖包
-1234567891011121314...</p>
-              </a>
-            
-          </div>
-        
-      </section>
-    </article>
-  
-
-  
     
 
-  <article class="post white-box reveal comments shadow">
-    <section class="article typo">
-      <p ct><i class='fas fa-comments'></i> 评论</p>
-      
-      <section id="comments">
-        <div id="valine_container" class="valine_thread">
-  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
-</div>
-
-      </section>
-    </section>
-  </article>
-
-
-  
-
-
-
-
-<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
-
-
-</div>
-<aside class='l_side'>
-  
   
 
   
     
     
 
-
-
-  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E5%AE%9E%E7%8E%B0IoC%E9%85%8D%E7%BD%AE"><span class="toc-text">2.使用注解实现IoC配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E5%AE%9E%E7%8E%B0Bean%E7%BB%84%E4%BB%B6%E8%A3%85%E9%85%8D"><span class="toc-text">3.使用注解实现Bean组件装配</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E7%94%A8%E4%BA%8E%E6%B3%A8%E5%85%A5%E6%95%B0%E6%8D%AE%E7%9A%84"><span class="toc-text">3.1.用于注入数据的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E7%94%A8%E4%BA%8E%E6%94%B9%E5%8F%98%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4"><span class="toc-text">3.2.用于改变作用范围</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-%E5%92%8C%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9B%B8%E5%85%B3%E7%9A%84"><span class="toc-text">3.3.和生命周期相关的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-spring%E4%B8%AD%E7%9A%84%E6%96%B0%E6%B3%A8%E8%A7%A3"><span class="toc-text">3.4.spring中的新注解</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E6%A0%87%E6%B3%A8AOP%E5%88%87%E9%9D%A2"><span class="toc-text">4.使用注解标注AOP切面</span></a></li></ol>
-    </div>
-  </section>
-
+  
 
   
 
