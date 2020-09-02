@@ -20,7 +20,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>Awangyue</title>
+  <title>Zany</title>
   
 
   
@@ -536,7 +536,7 @@ mapper：映射文件的根元素节点，只有一个namespace属性，其作�
         
         
         
-          <p><span id="jinrishici-sentence">Awangyue</span></p>
+          <p><span id="jinrishici-sentence">Zany</span></p>
           <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
         
       </div>
@@ -1110,7 +1110,7 @@ mapper：映射文件的根元素节点，只有一个namespace属性，其作�
       // 请求 PV 并自增
       var pvCtn = document.querySelector('#lc-sv');
       if (pvCtn || enableIncr) {
-        var pvGetter = this.getRecord(Counter, 'https://zany0915.github.io' + '/#lc-sv', 'Visits').then((record) => {
+        var pvGetter = this.getRecord(Counter, 'https://zany0915.github.io/Zany0915.github.io' + '/#lc-sv', 'Visits').then((record) => {
           incrArr.push(this.buildIncrement(record.objectId))
           var eles = document.querySelectorAll('#lc-sv #number');
           if (eles.length > 0) {
@@ -1128,7 +1128,7 @@ mapper：映射文件的根元素节点，只有一个namespace属性，其作�
       // 请求 UV 并自增
       var uvCtn = document.querySelector('#lc-uv');
       if (uvCtn || enableIncr) {
-        var uvGetter = this.getRecord(Counter, 'https://zany0915.github.io' + '/#lc-uv', 'Visitors').then((record) => {
+        var uvGetter = this.getRecord(Counter, 'https://zany0915.github.io/Zany0915.github.io' + '/#lc-uv', 'Visitors').then((record) => {
           var vuv = this.validUV();
           vuv && incrArr.push(this.buildIncrement(record.objectId))
           var eles = document.querySelectorAll('#lc-uv #number');
@@ -1150,7 +1150,7 @@ mapper：映射文件的根元素节点，只有一个namespace属性，其作�
         for (i = 0; i < allPV.length; i++) {
           let pv = allPV[i];
           let title = pv.getAttribute('data-title');
-          var url = 'https://zany0915.github.io' + pv.getAttribute('data-path');
+          var url = 'https://zany0915.github.io/Zany0915.github.io' + pv.getAttribute('data-path');
           if (url) {
             var viewGetter = this.getRecord(Counter, url, title).then((record) => {
               // 是当前页面就自增
