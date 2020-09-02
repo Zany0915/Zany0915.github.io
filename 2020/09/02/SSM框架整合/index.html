@@ -5,10 +5,6 @@
   <!-- SEO相关 -->
   
     
-      
-        <meta name="robots" content="noindex,follow">
-      
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -97,7 +93,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover ' style="display: none;">
+    <cover class='cover post' style="display: none;">
       <div class='cover-body'>
   <div class='a'>
     
@@ -442,14 +438,10 @@
 
 <div class='l_main'>
   
-  <section class="post-list ">
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal no-title">
+
   
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -459,11 +451,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
+  <h1 class="title">
     <a href="/Zany0915.github.io/2020/09/02/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/">
       2020-09-02
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -502,42 +494,6 @@
 
             
           
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/Zany0915.github.io/2020/09/02/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/" class="leancloud_visitors" data-flag-title="">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-<div class="new-meta-item comments-count">
-  
-  <a href="/Zany0915.github.io/2020/09/02/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/#comments">
-    <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/Zany0915.github.io/2020/09/02/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/">0</span>
-    <span class="leancloud-comments-count">&nbsp;</span>
-  </a>
-</div>
-
-
-            
-          
-            
-              
-
-            
-          
         </div>
         
           <hr>
@@ -547,10 +503,11 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="SSM框架整合"><a href="#SSM框架整合" class="headerlink" title="SSM框架整合"></a>SSM框架整合</h1><h3 id="ssm框架搭建"><a href="#ssm框架搭建" class="headerlink" title="ssm框架搭建"></a>ssm框架搭建</h3><ol>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <h1 id="SSM框架整合"><a href="#SSM框架整合" class="headerlink" title="SSM框架整合"></a>SSM框架整合</h1><h3 id="ssm框架搭建"><a href="#ssm框架搭建" class="headerlink" title="ssm框架搭建"></a>ssm框架搭建</h3><ol>
 <li><p>在pom.xml导入所需依赖包</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">    &lt;project.build.sourceEncoding&gt;UTF-8&lt;&#x2F;project.build.sourceEncoding&gt;</span><br><span class="line">    &lt;maven.compiler.source&gt;1.8&lt;&#x2F;maven.compiler.source&gt;</span><br><span class="line">    &lt;maven.compiler.target&gt;1.8&lt;&#x2F;maven.compiler.target&gt;</span><br><span class="line">    &lt;!-- spring版本号 --&gt;</span><br><span class="line">    &lt;spring.version&gt;4.3.6.RELEASE&lt;&#x2F;spring.version&gt;</span><br><span class="line">  &lt;&#x2F;properties&gt;</span><br><span class="line">  &lt;dependencies&gt;</span><br><span class="line">    &lt;!--Spring相关依赖--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-core&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-beans&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-context&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;!--引入mybatis依赖--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.mybatis&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;mybatis&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;3.2.2&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;!--引入MySQL驱动--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;mysql&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;mysql-connector-java&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;5.1.48&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;!--阿里的数据库连接池--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;com.alibaba&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;druid&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;1.1.10&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;!--mybatis spring整合包--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.mybatis&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;mybatis-spring&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;1.2.0&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-tx&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;!--spring对jdbc整合--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-jdbc&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;!--引入lombok--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.projectlombok&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;lombok&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;1.18.10&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;!--SpringMVC依赖--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-web&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-webmvc&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;!--测试依赖包--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;junit&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;junit&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;4.11&lt;&#x2F;version&gt;</span><br><span class="line">      &lt;scope&gt;test&lt;&#x2F;scope&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;!--分页依赖包--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;com.github.pagehelper&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;pagehelper&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;4.1.6&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;com.github.jsqlparser&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;jsqlparser&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;0.9.5&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;!--@ResponseBody依赖包--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;com.fasterxml.jackson.core&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;jackson-core&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;2.9.5&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;com.fasterxml.jackson.core&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;jackson-databind&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;2.9.5&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;!--JSON依赖包--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;com.alibaba&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;fastjson&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;1.2.62&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;!--jstl--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;javax.servlet.jsp.jstl&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;jstl-api&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;1.2&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;!-- servlet-api --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;javax.servlet&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;javax.servlet-api&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;3.1.0&lt;&#x2F;version&gt;</span><br><span class="line">      &lt;scope&gt;provided&lt;&#x2F;scope&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;!-- standard --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;taglibs&lt;&#x2F;groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;standard&lt;&#x2F;artifactId&gt;</span><br><span class="line">      &lt;version&gt;1.1.2&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">  &lt;&#x2F;dependencies&gt;</span><br><span class="line">  &lt;!-- 如果不添加此节点mybatis的mapper.xml文件都会被漏掉。 --&gt;</span><br><span class="line">  &lt;build&gt;</span><br><span class="line">    &lt;resources&gt;</span><br><span class="line">      &lt;resource&gt;</span><br><span class="line">        &lt;directory&gt;src&#x2F;main&#x2F;java&lt;&#x2F;directory&gt;</span><br><span class="line">        &lt;includes&gt;</span><br><span class="line">          &lt;include&gt;**&#x2F;*.properties&lt;&#x2F;include&gt;</span><br><span class="line">          &lt;include&gt;**&#x2F;*.xml&lt;&#x2F;include&gt;</span><br><span class="line">        &lt;&#x2F;includes&gt;</span><br><span class="line">        &lt;filtering&gt;false&lt;&#x2F;filtering&gt;</span><br><span class="line">      &lt;&#x2F;resource&gt;</span><br><span class="line">    &lt;&#x2F;resources&gt;</span><br><span class="line">  &lt;&#x2F;build&gt;</span><br></pre></td></tr></table></figure>
 </li>
@@ -575,111 +532,45 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class UserServiceImpl implements UserService &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    private UserMapper userMapper;</span><br><span class="line">    @Override</span><br><span class="line">    public Map&lt;String, Object&gt; findUserList(User user, Integer pageNum, Integer pageSize) &#123;</span><br><span class="line">        PageHelper.startPage(pageNum,pageSize);</span><br><span class="line">        List&lt;User&gt; userList &#x3D; userMapper.findUser(user.getUserName(),user.getUserRole());</span><br><span class="line">        PageInfo&lt;User&gt; pageInfo &#x3D; new PageInfo(userList);</span><br><span class="line">        Map&lt;String,Object&gt; map &#x3D; new HashMap&lt;&gt;();</span><br><span class="line">        map.put(&quot;code&quot;,0);</span><br><span class="line">        map.put(&quot;msg&quot;,&quot;success&quot;);</span><br><span class="line">        map.put(&quot;count&quot;,pageInfo.getTotal());</span><br><span class="line">        map.put(&quot;data&quot;,pageInfo.getList());</span><br><span class="line">        return map;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 
-      
-    </div>
-    
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-          <a class="prev" rel="prev" href="/Zany0915.github.io/page/2/">
-            <section class="post prev white-box shadow" >
-              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous&nbsp;
-            </section>
-          </a>
-        
-        <p class="current">
-          3 / 15
-        </p>
-        
-          <a class="next" rel="next" href="/Zany0915.github.io/page/4/">
-            <section class="post next white-box shadow">
-              &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
-
-  
-
-
-</div>
-<aside class='l_side'>
-  
+          
+            <div class='article_footer'>
+              
+                
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box rectangle' href='/Zany0915.github.io/about/'>
-          <img no-lazy src='http://qf3576d4h.hn-bkt.clouddn.com/2.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Awangyue</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
+      <blockquote>
         
           
-            <a href="/Zany0915.github.io/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
           
         
           
-            <a href="mailto:me@xxx.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>本文永久链接是：<a href=https://github.com/Zany0915/Zany0915.github.io.git/2020/09/02/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/>https://github.com/Zany0915/Zany0915.github.io.git/2020/09/02/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/</a></p>
           
         
-          
-            <a href="https://github.com/Awangyue-cn"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://github.com/Awangyue-cn"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
+      </blockquote>
     
   </div>
 </section>
@@ -687,16 +578,163 @@
   
 
   
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-18T17:01:07+08:00">
+  <a class='notlink'>
+    <i class=" fa-fw" aria-hidden="true"></i>
+    <p>null2020-08-18</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/Zany0915/Zany0915.github.io.git/2020/09/02/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/&title= - Awangyue&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://github.com/Zany0915/Zany0915.github.io.git/2020/09/02/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/&title= - Awangyue&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/Zany0915/Zany0915.github.io.git/2020/09/02/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/&title= - Awangyue&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/Zany0915.github.io/2020/09/02/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i></p>
+                <p class='content'>设计模式—代理模式代理模式是为某个对象提供一个代理对象，并由代理对象控制对原对象的访问，就像我们生活中的中介。
+例如我要结婚，但是结婚是一件很麻烦的事情，需要安排很多事情，我并不想去准备这些繁琐...</p>
+              </a>
+            
+            
+              <a class='next' href='/Zany0915.github.io/2020/09/02/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/'>
+                <p class='title'><i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>Spring框架—Spring核心概念1.SpringIOC控制反转​        控制反转（Inversion of Cpntrol IoC），也被称为依赖注入，是面向对象编程的中的一种设计...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
     
 
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      <section id="comments">
+        <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+      </section>
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+</div>
+<aside class='l_side'>
+  
   
 
   
     
     
 
-  
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ssm%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA"><span class="toc-text">ssm框架搭建</span></a></li></ol>
+    </div>
+  </section>
+
 
   
 

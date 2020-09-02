@@ -5,10 +5,6 @@
   <!-- SEO相关 -->
   
     
-      
-        <meta name="robots" content="noindex,follow">
-      
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -97,7 +93,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover ' style="display: none;">
+    <cover class='cover post' style="display: none;">
       <div class='cover-body'>
   <div class='a'>
     
@@ -442,14 +438,10 @@
 
 <div class='l_main'>
   
-  <section class="post-list ">
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal no-title">
+
   
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -459,11 +451,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/Zany0915.github.io/2020/09/02/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/">
+  <h1 class="title">
+    <a href="/Zany0915.github.io/2020/09/02/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94SQL%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/">
       2020-09-02
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -502,42 +494,6 @@
 
             
           
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/Zany0915.github.io/2020/09/02/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" class="leancloud_visitors" data-flag-title="">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-<div class="new-meta-item comments-count">
-  
-  <a href="/Zany0915.github.io/2020/09/02/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/#comments">
-    <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/Zany0915.github.io/2020/09/02/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/">0</span>
-    <span class="leancloud-comments-count">&nbsp;</span>
-  </a>
-</div>
-
-
-            
-          
-            
-              
-
-            
-          
         </div>
         
           <hr>
@@ -547,165 +503,158 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="设计模式—代理模式"><a href="#设计模式—代理模式" class="headerlink" title="设计模式—代理模式"></a>设计模式—代理模式</h1><p>代理模式是为某个对象提供一个代理对象，并由代理对象控制对原对象的访问，就像我们生活中的中介。</p>
-<p>例如我要结婚，但是结婚是一件很麻烦的事情，需要安排很多事情，我并不想去准备这些繁琐的事情，只想和心爱的人结婚，其他的事情我还可以出钱交给婚庆公司去准备，婚庆公司为我们安排一整套流程。婚庆公司就相当于我们的代理角色</p>
-<h3 id="1-静态代理"><a href="#1-静态代理" class="headerlink" title="1.静态代理"></a>1.静态代理</h3><blockquote>
-<p>由程序员创建或特定工具自动生成源代码，再对其进行编译。<strong>在程序运行之前，代理类.class文件就已经被创建</strong>，代理类和委托类的关系在运行前就确定</p>
-</blockquote>
-<ol>
-<li><p>创建代理接口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface ProxyInterface &#123;</span><br><span class="line">    void marry();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <h1 id="Mybatis框架—SQL映射文件"><a href="#Mybatis框架—SQL映射文件" class="headerlink" title="Mybatis框架—SQL映射文件"></a>Mybatis框架—SQL映射文件</h1><h3 id="1-SQL映射文件的几个顶级元素配置"><a href="#1-SQL映射文件的几个顶级元素配置" class="headerlink" title="1.SQL映射文件的几个顶级元素配置"></a>1.SQL映射文件的几个顶级元素配置</h3><ol>
+<li><p>mapper：映射文件的根元素节点，只有一个namespace属性，其作用是用于区分不同的mapper；绑定DAO接口，即面向接口编程，当namespace绑定某一接口后，可以不用写该接口的实现类，mybatis会通过接口的完整限定类名查找到对应的mapper配置来执行SQL语句。因此namespace的命名必须要跟接口同名</p>
 </li>
-<li><p>真实角色对象（结婚家庭）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class MarriedFamily implements ProxyInterface &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void marry() &#123;</span><br><span class="line">        System.out.println(&quot;我们结婚了&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>cache：配置给定命名空间的缓存</p>
 </li>
-<li><p>代理角色（婚庆公司）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class WeddingCompany implements ProxyInterface&#123;</span><br><span class="line">    private ProxyInterface proxyInterface;</span><br><span class="line">  </span><br><span class="line">    public WeddingCompany (ProxyInterface proxyInterface)&#123;</span><br><span class="line">        this.proxyInterface&#x3D;proxyInterface;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    @Override</span><br><span class="line">    public void marry() &#123;</span><br><span class="line">        System.out.println(&quot;我们是婚庆公司的&quot;);</span><br><span class="line">        System.out.println(&quot;我们在做结婚前的准备工作&quot;);</span><br><span class="line">        System.out.println(&quot;可以开始结婚了&quot;);</span><br><span class="line">        proxyInterface.marry();</span><br><span class="line">        System.out.println(&quot;结婚完毕&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>acahe-ref：从其他命名空间引用缓存配置</p>
 </li>
-<li><p>测试</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class ProxyTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        ProxyInterface proxyInterface&#x3D;new WeddingCompany(new MarriedFamily());</span><br><span class="line">        proxyInterface.marry();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;**</span><br><span class="line">  * &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;结果&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">  * 我们是婚庆公司的</span><br><span class="line">  * 我们在做结婚前的准备工作</span><br><span class="line">  * 可以开始结婚了</span><br><span class="line">  * 我们结婚了</span><br><span class="line">  * 结婚完毕</span><br><span class="line">  **&#x2F;</span><br></pre></td></tr></table></figure>
-
+<li><p>resultMap：用来描述数据库结果集和对象的对应关系</p>
+</li>
+<li><p>sql：可重用的SQL块，也可以被其他语句引用</p>
 </li>
 </ol>
-<blockquote>
-<p>优点：可以做到在符合开闭原则下对目标对象进行功能扩展</p>
-<p>缺点：</p>
-<ol>
-<li>代理类和委托类都实现了相同的接口，出现大量代码重复，如果接口增加一个方法，除了实现类要实现这个方法外，其他代理类也要实现此方法</li>
-<li>代理对象只服务于一种类型的对象，如果要服务多类型的对象。势必要为每一种对象都进行代理，静态代理在程序规模稍大时就无法胜任了</li>
+<ol start="6">
+<li>insert：映射插入语句</li>
 </ol>
-</blockquote>
-<h3 id="2-动态代理"><a href="#2-动态代理" class="headerlink" title="2.动态代理"></a>2.动态代理</h3><blockquote>
-<p>动态代理是在运行时，<strong>通过反射机制实现动态代理，并且能够代理各种类型的对象</strong>。想要实现动态代理需要实现InvocationHandler 接口和Proxy类</p>
-</blockquote>
-<ol>
-<li><p>创建代理接口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface ProxyInterface &#123;</span><br><span class="line">    void marry();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>真实角色对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class MarriedFamily implements ProxyInterface &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void marry() &#123;</span><br><span class="line">        System.out.println(&quot;我们结婚了&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>动态创建代理对象的类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public class WeddingCompanyHandler implements InvocationHandler &#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;被代理的接口</span><br><span class="line">    private Object target;</span><br><span class="line"></span><br><span class="line">    public void setTarget(Object target)&#123;</span><br><span class="line">        this.target &#x3D; target;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">     &#x2F;**</span><br><span class="line">     * 生成得到代理类,Proxy.newProxyInstance()方法接受三个参数：</span><br><span class="line">     * ClassLoader loader:指定当前目标对象使用的类加载器,获取加载器的方法是固定的</span><br><span class="line">     * Class&lt;?&gt;[] interfaces:指定目标对象实现的接口的类型,使用泛型方式确认类型</span><br><span class="line">     * InvocationHandler:指定动态处理器，执行目标对象的方法时,会触发事件处理器的方法</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public Object getProxy()&#123;</span><br><span class="line">        return Proxy.newProxyInstance(target.getClass().getClassLoader()</span><br><span class="line">                , target.getClass().getInterfaces()</span><br><span class="line">                ,this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @Description:处理代理实例，并返回结果</span><br><span class="line">     * @Param: [o, method, args]</span><br><span class="line">     * @return: Object</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Override</span><br><span class="line">    public Object invoke(Object o, Method method, Object[] args) throws Throwable &#123;</span><br><span class="line">        System.out.println(&quot;我们是婚庆公司的&quot;);</span><br><span class="line">        System.out.println(&quot;我们在做结婚前的准备工作&quot;);</span><br><span class="line">        System.out.println(&quot;可以开始结婚了&quot;);</span><br><span class="line">        Object result &#x3D; method.invoke(target, args);</span><br><span class="line">        System.out.println(&quot;结婚完毕&quot;);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>测试</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class ProxyTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        &#x2F;&#x2F;真实角色</span><br><span class="line">        ProxyInterface marriedFamily&#x3D;new MarriedFamily();</span><br><span class="line">        &#x2F;&#x2F;代理角色</span><br><span class="line">        WeddingCompanyHandler weddingCompany &#x3D; new WeddingCompanyHandler();</span><br><span class="line">        &#x2F;&#x2F;通过调用程序处理角色来处理我们要调用的接口对象</span><br><span class="line">        weddingCompany.setTarget(marriedFamily);</span><br><span class="line">        ProxyInterface proxy &#x3D; (ProxyInterface) weddingCompany.getProxy();</span><br><span class="line">        proxy.marry();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;**</span><br><span class="line">  * &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;结果&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">  * 我们是婚庆公司的</span><br><span class="line">  * 我们在做结婚前的准备工作</span><br><span class="line">  * 可以开始结婚了</span><br><span class="line">  * 我们结婚了</span><br><span class="line">  * 结婚完毕</span><br><span class="line">  **&#x2F;</span><br></pre></td></tr></table></figure>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;insert id&#x3D;&quot;insertProvider&quot; parameterType&#x3D;&quot;com.accp.pojo.provider&quot;&gt;</span><br><span class="line">    INSERT INTO &#96;smbms_provider&#96; (proCode,proName,proDesc)</span><br><span class="line">    VALUES (#&#123;proCode&#125;, #&#123;proName&#125;,#&#123;proDesc&#125;)</span><br><span class="line">&lt;&#x2F;insert&gt;</span><br></pre></td></tr></table></figure>
 
+
+
+<ol start="7">
+<li>update：映射更新语句</li>
+</ol>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;update id&#x3D;&quot;updateProvider&quot; parameterType&#x3D;&quot;com.accp.pojo.provider&quot;&gt;</span><br><span class="line">    UPDATE &#96;smbms_provider&#96; SET modifyDate&#x3D;#&#123;modifyDate&#125;,modifyBy&#x3D;#&#123;modifyBy&#125; WHERE id&#x3D;#&#123;id&#125;</span><br><span class="line">&lt;&#x2F;update&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="8">
+<li>delete：映射删除语句</li>
+</ol>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;delete id&#x3D;&quot;deleteById&quot; parameterType&#x3D;&quot;com.accp.pojo.provider&quot;&gt;</span><br><span class="line">    DELETE FROM &#96;smbms_provider&#96; WHERE id&#x3D;#&#123;id&#125;</span><br><span class="line">&lt;&#x2F;delete&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="9">
+<li>select：映射查询语句</li>
+</ol>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id&#x3D;&quot;selectBill&quot; resultType&#x3D;&quot;com.accp.pojo.bill&quot;&gt;</span><br><span class="line">     SELECT b.*,p.*</span><br><span class="line">     FROM smbms_bill b, smbms_provider p</span><br><span class="line">     WHERE b.providerId&#x3D;p.&#96;id&#96;</span><br><span class="line">     AND b.providerId&#x3D;#&#123;providerId&#125;</span><br><span class="line">     AND b.&#96;isPayment&#96;&#x3D;#&#123;isPayment&#125;</span><br><span class="line">     AND b.productName like CONCAT (&#39;%&#39;,#&#123;productName&#125;,&#39;%&#39;)</span><br><span class="line">&lt;&#x2F;select&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="10">
+<li></li>
+<li><h3 id="2-resultType和resultMap的关联和区别"><a href="#2-resultType和resultMap的关联和区别" class="headerlink" title="2.resultType和resultMap的关联和区别"></a>2.resultType和resultMap的关联和区别</h3></li>
+<li><ol>
+<li>resultType表示返回类型，包括是基础数据类型和复杂数据类型</li>
+<li>resultMap则是对应外部resultMap定义的引用，对应外部resultMap的id，表示返回结果映射到哪一个resultMap上</li>
+<li>resultType和resultMap的关联：                                                                                                                                           在mybatis进行查询映射时候，其实查询出来的每个字段值都放在一个对应的Map中，其中键名是字段名，值则是其对应的值。当select元素提供返回类型属性是resultType的时候，mybatis会将Map里面的键值对取出赋给resultType所指定对象的对应属性（既调用对象里属性的set方法进行填充）。                                                                                    当我们提供的返回类型是resultMap时候，因为Map不能很好的表示领域模型，所以就需要通过进一步的定义把它转化为对应的实体对象。                                                                                                                                                   resultType和resultMap本质上是一样的，都是Map数据结构，但是这两者只能二选一</li>
+<li>resultMap的自动映射级别：<ul>
+<li>NONE：禁止自动匹配</li>
+<li>PARTIAL：（默认）自动匹配所有属性，有内部嵌套（association、collection）的除外</li>
+<li>FULL：自动匹配所有</li>
+</ul>
 </li>
 </ol>
-<blockquote>
-<p>优点：动态代理与静态代理相比较，最大的好处是接口中声明的所有方法都被转移到调用处理器一个集中的方法中处理（<code>InvocationHandler.invoke</code>）这样，在接口方法数量比较多的时候，我们可以进行灵活处理，而不需要像静态代理那样每一个方法进行中转。而且动态代理的应用使我们的类职责更加单一，复用性更强。</p>
-<p>缺点：始终无法摆脱仅支持 interface代理，Java 的继承机制注定了这些动态代理类们无法实现对 class 的动态代理</p>
-</blockquote>
+</li>
+<li><pre><code>&lt;settings&gt;
+    &lt;setting name=&quot;autoMappingBehavior&quot; value=&quot;NONE&quot;/&gt;
+&lt;/settings&gt;
+&lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14. ### 3.使用@Param注解实现多参数入参 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15. &amp;#96;&amp;#96;&amp;#96;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    int deleteById(@Param(&amp;quot;id&amp;quot;) int id);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;</code></pre>
+</li>
+<li><pre><code>&lt;delete id=&quot;deleteById&quot; parameterType=&quot;com.accp.pojo.provider&quot;&gt;
+    DELETE FROM `smbms_provider` WHERE id=#&#123;id&#125;
+&lt;/delete&gt;
+&lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17. ### 4.使用resultMap实现高级结果映射 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18. 1. resultMap基本配置项&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       1.1.resultMap属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       - id：resultMap的唯一标识&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       - type：表示该resultMap的映射结果类型（通常是java实体类）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       1.2.resultMap子节点属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       - id：一般对应数据库中该行的主键id，设置此项可以提升mybatis性能&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       - result：映射到JavaBean的某个“简单类型”属性，如基础类型、包装类&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+   &lt;resultMap type=&quot;com.accp.pojo.user&quot; id=&quot;userMap&quot;&gt;
+       &lt;id property=&quot;id&quot; column=&quot;id&quot;&gt;&lt;/id&gt;
+       &lt;result property=&quot;userCode&quot; column=&quot;userCode&quot;/&gt;
+       &lt;result property=&quot;userName&quot; column=&quot;userName&quot;/&gt;
+       &lt;result property=&quot;userPassword&quot; column=&quot;userPassword&quot;/&gt;
+   &lt;/resultMap&gt;
+   &lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2. association&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   2.1.association属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - JavaType：完整地java类名或别名，若映射到JavaBean，则mybatis通常会自动检测到其类型；若映射到一个HashMap，则应明确指定JavaType，来确保所需行为。此处为com.accp.pojo.role&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - property：映射数据库列的实体对象的属性，此处为在user里面定义的role属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   2.2.association子节点属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - id&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - result&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     - property：映射数据库列的实体对象的属性。此处为role属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     - column：数据库列名或别名&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+    &lt;resultMap type=&quot;com.accp.pojo.user&quot; id=&quot;userMap&quot;&gt;
+       &lt;id property=&quot;id&quot; column=&quot;id&quot;&gt;&lt;/id&gt;
+       &lt;result property=&quot;userCode&quot; column=&quot;userCode&quot;/&gt;
+       &lt;result property=&quot;userName&quot; column=&quot;userName&quot;/&gt;
+       &lt;result property=&quot;userPassword&quot; column=&quot;userPassword&quot;/&gt;
+       &lt;association property=&quot;role&quot; javaType=&quot;com.accp.pojo.role&quot;&gt;
+           &lt;id property=&quot;id&quot; column=&quot;id&quot;&gt;&lt;/id&gt;
+           &lt;result property=&quot;roleCode&quot; column=&quot;roleCode&quot;/&gt;
+           &lt;result property=&quot;roleName&quot; column=&quot;roleName&quot;/&gt;
+       &lt;/association&gt;
+   &lt;/resultMap&gt;
+   &lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3. collection&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - ofType：完整的java类名或别名，即集合所包含的类型。此处为Address&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - property：映射数据库列的实体对象的属性。此处为在User里定义的属性：addressList&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+   private List&lt;Address&gt; addressList;
+   &lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+   &lt;resultMap type=&quot;com.accp.pojo.user&quot; id=&quot;userMap&quot;&gt;
+           &lt;id property=&quot;id&quot; column=&quot;id&quot;&gt;&lt;/id&gt;
+           &lt;result property=&quot;userCode&quot; column=&quot;userCode&quot;/&gt;
+           &lt;result property=&quot;userName&quot; column=&quot;userName&quot;/&gt;
+           &lt;result property=&quot;userPassword&quot; column=&quot;userPassword&quot;/&gt;
+           &lt;collection property=&quot;addressList&quot; ofType=&quot;address&quot;&gt;
+               &lt;id property=&quot;id&quot; column=&quot;id&quot;&gt;&lt;/id&gt;
+               &lt;result property=&quot;tel&quot; column=&quot;tel&quot;/&gt;
+               &lt;result property=&quot;postCode&quot; column=&quot;postCode&quot;/&gt;
+           &lt;/collection&gt;
+       &lt;/resultMap&gt;
+   &lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19. ### 5.mybatis缓存 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20. 1. 一级缓存：是基于mybatis自带的HashMap本地缓存，作用范围为session域内，当session调用flish()或close()方法后，该session中的所有缓存就会被清空&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    2. 二级缓存：超出session范围之外，可以被所有sqlsession共享&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    3. 二级缓存配置&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       （1）在mybatis-config.xml中设置&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+   &lt;settings&gt;
+       &lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot;/&gt;
+   &lt;/settings&gt;
+   &lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;（2）在mapper.xml中设置缓存&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+   &lt;cache eviction=&quot;FIFO&quot; flushInterval=&quot;60000&quot; size=&quot;512&quot; readOnly=&quot;true&quot;&gt;&lt;/cache&gt;
+   &lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;（3）在mapper文件配置支持cache后，如需对个别查询进行调整，可单独设置cache&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+   &lt;select id=&quot;selectBill&quot; resultType=&quot;com.accp.pojo.bill&quot; useCache=&quot;true&quot;&gt;
+        ......
+   &lt;/select&gt;</code></pre>
+</li>
+</ol>
 
-      
-    </div>
-    
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-    
-  </section>
+          
+            <div class='article_footer'>
+              
+                
   
     
-      <br>
-      <div class="prev-next">
-        
-          <a class="prev" rel="prev" href="/Zany0915.github.io/">
-            <section class="post prev white-box shadow" >
-              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous&nbsp;
-            </section>
-          </a>
-        
-        <p class="current">
-          2 / 15
-        </p>
-        
-          <a class="next" rel="next" href="/Zany0915.github.io/page/3/">
-            <section class="post next white-box shadow">
-              &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
     
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
+
+
 
   
 
-
-</div>
-<aside class='l_side'>
-  
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box rectangle' href='/Zany0915.github.io/about/'>
-          <img no-lazy src='http://qf3576d4h.hn-bkt.clouddn.com/2.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Awangyue</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
+      <blockquote>
         
           
-            <a href="/Zany0915.github.io/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
           
         
           
-            <a href="mailto:me@xxx.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>本文永久链接是：<a href=https://github.com/Zany0915/Zany0915.github.io.git/2020/09/02/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94SQL%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/>https://github.com/Zany0915/Zany0915.github.io.git/2020/09/02/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94SQL%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/</a></p>
           
         
-          
-            <a href="https://github.com/Awangyue-cn"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://github.com/Awangyue-cn"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
+      </blockquote>
     
   </div>
 </section>
@@ -713,16 +662,157 @@
   
 
   
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-18T16:57:32+08:00">
+  <a class='notlink'>
+    <i class=" fa-fw" aria-hidden="true"></i>
+    <p>null2020-08-18</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/Zany0915/Zany0915.github.io.git/2020/09/02/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94SQL%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/&title= - Awangyue&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://github.com/Zany0915/Zany0915.github.io.git/2020/09/02/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94SQL%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/&title= - Awangyue&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/Zany0915/Zany0915.github.io.git/2020/09/02/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94SQL%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/&title= - Awangyue&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/Zany0915.github.io/2020/09/02/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BMybatis/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i></p>
+                <p class='content'>Mybatis框架及ORM1. Mybatis框架简介​                Mybatis是一个开源的数据持久层框架，它的内部封装了通过了JDBC访问数据库的操作，支持普通的SQL查...</p>
+              </a>
+            
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
     
 
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      <section id="comments">
+        <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+      </section>
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+</div>
+<aside class='l_side'>
+  
   
 
   
     
     
 
-  
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-SQL%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%E7%9A%84%E5%87%A0%E4%B8%AA%E9%A1%B6%E7%BA%A7%E5%85%83%E7%B4%A0%E9%85%8D%E7%BD%AE"><span class="toc-text">1.SQL映射文件的几个顶级元素配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-resultType%E5%92%8CresultMap%E7%9A%84%E5%85%B3%E8%81%94%E5%92%8C%E5%8C%BA%E5%88%AB"><span class="toc-text">2.resultType和resultMap的关联和区别</span></a></li></ol>
+    </div>
+  </section>
+
 
   
 
